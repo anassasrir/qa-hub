@@ -1,28 +1,53 @@
-import React from 'react';
-import { Header } from '@/components/Header';
-import { KpiCards } from '@/components/KpiCards';
-import { FlakinessRadar } from '@/components/FlakinessRadar';
-import { LivingTestPlan } from '@/components/LivingTestPlan';
-import { LocalFileSystemProvider } from '@/src/providers/LocalFileSystemProvider';
+"use client";
 
-export default async function DashboardPage() {
-  const provider = new LocalFileSystemProvider();
-  const projectId = 'demo-ecommerce';
+import React, { useEffect, Suspense } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { getStoredProject } from "../lib/utils";
 
-  const [kpis, flakinessMetrics, testCases] = await Promise.all([
-    provider.getKpis(projectId),
-    provider.getFlakinessRadar(projectId),
-    provider.getLivingTestPlan(projectId),
-  ]);
+function RedirectToDashboard() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const params = new URLSearchParams(searchParams.toString());
+    const projectInUrl = params.get("project");
+
+    if (!projectInUrl) {
+      const savedProject = getStoredProject();
+      if (savedProject) {
+        params.set("project", savedProject);
+      }
+    } else if (projectInUrl === "all") {
+      params.delete("project");
+    }
+
+    const query = params.toString();
+    const target = query ? `/dashboard?${query}` : "/dashboard";
+    router.replace(target);
+  }, [router, searchParams]);
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-      <Header />
-      <main style={{ maxWidth: '1200px', margin: '0 auto', width: '100%', padding: '1.5rem 2rem' }}>
-        <KpiCards kpis={kpis} />
-        <FlakinessRadar metrics={flakinessMetrics} />
-        <LivingTestPlan testCases={testCases} />
-      </main>
-    </div>
+    <>
+      <noscript>
+        <meta httpEquiv="refresh" content="0;url=/dashboard" />
+      </noscript>
+      <div className="p-20 text-center text-slate-400 font-bold uppercase tracking-widest animate-pulse">
+        Redirection vers le tableau de bord...
+      </div>
+    </>
+  );
+}
+
+export default function RootPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="p-20 text-center text-slate-400 font-bold uppercase tracking-widest animate-pulse">
+          Chargement...
+        </div>
+      }
+    >
+      <RedirectToDashboard />
+    </Suspense>
   );
 }

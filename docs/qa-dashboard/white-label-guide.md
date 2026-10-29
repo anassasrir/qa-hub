@@ -1,60 +1,55 @@
-# 06 - Guide Marque Blanche & Personnalisation du QA-Dashboard
+# 06 - Guide Marque Blanche & Architecture du QA-Dashboard
 
-Le composant **`qa-dashboard`** est une application Next.js conçue pour fonctionner en marque blanche intégrale ("White-Label by Design").
+Le composant **`qa-dashboard`** est l'exact héritier de la plateforme analytique éprouvée **TMS**, entièrement refactoré pour fonctionner en **marque blanche (White-Label)** et s'adapter à n'importe quel client.
 
 ---
 
-## 🎨 Système d'Injection de Thème Dynamique
+## 🖥️ Les 8 Modules & Pages Intégrés
 
-Le dashboard charge la configuration du projet actif et injecte dynamiquement des variables CSS au niveau du nœud racine `<html>` :
+Le dashboard conserve 100% de la richesse fonctionnelle et du design originel :
 
-```css
-:root {
-  --brand-primary: #0284c7;
-  --brand-accent: #f59e0b;
-  --brand-logo: url('/branding/acme.svg');
-  --brand-name: 'Acme QA Hub';
-}
+| Route | Page | Description & Composants |
+| :--- | :--- | :--- |
+| **`/dashboard`** | **Tableau de Bord** | Vue d'ensemble, Radar d'échecs (`FailureRadar`), Radar de flakiness (`FlakinessRadar`), Tendance d'activité (`ActivityTrendChart`), Camembert des statuts (`TestResultPieChart`) et matrice globale par projet (`GlobalStatusBoard`). |
+| **`/history`** | **Historique des Runs** | Chronologie complète de toutes les exécutions locales et CI avec filtres par date, statut et durée. |
+| **`/compare`** | **Comparateur de Runs** | Analyse différentielle (`ComparisonSummaryChart`) entre deux exécutions pour identifier les régressions ou améliorations. |
+| **`/visual`** | **Tests Visuels** | Galerie des captures d'écran, baselines graphiques et visualiseur de diffs pixels. |
+| **`/details`** | **Dernier Run** | Vue granulaire test par test avec stacktraces, logs détaillés, captures d'écran sur échec et vidéos d'exécution. |
+| **`/testplan`** | **Plan de Test Vivant** | Cartographie vivante de toutes les spécifications Playwright du code source avec catégories et tags fonctionnels. |
+| **`/quality`** | **Qualité & Couverture** | Suivi des métriques de qualité de code (Sonar / Vitest coverage) et santé globale. |
+| **`/generator`** | **Générateur Gherkin** | Outil interactif d'aide à la conception de scénarios de test assisté par IA. |
+
+---
+
+## 🎨 Personnalisation Marque Blanche
+
+### 1. Titre & Nom de l'Organisation
+Dans votre fichier `.env` ou lors du déploiement :
+```env
+NEXT_PUBLIC_DASHBOARD_TITLE="Acme Quality Hub"
 ```
+Le titre de la barre de navigation haute, le header mobile et les balises `<title>` s'adaptent automatiquement sans modification de code.
 
-### 1. Composant ThemeProvider
-Un composant React `BrandingProvider` enveloppe l'application et assure :
-- Le remplacement du titre du document (`<title>Acme Quality Hub - Dashboard</title>`).
-- L'affichage du logo client dans la barre latérale et le header.
-- La teinte des boutons primaires, des badges d'état et des indicateurs de santé aux couleurs de la charte client.
+### 2. Sélecteur Dynamique de Projets (`ProjectSelector.tsx`)
+Le sélecteur de projet en haut à droite s'alimente directement avec les projets déclarés dans le framework (`demo-ecommerce`, etc.) et permet de filtrer l'ensemble des graphiques et données en un clic.
 
-### 2. Sélecteur Multi-Projets vs Mode Dédié
-- **Mode Régie / Multi-Clients** : Si plusieurs fichiers `projects/*.json` sont présents et actifs, un menu déroulant dans la navbar permet de basculer instantanément d'un projet à un autre. Toutes les métriques (flakiness, runs, plan de test) se rechargent selon le projet sélectionné.
-- **Mode Dédié (Chez le client)** : En définissant la variable d'environnement :
-  ```env
-  NEXT_PUBLIC_ACTIVE_PROJECT=acme-shop
-  ```
-  Le sélecteur de projet est masqué, et l'application s'affiche comme le portail QA officiel et exclusif du client.
+### 3. Charte Graphique & Tokens CSS (Tailwind v4)
+Le design s'appuie sur le moteur **Tailwind CSS v4** et des variables sémantiques dans `app/globals.css` :
+- Grille technique de fond (`.tech-grid`).
+- Palette dark/light moderne avec tokens de marque (`--accent`, `--color-background`).
 
 ---
 
-## 🔌 Abstraction des Données : `IDataProvider`
+## ⚡ Commandes
 
-Le dashboard n'a aucune dépendance directe avec un outil tiers de CI. Il implémente le pattern **Provider** :
+```bash
+# Démarrer en mode développement
+pnpm dashboard:dev
 
-```typescript
-export interface IDataProvider {
-  getProjects(): Promise<ProjectConfig[]>;
-  getLatestRuns(projectId: string, limit?: number): Promise<TestRun[]>;
-  getRunDetails(runId: string): Promise<TestRunDetails>;
-  getFlakinessMetrics(projectId: string): Promise<FlakinessMetric[]>;
-  getLivingTestPlan(projectId: string): Promise<TestPlanItem[]>;
-}
+# Compiler pour la production
+pnpm dashboard:build
+
+# Lancer la version compilée
+pnpm dashboard:start
 ```
-
-### Les 4 Adaptateurs Disponibles :
-1. **`LocalFileSystemProvider`** : Lit les artefacts générés localement dans le dossier `artifact/`. Idéal pour le développement ou une utilisation offline sans compte cloud.
-2. **`GitLabCIProvider`** : Récupère les jobs, pipelines et artefacts de tests via l'API GitLab.
-3. **`GitHubActionsProvider`** : Récupère les workflow runs et les archives zip de rapports via l'API GitHub REST.
-4. **`AzureDevOpsProvider`** : Interroge les API Test Runs d'Azure DevOps.
-
----
-
-## 🔗 Liens Hypertextes Dynamiques vers les Tickets
-
-Dans l'ensemble de l'interface (tableaux d'exécution, radar d'instabilité, plan de test), chaque référence à un ticket (ex: `ACM-102` ou `JIRA-405`) est détectée via l'expression régulière du projet et transformée en lien direct cliquable vers le Jira, Linear ou Azure Boards du client.
+Accessible par défaut sur [http://localhost:3000](http://localhost:3000).

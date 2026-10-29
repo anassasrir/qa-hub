@@ -1,0 +1,2501 @@
+{
+  "config": {
+    "configFile": "/work/packages/playwright-tests/playwright.config.ts",
+    "rootDir": "/work/packages/playwright-tests/.features-gen/tpbp",
+    "forbidOnly": true,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": "/work/packages/playwright-tests/utils/global-teardown.ts",
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "testProject": "tpbp",
+      "environment": "tpbp-staging",
+      "jobId": "",
+      "runTimestamp": "2026-10-29T10-24-44-119Z",
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/work/artifact/2026-10-29T10-24-44-119Z/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "testProject": "tpbp",
+          "environment": "tpbp-staging",
+          "jobId": "",
+          "runTimestamp": "2026-10-29T10-24-44-119Z",
+          "actualWorkers": 1
+        },
+        "id": "chrome",
+        "name": "chrome",
+        "testDir": "/work/packages/playwright-tests/.features-gen/tpbp",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 180000
+      },
+      {
+        "outputDir": "/work/artifact/2026-10-29T10-24-44-119Z/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "testProject": "tpbp",
+          "environment": "tpbp-staging",
+          "jobId": "",
+          "runTimestamp": "2026-10-29T10-24-44-119Z",
+          "actualWorkers": 1
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "/work/packages/playwright-tests/.features-gen/tpbp",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 180000
+      },
+      {
+        "outputDir": "/work/artifact/2026-10-29T10-24-44-119Z/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "testProject": "tpbp",
+          "environment": "tpbp-staging",
+          "jobId": "",
+          "runTimestamp": "2026-10-29T10-24-44-119Z",
+          "actualWorkers": 1
+        },
+        "id": "safari",
+        "name": "safari",
+        "testDir": "/work/packages/playwright-tests/.features-gen/tpbp",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 180000
+      },
+      {
+        "outputDir": "/work/artifact/2026-10-29T10-24-44-119Z/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "testProject": "tpbp",
+          "environment": "tpbp-staging",
+          "jobId": "",
+          "runTimestamp": "2026-10-29T10-24-44-119Z",
+          "actualWorkers": 1
+        },
+        "id": "iphone",
+        "name": "iphone",
+        "testDir": "/work/packages/playwright-tests/.features-gen/tpbp",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 180000
+      },
+      {
+        "outputDir": "/work/artifact/2026-10-29T10-24-44-119Z/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "testProject": "tpbp",
+          "environment": "tpbp-staging",
+          "jobId": "",
+          "runTimestamp": "2026-10-29T10-24-44-119Z",
+          "actualWorkers": 1
+        },
+        "id": "android",
+        "name": "android",
+        "testDir": "/work/packages/playwright-tests/.features-gen/tpbp",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 180000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "html",
+        {
+          "outputFolder": "../../artifact/2026-10-29T10-24-44-119Z/playwright-report",
+          "open": "never"
+        }
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "../../artifact/2026-10-29T10-24-44-119Z/test-results/results-undefined.xml"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../../artifact/2026-10-29T10-24-44-119Z/test-results/results-undefined.json"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "../../apps/tms/data/latest-results.json"
+        }
+      ],
+      [
+        "list",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "runAgents": "none",
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.58.1",
+    "workers": 1,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "specs/tpbp/visual/actualisation.feature.spec.js",
+      "file": "specs/tpbp/visual/actualisation.feature.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Régression visuelle de l'actualisation Situation, Patrimoine et Budget",
+          "file": "specs/tpbp/visual/actualisation.feature.spec.js",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Actualiser votre situation, votre patrimoine et votre budget",
+              "ok": true,
+              "tags": [
+                "tpbp",
+                "visual",
+                "actualisation"
+              ],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chrome",
+                  "projectName": "chrome",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 14707,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Quand j'accède à l'actualisation de ma situation",
+                          "duration": 2493
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"actualisations/1-situation.png\"",
+                          "duration": 767
+                        },
+                        {
+                          "title": "Quand je valide les informations du tableau de bord",
+                          "duration": 83
+                        },
+                        {
+                          "title": "Quand j'accède à l'actualisation de mon patrimoine",
+                          "duration": 390
+                        },
+                        {
+                          "title": "Alors le bouton \"Ajouter un investissement financier\" est visible",
+                          "duration": 1888
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"actualisations/2-patrimoine-avant-ajout-investissement.png\"",
+                          "duration": 624
+                        },
+                        {
+                          "title": "Quand j'ajoute un investissement financier depuis le patrimoine",
+                          "duration": 205
+                        },
+                        {
+                          "title": "Alors le bouton \"Annuler\" est visible",
+                          "duration": 14
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"actualisations/3-patrimoine-apres-ajout-investissement.png\"",
+                          "duration": 698
+                        },
+                        {
+                          "title": "Quand je clique sur le bouton 'Annuler'",
+                          "duration": 172
+                        },
+                        {
+                          "title": "Quand je valide les informations du tableau de bord",
+                          "duration": 59
+                        },
+                        {
+                          "title": "Quand j'accède à l'actualisation de mon budget",
+                          "duration": 362
+                        },
+                        {
+                          "title": "Alors le bouton \"Ajouter un revenu\" est visible",
+                          "duration": 1882
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"actualisations/4-budget-avant-ajout-revenu.png\"",
+                          "duration": 573
+                        },
+                        {
+                          "title": "Quand j'ajoute un revenu depuis le budget",
+                          "duration": 44
+                        },
+                        {
+                          "title": "Alors le bouton \"Annuler\" est visible",
+                          "duration": 4
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"actualisations/5-budget-apres-ajout-revenu.png\"",
+                          "duration": 559
+                        },
+                        {
+                          "title": "Quand je clique sur le bouton 'Annuler'",
+                          "duration": 33
+                        },
+                        {
+                          "title": "Quand je valide les informations du tableau de bord",
+                          "duration": 62
+                        }
+                      ],
+                      "startTime": "2026-10-29T10:24:45.057Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "7a585f871045348c1b82-8bcf05b0e4bbd44b26d6",
+              "file": "specs/tpbp/visual/actualisation.feature.spec.js",
+              "line": 12,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "specs/tpbp/visual/bloc-vous.feature.spec.js",
+      "file": "specs/tpbp/visual/bloc-vous.feature.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Régression visuelle du Bloc Vous et de la page Situation",
+          "file": "specs/tpbp/visual/bloc-vous.feature.spec.js",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Parcours visuel complet du Bloc Vous et de la page Situation",
+              "ok": false,
+              "tags": [
+                "tpbp",
+                "visual",
+                "bloc-vous"
+              ],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chrome",
+                  "projectName": "chrome",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 35793,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('g.RelationCard[data-tag-label*=\"Z Z\"]').or(getByText('Z Z', { exact: true })).first()\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('g.RelationCard[data-tag-label*=\"Z Z\"]').or(getByText('Z Z', { exact: true })).first()\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('g.RelationCard[data-tag-label*=\"Z Z\"]').or(getByText('Z Z', { exact: true })).first()\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('g.RelationCard[data-tag-label*=\"Z Z\"]').or(getByText('Z Z', { exact: true })).first()\u001b[22m\n\n    at Object.<anonymous> (/work/packages/playwright-tests/steps/tpbp/visual.steps.ts:299:24)\n    at /work/node_modules/.pnpm/playwright-bdd@9.2.0_@playwright+test@1.58.1/node_modules/playwright-bdd/src/runtime/bddStepInvoker.ts:58:48\n    at BddStepInvoker.runWithAfterStepHooks (/work/node_modules/.pnpm/playwright-bdd@9.2.0_@playwright+test@1.58.1/node_modules/playwright-bdd/src/runtime/bddStepInvoker.ts:82:22)\n    at /work/node_modules/.pnpm/playwright-bdd@9.2.0_@playwright+test@1.58.1/node_modules/playwright-bdd/src/runtime/bddStepInvoker.ts:57:19\n    at BddStepInvoker.invoke (/work/node_modules/.pnpm/playwright-bdd@9.2.0_@playwright+test@1.58.1/node_modules/playwright-bdd/src/runtime/bddStepInvoker.ts:55:5)\n    at /work/packages/playwright-tests/.features-gen/tpbp/specs/tpbp/visual/bloc-vous.feature.spec.js:36:5",
+                        "location": {
+                          "file": "/work/packages/playwright-tests/steps/tpbp/visual.steps.ts",
+                          "column": 24,
+                          "line": 299
+                        },
+                        "snippet": "   at ../../steps/tpbp/visual.steps.ts:299\n\n\u001b[0m \u001b[90m 297 |\u001b[39m       \u001b[33m.\u001b[39mfirst()\u001b[33m;\u001b[39m\n \u001b[90m 298 |\u001b[39m     \n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 299 |\u001b[39m     \u001b[36mawait\u001b[39m expect(card)\u001b[33m.\u001b[39mtoBeVisible({ timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 300 |\u001b[39m     \u001b[36mawait\u001b[39m card\u001b[33m.\u001b[39mclick({ force\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 301 |\u001b[39m     \n \u001b[90m 302 |\u001b[39m     \u001b[90m// Wait for the side pane to show the person's name\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/work/packages/playwright-tests/steps/tpbp/visual.steps.ts",
+                            "column": 24,
+                            "line": 299
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('g.RelationCard[data-tag-label*=\"Z Z\"]').or(getByText('Z Z', { exact: true })).first()\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('g.RelationCard[data-tag-label*=\"Z Z\"]').or(getByText('Z Z', { exact: true })).first()\u001b[22m\n\n\n   at ../../steps/tpbp/visual.steps.ts:299\n\n  297 |       .first();\n  298 |     \n> 299 |     await expect(card).toBeVisible({ timeout: 10000 });\n      |                        ^\n  300 |     await card.click({ force: true });\n  301 |     \n  302 |     // Wait for the side pane to show the person's name\n    at Object.<anonymous> (/work/packages/playwright-tests/steps/tpbp/visual.steps.ts:299:24)\n    at /work/node_modules/.pnpm/playwright-bdd@9.2.0_@playwright+test@1.58.1/node_modules/playwright-bdd/src/runtime/bddStepInvoker.ts:58:48\n    at BddStepInvoker.runWithAfterStepHooks (/work/node_modules/.pnpm/playwright-bdd@9.2.0_@playwright+test@1.58.1/node_modules/playwright-bdd/src/runtime/bddStepInvoker.ts:82:22)\n    at /work/node_modules/.pnpm/playwright-bdd@9.2.0_@playwright+test@1.58.1/node_modules/playwright-bdd/src/runtime/bddStepInvoker.ts:57:19\n    at BddStepInvoker.invoke (/work/node_modules/.pnpm/playwright-bdd@9.2.0_@playwright+test@1.58.1/node_modules/playwright-bdd/src/runtime/bddStepInvoker.ts:55:5)\n    at /work/packages/playwright-tests/.features-gen/tpbp/specs/tpbp/visual/bloc-vous.feature.spec.js:36:5"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Quand je navigue vers le tableau de bord de situation",
+                          "duration": 178
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"bloc-vous/1-situation-dashboard.png\"",
+                          "duration": 966
+                        },
+                        {
+                          "title": "Quand j'ouvre le volet de profil \"VOUS\"",
+                          "duration": 334
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"bloc-vous/2-detail-profil-vous.png\"",
+                          "duration": 651
+                        },
+                        {
+                          "title": "Quand je clique sur le bouton 'Modifier le profil'",
+                          "duration": 69
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"bloc-vous/3-modifier-profil-infos-personnelles.png\"",
+                          "duration": 628
+                        },
+                        {
+                          "title": "Quand je clique sur le bouton 'Annuler'",
+                          "duration": 43
+                        },
+                        {
+                          "title": "Quand je clique sur le bouton 'Modifier le profil'",
+                          "duration": 58
+                        },
+                        {
+                          "title": "Quand je consulte l'onglet des informations de contact",
+                          "duration": 332
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"bloc-vous/4-modifier-profil-infos-contact.png\"",
+                          "duration": 630
+                        },
+                        {
+                          "title": "Quand je consulte l'onglet des informations professionnelles",
+                          "duration": 345
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"bloc-vous/5-modifier-profil-infos-professionnelles.png\"",
+                          "duration": 618
+                        },
+                        {
+                          "title": "Quand je ferme le panneau latéral droit",
+                          "duration": 59
+                        },
+                        {
+                          "title": "Quand j'ouvre le formulaire d'ajout d'une personne",
+                          "duration": 402
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"bloc-vous/6-formulaire-nouvelle-relation.png\"",
+                          "duration": 589
+                        },
+                        {
+                          "title": "Quand j'ouvre le formulaire d'ajout d'expérience professionnelle",
+                          "duration": 333
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"bloc-vous/7-formulaire-nouvelle-relation-ajouter-experience.png\"",
+                          "duration": 630
+                        },
+                        {
+                          "title": "Quand j'ajoute des expériences professionnelles jusqu'au plafond",
+                          "duration": 826
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"bloc-vous/8-nouvelle-relation-max-experiences.png\"",
+                          "duration": 628
+                        },
+                        {
+                          "title": "Quand j'ouvre la liste des statuts de relations",
+                          "duration": 358
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"bloc-vous/9-liste-statuts-relations.png\"",
+                          "duration": 615
+                        },
+                        {
+                          "title": "Quand je ferme la liste des statuts avec la touche Echap",
+                          "duration": 214
+                        },
+                        {
+                          "title": "Quand je clique sur le bouton 'Annuler'",
+                          "duration": 37
+                        },
+                        {
+                          "title": "Quand je sélectionne la personne \"Z Z\" sur le graphe",
+                          "duration": 10009,
+                          "error": {
+                            "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('g.RelationCard[data-tag-label*=\"Z Z\"]').or(getByText('Z Z', { exact: true })).first()\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('g.RelationCard[data-tag-label*=\"Z Z\"]').or(getByText('Z Z', { exact: true })).first()\u001b[22m\n",
+                            "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: locator('g.RelationCard[data-tag-label*=\"Z Z\"]').or(getByText('Z Z', { exact: true })).first()\nExpected: visible\nTimeout: 10000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" with timeout 10000ms\u001b[22m\n\u001b[2m  - waiting for locator('g.RelationCard[data-tag-label*=\"Z Z\"]').or(getByText('Z Z', { exact: true })).first()\u001b[22m\n\n    at Object.<anonymous> (/work/packages/playwright-tests/steps/tpbp/visual.steps.ts:299:24)\n    at /work/node_modules/.pnpm/playwright-bdd@9.2.0_@playwright+test@1.58.1/node_modules/playwright-bdd/src/runtime/bddStepInvoker.ts:58:48\n    at BddStepInvoker.runWithAfterStepHooks (/work/node_modules/.pnpm/playwright-bdd@9.2.0_@playwright+test@1.58.1/node_modules/playwright-bdd/src/runtime/bddStepInvoker.ts:82:22)\n    at /work/node_modules/.pnpm/playwright-bdd@9.2.0_@playwright+test@1.58.1/node_modules/playwright-bdd/src/runtime/bddStepInvoker.ts:57:19\n    at BddStepInvoker.invoke (/work/node_modules/.pnpm/playwright-bdd@9.2.0_@playwright+test@1.58.1/node_modules/playwright-bdd/src/runtime/bddStepInvoker.ts:55:5)\n    at /work/packages/playwright-tests/.features-gen/tpbp/specs/tpbp/visual/bloc-vous.feature.spec.js:36:5",
+                            "location": {
+                              "file": "/work/packages/playwright-tests/steps/tpbp/visual.steps.ts",
+                              "column": 24,
+                              "line": 299
+                            },
+                            "snippet": "   at ../../steps/tpbp/visual.steps.ts:299\n\n\u001b[0m \u001b[90m 297 |\u001b[39m       \u001b[33m.\u001b[39mfirst()\u001b[33m;\u001b[39m\n \u001b[90m 298 |\u001b[39m     \n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 299 |\u001b[39m     \u001b[36mawait\u001b[39m expect(card)\u001b[33m.\u001b[39mtoBeVisible({ timeout\u001b[33m:\u001b[39m \u001b[35m10000\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m     |\u001b[39m                        \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 300 |\u001b[39m     \u001b[36mawait\u001b[39m card\u001b[33m.\u001b[39mclick({ force\u001b[33m:\u001b[39m \u001b[36mtrue\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 301 |\u001b[39m     \n \u001b[90m 302 |\u001b[39m     \u001b[90m// Wait for the side pane to show the person's name\u001b[39m\u001b[0m"
+                          }
+                        }
+                      ],
+                      "startTime": "2026-10-29T10:25:00.329Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/work/artifact/2026-10-29T10-24-44-119Z/test-results/specs-tpbp-visual-bloc-vou-f27ab-ous-et-de-la-page-Situation-chrome/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/work/artifact/2026-10-29T10-24-44-119Z/test-results/specs-tpbp-visual-bloc-vou-f27ab-ous-et-de-la-page-Situation-chrome/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/work/artifact/2026-10-29T10-24-44-119Z/test-results/specs-tpbp-visual-bloc-vou-f27ab-ous-et-de-la-page-Situation-chrome/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/work/packages/playwright-tests/steps/tpbp/visual.steps.ts",
+                        "column": 24,
+                        "line": 299
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "a287c42ab77312cb9310-88d091e97ef48a7a9377",
+              "file": "specs/tpbp/visual/bloc-vous.feature.spec.js",
+              "line": 12,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "specs/tpbp/visual/dashboards.feature.spec.js",
+      "file": "specs/tpbp/visual/dashboards.feature.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Régression visuelle des tableaux de bord et onglets de navigation",
+          "file": "specs/tpbp/visual/dashboards.feature.spec.js",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Vérification visuelle des onglets de navigation et synthèses",
+              "ok": true,
+              "tags": [
+                "tpbp",
+                "visual",
+                "dashboards"
+              ],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chrome",
+                  "projectName": "chrome",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 23103,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"dashboards/1-synthese.png\"",
+                          "duration": 706
+                        },
+                        {
+                          "title": "Quand je navigue vers le tableau de bord de situation",
+                          "duration": 194
+                        },
+                        {
+                          "title": "Alors le bouton \"Nouvelle personne\" est visible",
+                          "duration": 360
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"dashboards/2-situation.png\"",
+                          "duration": 619
+                        },
+                        {
+                          "title": "Quand je navigue vers le tableau de bord de patrimoine",
+                          "duration": 1907
+                        },
+                        {
+                          "title": "Alors le texte \"Évolution estimée de la valeur brute de votre patrimoine\" est affiché",
+                          "duration": 5
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"dashboards/3-patrimoine.png\"",
+                          "duration": 1349
+                        },
+                        {
+                          "title": "Quand je navigue vers le tableau de bord de budget",
+                          "duration": 406
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"dashboards/4-budget.png\"",
+                          "duration": 1997
+                        }
+                      ],
+                      "startTime": "2026-10-29T10:25:36.880Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "7a4a99567f9fec3ebe85-e31af2e848ba835ccba3",
+              "file": "specs/tpbp/visual/dashboards.feature.spec.js",
+              "line": 12,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "specs/tpbp/visual/fiscalite.feature.spec.js",
+      "file": "specs/tpbp/visual/fiscalite.feature.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Régression visuelle du parcours Conseil Fiscalité",
+          "file": "specs/tpbp/visual/fiscalite.feature.spec.js",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Mise à jour des informations fiscales et allocation d'investissement sans investissement immobilier",
+              "ok": true,
+              "tags": [
+                "tpbp",
+                "visual",
+                "fiscalite",
+                "sans-immobilier"
+              ],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chrome",
+                  "projectName": "chrome",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 117150,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [
+                        {
+                          "text": "[Fiscalité] Champ montant non affiché directement pour la valeur \"201\".\n"
+                        },
+                        {
+                          "text": "[Fiscalité] Bouton \"Ajouter une charge\" non présent dans ce tiroir.\n"
+                        },
+                        {
+                          "text": "[Fiscalité] Champ montant non affiché directement pour la valeur \"300\".\n"
+                        },
+                        {
+                          "text": "[Fiscalité] Support \"GFI FRANCE VALLEY FORETS XVI\" non affiché directement.\n"
+                        },
+                        {
+                          "text": "[Fiscalité] Support \"GIRARDIN G3F\" non affiché directement.\n"
+                        },
+                        {
+                          "text": "[Fiscalité] Support \"Support Euro Epargne Retraite\" non affiché directement.\n"
+                        }
+                      ],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Quand je clique sur l'onglet \"Vos impôts\"",
+                          "duration": 442
+                        },
+                        {
+                          "title": "Et que je clique sur le bouton \"Fiabiliser mes informations\"",
+                          "duration": 50
+                        },
+                        {
+                          "title": "Et que je clique sur le bouton de sélection de la catégorie fiscale",
+                          "duration": 506
+                        },
+                        {
+                          "title": "Et que je sélectionne la section \"Revenus\"",
+                          "duration": 1123
+                        },
+                        {
+                          "title": "Et que je sélectionne \"Revenus sociaux\"",
+                          "duration": 2918
+                        },
+                        {
+                          "title": "Et que je clique sur le bouton \"Mettre à jour les informations\"",
+                          "duration": 6
+                        },
+                        {
+                          "title": "Et que je saisis le libellé de \"Revenus sociaux\"",
+                          "duration": 7
+                        },
+                        {
+                          "title": "Et que je saisis le montant de \"201\"",
+                          "duration": 4
+                        },
+                        {
+                          "title": "Et que je clique sur le bouton \"Valider les informations\"",
+                          "duration": 6
+                        },
+                        {
+                          "title": "Et que je sélectionne la section \"Vos charges\"",
+                          "duration": 1135
+                        },
+                        {
+                          "title": "Et que je sélectionne \"Autres charges\"",
+                          "duration": 54
+                        },
+                        {
+                          "title": "Et que je clique sur le bouton \"Mettre à jour les informations\"",
+                          "duration": 5
+                        },
+                        {
+                          "title": "Et que je clique sur le bouton \"Ajouter une charge\"",
+                          "duration": 4
+                        },
+                        {
+                          "title": "Et que je saisis le libellé de \"test\"",
+                          "duration": 6
+                        },
+                        {
+                          "title": "Et que je saisis le montant de \"300\"",
+                          "duration": 3
+                        },
+                        {
+                          "title": "Et que je saisis la charge déductible annuelle de \"200\"",
+                          "duration": 2
+                        },
+                        {
+                          "title": "Et que je clique sur le bouton \"Valider les informations\"",
+                          "duration": 5
+                        },
+                        {
+                          "title": "Et que je sélectionne \"Déficits antérieurs\"",
+                          "duration": 10
+                        },
+                        {
+                          "title": "Et que je saisis la valeur de \"451\" dans le champ déficit",
+                          "duration": 2
+                        },
+                        {
+                          "title": "Et que je saisis la valeur de \"21\" dans le champ spécifique",
+                          "duration": 2
+                        },
+                        {
+                          "title": "Et que je saisis la valeur de \"25\" dans le champ complémentaire",
+                          "duration": 2
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"fiscalite/1-ecran-saisie-fiscale-complete.png\"",
+                          "duration": 747
+                        },
+                        {
+                          "title": "Quand je clique sur le bouton de navigation suivante",
+                          "duration": 505
+                        },
+                        {
+                          "title": "Quand je clique sur le bouton de navigation suivante",
+                          "duration": 4057
+                        },
+                        {
+                          "title": "Alors dans la modale Vos données sont-elles à jour ?",
+                          "duration": 8
+                        },
+                        {
+                          "title": "Quand je clique sur le bouton \"Continuer\"",
+                          "duration": 15
+                        },
+                        {
+                          "title": "Alors sur la page Montant à allouer à votre projet d'investissement",
+                          "duration": 17
+                        },
+                        {
+                          "title": "Quand je clique sur le bouton \"Continuer\"",
+                          "duration": 1932
+                        },
+                        {
+                          "title": "Et que je clique sur le bouton \"Valider\" sur la modale de sélection de compte pivot",
+                          "duration": 2
+                        },
+                        {
+                          "title": "Alors sur la page Paramétrer votre opération",
+                          "duration": 3
+                        },
+                        {
+                          "title": "Quand je sélectionne l'horizon d'investissement \"Plus de 8 ans\"",
+                          "duration": 15009
+                        },
+                        {
+                          "title": "Et que je sélectionne la préférence SFDR \"Neutre (min. 0%)\"",
+                          "duration": 6
+                        },
+                        {
+                          "title": "Et que je sélectionne la préférence taxonomie \"Impliqué (min. 2%)\"",
+                          "duration": 5
+                        },
+                        {
+                          "title": "Et que je sélectionne l'exclusion \"Les émissions de gaz à effet\"",
+                          "duration": 218
+                        },
+                        {
+                          "title": "Et que je sélectionne l'exclusion \"L'inégalité femmes hommes\"",
+                          "duration": 217
+                        },
+                        {
+                          "title": "Quand je clique sur le bouton de navigation suivante",
+                          "duration": 1721
+                        },
+                        {
+                          "title": "Et que je valide les choix de secteurs PAI",
+                          "duration": 33
+                        },
+                        {
+                          "title": "Quand je clique sur le bouton de navigation suivante",
+                          "duration": 1047
+                        },
+                        {
+                          "title": "Alors sur la page Vos leviers d'actions",
+                          "duration": 5005
+                        },
+                        {
+                          "title": "Quand je sélectionne les leviers \"Investir dans les produits financiers avec un avantage fiscal\" et \"Investir dans l’immobilier avec un cadre fiscal avantageux\"",
+                          "duration": 11
+                        },
+                        {
+                          "title": "Alors sur la page Investir dans les produits financiers avec un avantage fiscal",
+                          "duration": 15
+                        },
+                        {
+                          "title": "Quand je sélectionne le produit Compte Titres avec le tag \"Nouvelle souscription\"",
+                          "duration": 3
+                        },
+                        {
+                          "title": "Et que je saisis le versement de \"11000\" pour le support \"GFI FRANCE VALLEY FORETS XVI\"",
+                          "duration": 3
+                        },
+                        {
+                          "title": "Et que je saisis le versement de \"2500\" pour le support \"GIRARDIN G3F\"",
+                          "duration": 3
+                        },
+                        {
+                          "title": "Et que je sélectionne le contrat \"LCL Retraite PER\"",
+                          "duration": 3
+                        },
+                        {
+                          "title": "Et que je clique sur le bouton d'ajout de support",
+                          "duration": 3
+                        },
+                        {
+                          "title": "Et que je coche le support \"Support Euro Epargne Retraite\"",
+                          "duration": 2
+                        },
+                        {
+                          "title": "Et que je clique sur le bouton \"Confirmer\" dans la modale",
+                          "duration": 2
+                        },
+                        {
+                          "title": "Et que je saisis le versement de \"1000\" pour le support \"Support Euro Epargne Retraite\"",
+                          "duration": 3
+                        },
+                        {
+                          "title": "Et que je clique sur l’oeil de la section Gain fiscal estimé, une modale s’affiche",
+                          "duration": 2
+                        },
+                        {
+                          "title": "Et que je clique sur le bouton Croix pour fermer la modale",
+                          "duration": 1
+                        },
+                        {
+                          "title": "Quand je clique sur le bouton \"Continuer\"",
+                          "duration": 28
+                        },
+                        {
+                          "title": "Quand je clique sur le bouton \"Continuer\" sur la page \"Investissements financiers: récapitulatif\"",
+                          "duration": 3
+                        },
+                        {
+                          "title": "Quand je clique sur le bouton de navigation suivante sur la page \"Prélèvement à l'apport\"",
+                          "duration": 15009
+                        },
+                        {
+                          "title": "Alors je suis redirigé sur l'écran \"Investir dans l’immobilier avec un cadre fiscal avantageux\"",
+                          "duration": 5034
+                        },
+                        {
+                          "title": "Et que je visualise le message \"Aucun investissement ne correspond à vos critères d'investissement\"",
+                          "duration": 5028
+                        },
+                        {
+                          "title": "Quand je clique sur le bouton de navigation suivante",
+                          "duration": 18438
+                        },
+                        {
+                          "title": "Quand je poursuis le parcours jusqu'à l'écran de synthèse finale",
+                          "duration": 1356
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"fiscalite/2-ecran-synthese-finale-sans-immo.png\"",
+                          "duration": 2652
+                        },
+                        {
+                          "title": "Quand je clique sur le bouton de navigation suivante",
+                          "duration": 18423
+                        },
+                        {
+                          "title": "Alors je suis redirigé vers \"/#/finalisation\"",
+                          "duration": 6
+                        }
+                      ],
+                      "startTime": "2026-10-29T10:26:00.191Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0ea29a4244b1610d0634-609026bd18718ea7f10a",
+              "file": "specs/tpbp/visual/fiscalite.feature.spec.js",
+              "line": 12,
+              "column": 7
+            },
+            {
+              "title": "Mise à jour des informations fiscales et allocation d'investissement avec investissement immobilier",
+              "ok": true,
+              "tags": [
+                "tpbp",
+                "visual",
+                "fiscalite",
+                "avec-immobilier"
+              ],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chrome",
+                  "projectName": "chrome",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 117688,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [
+                        {
+                          "text": "[Fiscalité] Champ montant non affiché directement pour la valeur \"201\".\n"
+                        },
+                        {
+                          "text": "[Fiscalité] Bouton \"Ajouter une charge\" non présent dans ce tiroir.\n"
+                        },
+                        {
+                          "text": "[Fiscalité] Champ montant non affiché directement pour la valeur \"300\".\n"
+                        },
+                        {
+                          "text": "[Fiscalité] Support \"Support Euro Epargne Retraite\" non affiché directement.\n"
+                        }
+                      ],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Quand je clique sur l'onglet \"Vos impôts\"",
+                          "duration": 424
+                        },
+                        {
+                          "title": "Et que je clique sur le bouton \"Fiabiliser mes informations\"",
+                          "duration": 65
+                        },
+                        {
+                          "title": "Et que je clique sur le bouton de sélection de la catégorie fiscale",
+                          "duration": 506
+                        },
+                        {
+                          "title": "Et que je sélectionne la section \"Revenus\"",
+                          "duration": 1125
+                        },
+                        {
+                          "title": "Et que je sélectionne \"Revenus sociaux\"",
+                          "duration": 2931
+                        },
+                        {
+                          "title": "Et que je clique sur le bouton \"Mettre à jour les informations\"",
+                          "duration": 6
+                        },
+                        {
+                          "title": "Et que je saisis le libellé de \"Revenus sociaux\"",
+                          "duration": 6
+                        },
+                        {
+                          "title": "Et que je saisis le montant de \"201\"",
+                          "duration": 3
+                        },
+                        {
+                          "title": "Et que je clique sur le bouton \"Valider les informations\"",
+                          "duration": 5
+                        },
+                        {
+                          "title": "Et que je sélectionne la section \"Vos charges\"",
+                          "duration": 1160
+                        },
+                        {
+                          "title": "Et que je sélectionne \"Autres charges\"",
+                          "duration": 63
+                        },
+                        {
+                          "title": "Et que je clique sur le bouton \"Mettre à jour les informations\"",
+                          "duration": 6
+                        },
+                        {
+                          "title": "Et que je clique sur le bouton \"Ajouter une charge\"",
+                          "duration": 4
+                        },
+                        {
+                          "title": "Et que je saisis le libellé de \"test\"",
+                          "duration": 6
+                        },
+                        {
+                          "title": "Et que je saisis le montant de \"300\"",
+                          "duration": 3
+                        },
+                        {
+                          "title": "Et que je saisis la charge déductible annuelle de \"200\"",
+                          "duration": 2
+                        },
+                        {
+                          "title": "Et que je clique sur le bouton \"Valider les informations\"",
+                          "duration": 5
+                        },
+                        {
+                          "title": "Et que je sélectionne \"Déficits antérieurs\"",
+                          "duration": 10
+                        },
+                        {
+                          "title": "Et que je saisis la valeur de \"451\" dans le champ déficit",
+                          "duration": 2
+                        },
+                        {
+                          "title": "Et que je saisis la valeur de \"21\" dans le champ spécifique",
+                          "duration": 2
+                        },
+                        {
+                          "title": "Et que je saisis la valeur de \"25\" dans le champ complémentaire",
+                          "duration": 2
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"fiscalite/1-ecran-saisie-fiscale-complete.png\"",
+                          "duration": 695
+                        },
+                        {
+                          "title": "Quand je clique sur le bouton de navigation suivante",
+                          "duration": 506
+                        },
+                        {
+                          "title": "Quand je clique sur le bouton de navigation suivante",
+                          "duration": 4041
+                        },
+                        {
+                          "title": "Alors dans la modale Vos données sont-elles à jour ?",
+                          "duration": 11
+                        },
+                        {
+                          "title": "Quand je clique sur le bouton \"Continuer\"",
+                          "duration": 17
+                        },
+                        {
+                          "title": "Alors sur la page Montant à allouer à votre projet d'investissement",
+                          "duration": 19
+                        },
+                        {
+                          "title": "Quand je clique sur le bouton \"Continuer\"",
+                          "duration": 2940
+                        },
+                        {
+                          "title": "Et que je clique sur le bouton \"Valider\" sur la modale de sélection de compte pivot",
+                          "duration": 3
+                        },
+                        {
+                          "title": "Alors sur la page Paramétrer votre opération",
+                          "duration": 3
+                        },
+                        {
+                          "title": "Quand je sélectionne l'horizon d'investissement \"Plus de 8 ans\"",
+                          "duration": 15007
+                        },
+                        {
+                          "title": "Et que je sélectionne la préférence SFDR \"Neutre (min. 0%)\"",
+                          "duration": 8
+                        },
+                        {
+                          "title": "Et que je sélectionne la préférence taxonomie \"Impliqué (min. 2%)\"",
+                          "duration": 6
+                        },
+                        {
+                          "title": "Et que je sélectionne l'exclusion \"Les émissions de gaz à effet\"",
+                          "duration": 216
+                        },
+                        {
+                          "title": "Et que je sélectionne l'exclusion \"L'inégalité femmes hommes\"",
+                          "duration": 213
+                        },
+                        {
+                          "title": "Quand je clique sur le bouton de navigation suivante",
+                          "duration": 1715
+                        },
+                        {
+                          "title": "Et que je valide les choix de secteurs PAI",
+                          "duration": 41
+                        },
+                        {
+                          "title": "Quand je clique sur le bouton de navigation suivante",
+                          "duration": 1038
+                        },
+                        {
+                          "title": "Alors sur la page Vos leviers d'actions",
+                          "duration": 5008
+                        },
+                        {
+                          "title": "Quand je sélectionne les leviers \"Investir dans les produits financiers avec un avantage fiscal\" et \"Investir dans l’immobilier avec un cadre fiscal avantageux\"",
+                          "duration": 18
+                        },
+                        {
+                          "title": "Alors sur la page Investir dans les produits financiers avec un avantage fiscal",
+                          "duration": 22
+                        },
+                        {
+                          "title": "Quand je sélectionne le produit \"LCL Retraite PER\" sur la page \"Investir dans les produits financiers avec un avantage fiscal\"",
+                          "duration": 9
+                        },
+                        {
+                          "title": "Quand je sélectionne le contrat \"LCL Retraite PER\"",
+                          "duration": 11
+                        },
+                        {
+                          "title": "Et que je clique sur le bouton d'ajout de support",
+                          "duration": 7
+                        },
+                        {
+                          "title": "Et que je coche le support \"Support Euro Epargne Retraite\"",
+                          "duration": 2
+                        },
+                        {
+                          "title": "Et que je clique sur le bouton \"Confirmer\" dans la modale",
+                          "duration": 2
+                        },
+                        {
+                          "title": "Et que je saisis le versement de \"1000\" pour le support \"Support Euro Epargne Retraite\"",
+                          "duration": 3
+                        },
+                        {
+                          "title": "Et que je clique sur l’oeil de la section Gain fiscal estimé, une modale s’affiche",
+                          "duration": 2
+                        },
+                        {
+                          "title": "Et que je clique sur le bouton Croix pour fermer la modale",
+                          "duration": 1
+                        },
+                        {
+                          "title": "Quand je clique sur le bouton \"Continuer\"",
+                          "duration": 27
+                        },
+                        {
+                          "title": "Quand je clique sur le bouton \"Continuer\" sur la page \"Investissements financiers: récapitulatif\"",
+                          "duration": 2
+                        },
+                        {
+                          "title": "Quand je clique sur le bouton de navigation suivante sur la page \"Prélèvement à l'apport\"",
+                          "duration": 15009
+                        },
+                        {
+                          "title": "Alors je suis redirigé sur l'écran \"Investir dans l’immobilier avec un cadre fiscal avantageux\"",
+                          "duration": 5033
+                        },
+                        {
+                          "title": "Et le choix \"LMNP\" est visible",
+                          "duration": 5028
+                        },
+                        {
+                          "title": "Quand je clique sur le bouton de navigation suivante",
+                          "duration": 18445
+                        },
+                        {
+                          "title": "Quand je poursuis le parcours jusqu'à l'écran de synthèse finale",
+                          "duration": 1351
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"fiscalite/2-ecran-synthese-finale-avec-immo.png\"",
+                          "duration": 2690
+                        },
+                        {
+                          "title": "Quand je clique sur le bouton de navigation suivante",
+                          "duration": 18427
+                        },
+                        {
+                          "title": "Alors je suis redirigé vers \"/#/finalisation\"",
+                          "duration": 7
+                        }
+                      ],
+                      "startTime": "2026-10-29T10:27:57.356Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0ea29a4244b1610d0634-243f69aa5c4f1c277d9f",
+              "file": "specs/tpbp/visual/fiscalite.feature.spec.js",
+              "line": 76,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "specs/tpbp/visual/operations-simples.feature.spec.js",
+      "file": "specs/tpbp/visual/operations-simples.feature.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Régression visuelle des opérations simples et souscriptions",
+          "file": "specs/tpbp/visual/operations-simples.feature.spec.js",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Effectuer une nouvelle souscription Assurance-vie complète sans débranchement",
+              "ok": true,
+              "tags": [
+                "tpbp",
+                "visual",
+                "operations-simples"
+              ],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chrome",
+                  "projectName": "chrome",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 46600,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Quand j'ouvre le menu \"Opérations simples\" depuis le tableau de bord",
+                          "duration": 139
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"nouvelle-souscription/1-choix-operation.png\"",
+                          "duration": 1346
+                        },
+                        {
+                          "title": "Quand je démarre une \"Nouvelle souscription\" depuis les opérations simples",
+                          "duration": 140
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"nouvelle-souscription/2-parametrer-operation.png\"",
+                          "duration": 702
+                        },
+                        {
+                          "title": "Quand je sélectionne le compte émetteur \"Compte de dépôts\"",
+                          "duration": 459
+                        },
+                        {
+                          "title": "Et que je saisis un versement initial de \"1000\" euros",
+                          "duration": 56
+                        },
+                        {
+                          "title": "Et que je saisis un versement programmé de \"500\" euros",
+                          "duration": 48
+                        },
+                        {
+                          "title": "Et que je choisis l'horizon d'investissement \"Plus de 8 ans\"",
+                          "duration": 492
+                        },
+                        {
+                          "title": "Et que je sélectionne l'objectif \"Je souhaite préserver un capital\"",
+                          "duration": 501
+                        },
+                        {
+                          "title": "Et que je valide les préférences neutres",
+                          "duration": 826
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"nouvelle-souscription/3-choix-contrat.png\"",
+                          "duration": 850
+                        },
+                        {
+                          "title": "Quand je choisis le contrat \"Assurance-vie\"",
+                          "duration": 854
+                        },
+                        {
+                          "title": "Et que je clique sur le bouton 'Continuer'",
+                          "duration": 144
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"nouvelle-souscription/4-popup-compte-depot.png\"",
+                          "duration": 498
+                        },
+                        {
+                          "title": "Quand je valide le compte de dépôt de l'opération",
+                          "duration": 393
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"nouvelle-souscription/5-allocation-avant-ajout-produit.png\"",
+                          "duration": 4431
+                        },
+                        {
+                          "title": "Quand je clique sur le bouton \"Ajouter un produit\"",
+                          "duration": 25
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"nouvelle-souscription/6-popup-avant-nouveau-contrat.png\"",
+                          "duration": 537
+                        },
+                        {
+                          "title": "Quand je sélectionne le contrat à souscrire \"LCL Vie et Prévoyance\"",
+                          "duration": 382
+                        },
+                        {
+                          "title": "Et que je clique sur le bouton \"Valider et continuer\"",
+                          "duration": 51
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"nouvelle-souscription/7-allocation-apres-ajout-produit.png\"",
+                          "duration": 538
+                        },
+                        {
+                          "title": "Quand j'ajoute un support d'investissement",
+                          "duration": 542
+                        },
+                        {
+                          "title": "Et que je recherche le fonds \"Amundi\"",
+                          "duration": 521
+                        },
+                        {
+                          "title": "Et que je sélectionne le fonds \"Amundi\" dans les résultats",
+                          "duration": 24
+                        },
+                        {
+                          "title": "Et que je clique sur le bouton \"Enregistrer\" de la modale",
+                          "duration": 1041
+                        },
+                        {
+                          "title": "Et que je saisis un versement initial de \"1000\" euros pour le support \"Amundi\"",
+                          "duration": 540
+                        },
+                        {
+                          "title": "Et que je valide les modifications d'allocation",
+                          "duration": 1048
+                        },
+                        {
+                          "title": "Et que je saisis un versement mensuel de \"500\" euros pour le support \"Amundi\"",
+                          "duration": 534
+                        },
+                        {
+                          "title": "Et que je valide les modifications d'allocation",
+                          "duration": 1929
+                        },
+                        {
+                          "title": "Quand je clique sur le bouton 'Continuer'",
+                          "duration": 2526
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"nouvelle-souscription/8-investissements-financiers-récapitulatif.png\"",
+                          "duration": 746
+                        },
+                        {
+                          "title": "Quand je clique sur le bouton \"Valider ce conseil\"",
+                          "duration": 540
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"nouvelle-souscription/9-synthese-orientations-retenues.png\"",
+                          "duration": 3124
+                        },
+                        {
+                          "title": "Quand je clique sur le bouton 'Continuer'",
+                          "duration": 36
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"nouvelle-souscription/10-rapport-adequation.png\"",
+                          "duration": 4407
+                        }
+                      ],
+                      "startTime": "2026-10-29T10:29:55.064Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "34d6eecb31d199d868d6-5b861caeb100e3ac53f5",
+              "file": "specs/tpbp/visual/operations-simples.feature.spec.js",
+              "line": 12,
+              "column": 7
+            },
+            {
+              "title": "Effectuer une opération",
+              "ok": true,
+              "tags": [
+                "tpbp",
+                "visual",
+                "operations-simples"
+              ],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chrome",
+                  "projectName": "chrome",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 33761,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Quand j'ouvre le menu \"Opérations simples\" depuis le tableau de bord",
+                          "duration": 150
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"operations/1-choix-operation.png\"",
+                          "duration": 1196
+                        },
+                        {
+                          "title": "Quand je démarre une opération depuis les opérations simples",
+                          "duration": 49
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"operations/2-choix-produit.png\"",
+                          "duration": 524
+                        },
+                        {
+                          "title": "Quand je choisis le contrat \"Plan d'Epargne en Actions Expert\" pour l'opération",
+                          "duration": 65
+                        },
+                        {
+                          "title": "Quand je sélectionne le compte émetteur \"Compte de dépôts\"",
+                          "duration": 610
+                        },
+                        {
+                          "title": "Et que je saisis un versement complémentaire de \"1000\" euros",
+                          "duration": 52
+                        },
+                        {
+                          "title": "Et que je saisis un versement programmé de \"500\" euros",
+                          "duration": 49
+                        },
+                        {
+                          "title": "Et que je choisis l'horizon d'investissement \"Plus de 8 ans\"",
+                          "duration": 508
+                        },
+                        {
+                          "title": "Et que je sélectionne l'objectif \"Je souhaite préserver un capital\"",
+                          "duration": 519
+                        },
+                        {
+                          "title": "Et que je valide les préférences neutres",
+                          "duration": 828
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"operations/3-popup-compte-depot.png\"",
+                          "duration": 666
+                        },
+                        {
+                          "title": "Quand je valide le compte de dépôt de l'opération",
+                          "duration": 911
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"operations/4-allocation.png\"",
+                          "duration": 4013
+                        },
+                        {
+                          "title": "Quand je valide l'allocation de l'opération",
+                          "duration": 44
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"operations/5-investissement-financier-recap.png\"",
+                          "duration": 741
+                        },
+                        {
+                          "title": "Quand je valide le récapitulatif de l'investissement financier",
+                          "duration": 44
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"operations/6-repartition-fonds.png\"",
+                          "duration": 536
+                        },
+                        {
+                          "title": "Quand je confirme le financement de pivot de l'opération",
+                          "duration": 374
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"operations/7-synthese-orientations-retenues-operation.png\"",
+                          "duration": 3450
+                        },
+                        {
+                          "title": "Quand je valide la synthèse des orientations de l'opération",
+                          "duration": 56
+                        },
+                        {
+                          "title": "Quand le rapport d'adéquation de l'opération est chargé",
+                          "duration": 3416
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"operations/8-rapport-adequation.png\"",
+                          "duration": 4338
+                        }
+                      ],
+                      "startTime": "2026-10-29T10:30:41.681Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "34d6eecb31d199d868d6-344767101a11f12a29b3",
+              "file": "specs/tpbp/visual/operations-simples.feature.spec.js",
+              "line": 50,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "specs/tpbp/visual/protection.feature.spec.js",
+      "file": "specs/tpbp/visual/protection.feature.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Régression visuelle du parcours Protection patrimoniale",
+          "file": "specs/tpbp/visual/protection.feature.spec.js",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Parcours visuel complet Protection : prestations décès et préférences obsèques",
+              "ok": true,
+              "tags": [
+                "tpbp",
+                "visual",
+                "protection"
+              ],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chrome",
+                  "projectName": "chrome",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 49336,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Quand j'ouvre la tuile \"Protection de vos proches\" depuis le tableau de bord",
+                          "duration": 268
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"protection/1-situation-actuelle.png\"",
+                          "duration": 1751
+                        },
+                        {
+                          "title": "Quand je continue vers l'étape de protection suivante",
+                          "duration": 2770
+                        },
+                        {
+                          "title": "Quand je continue vers l'étape de protection suivante",
+                          "duration": 1799
+                        },
+                        {
+                          "title": "Quand j'ajuste le montant de la prestation décès via le slider",
+                          "duration": 79
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"protection/2-maj-prestation.png\"",
+                          "duration": 718
+                        },
+                        {
+                          "title": "Quand je valide la mise à jour de la prestation",
+                          "duration": 5376
+                        },
+                        {
+                          "title": "Quand je continue vers l'étape de protection suivante",
+                          "duration": 1815
+                        },
+                        {
+                          "title": "Quand je renseigne le questionnaire complet de préférences d'obsèques",
+                          "duration": 3009
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"protection/3-consequence-maladie-accident-vie.png\"",
+                          "duration": 800
+                        },
+                        {
+                          "title": "Quand je continue vers l'étape de protection suivante",
+                          "duration": 1824
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"protection/4-patrimoine-immobilier-a-proteger.png\"",
+                          "duration": 854
+                        },
+                        {
+                          "title": "Quand je continue vers l'étape de protection suivante",
+                          "duration": 2853
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"protection/5-synthese-orientations-retenues.png\"",
+                          "duration": 643
+                        },
+                        {
+                          "title": "Quand je continue vers l'étape de protection suivante",
+                          "duration": 1920
+                        },
+                        {
+                          "title": "Quand le rapport d'adéquation de protection est chargé",
+                          "duration": 1544
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"protection/6-rapport-adequation.png\"",
+                          "duration": 4832
+                        }
+                      ],
+                      "startTime": "2026-10-29T10:31:15.458Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8b0558f4303c4ff9b13b-0394ab84d0aa7e19750a",
+              "file": "specs/tpbp/visual/protection.feature.spec.js",
+              "line": 12,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "specs/tpbp/visual/retraite.feature.spec.js",
+      "file": "specs/tpbp/visual/retraite.feature.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Régression visuelle du parcours Conseil Retraite (avec et sans RIS, gestion conseillée)",
+          "file": "specs/tpbp/visual/retraite.feature.spec.js",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Parcours visuel retraite sans RIS",
+              "ok": true,
+              "tags": [
+                "tpbp",
+                "visual",
+                "retraite",
+                "to-check",
+                "sans-ris"
+              ],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chrome",
+                  "projectName": "chrome",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 55034,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Etant donné que je suis connecté avec le compte \"user-6128351200.0@bankcare.io\"",
+                          "duration": 2941
+                        },
+                        {
+                          "title": "Et que le mode inHurry est activé",
+                          "duration": 7117
+                        },
+                        {
+                          "title": "Et que le design system est désactivé",
+                          "duration": 134
+                        },
+                        {
+                          "title": "Quand je navigue vers le tableau de bord de situation",
+                          "duration": 206
+                        },
+                        {
+                          "title": "Quand j'ouvre le volet de profil \"VOUS\"",
+                          "duration": 668
+                        },
+                        {
+                          "title": "Quand je clique sur le bouton 'Modifier le profil'",
+                          "duration": 66
+                        },
+                        {
+                          "title": "Quand je consulte l'onglet des informations professionnelles",
+                          "duration": 363
+                        },
+                        {
+                          "title": "Quand je saisis la date de début de profession \"01/01/1991\" et la rémunération \"5000\"",
+                          "duration": 16
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"retraite-sans-ris/1-infos-professionnelles.png\"",
+                          "duration": 600
+                        },
+                        {
+                          "title": "Quand je valide les informations du profil",
+                          "duration": 39
+                        },
+                        {
+                          "title": "Quand je navigue vers la synthèse",
+                          "duration": 167
+                        },
+                        {
+                          "title": "Quand j'accède au parcours de conseil retraite",
+                          "duration": 6095
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"retraite-sans-ris/2-situation-actuelle-avant-choix-revenus-mensuels-potentiel.png\"",
+                          "duration": 1318
+                        },
+                        {
+                          "title": "Quand je choisis le mode d'affichage des revenus \"annuités mensualisées\"",
+                          "duration": 446
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"retraite-sans-ris/3-situation-actuelle-après-choix-annuités-mensualisées.png\"",
+                          "duration": 844
+                        },
+                        {
+                          "title": "Quand je continue vers l'étape de retraite suivante",
+                          "duration": 1675
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"retraite-sans-ris/4-situation-fiscale-actuelle.png\"",
+                          "duration": 568
+                        },
+                        {
+                          "title": "Quand je continue vers l'étape de retraite suivante",
+                          "duration": 1989
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"retraite-sans-ris/5-rachat-trimestre.png\"",
+                          "duration": 511
+                        },
+                        {
+                          "title": "Quand je continue vers l'étape de retraite suivante",
+                          "duration": 2081
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"retraite-sans-ris/6-montant-a-allouer-projet-investissement.png\"",
+                          "duration": 821
+                        },
+                        {
+                          "title": "Quand j'ouvre le choix du compte de dépôt pour la retraite",
+                          "duration": 331
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"retraite-sans-ris/7-popup-choix-compte-depot.png\"",
+                          "duration": 560
+                        },
+                        {
+                          "title": "Quand je valide le compte de dépôt de l'opération",
+                          "duration": 100
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"retraite-sans-ris/8-preparer-retraite.png\"",
+                          "duration": 1323
+                        },
+                        {
+                          "title": "Quand je continue vers l'étape de retraite suivante",
+                          "duration": 1790
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"retraite-sans-ris/9-gestion-niveau-risque.png\"",
+                          "duration": 556
+                        },
+                        {
+                          "title": "Quand j'ouvre la popup des préférences ESG",
+                          "duration": 3
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"retraite-sans-ris/10-popup-preference-esg.png\"",
+                          "duration": 548
+                        },
+                        {
+                          "title": "Quand je valide les préférences ESG neutres",
+                          "duration": 343
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"retraite-sans-ris/11-tableau-recapitulatif-allocation-actifs.png\"",
+                          "duration": 547
+                        },
+                        {
+                          "title": "Quand j'ouvre le dialogue d'ajout de contrat retraite",
+                          "duration": 437
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"retraite-sans-ris/12-popup-contrat-retraite-1.png\"",
+                          "duration": 983
+                        },
+                        {
+                          "title": "Quand je sélectionne le produit retraite \"Hymnos\"",
+                          "duration": 2
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"retraite-sans-ris/12-popup-contrat-retraite-2.png\"",
+                          "duration": 559
+                        },
+                        {
+                          "title": "Quand je clique sur le bouton \"Continuer\"",
+                          "duration": 58
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"retraite-sans-ris/12-popup-contrat-retraite-3.png\"",
+                          "duration": 723
+                        },
+                        {
+                          "title": "Quand je valide l'ajout du contrat retraite",
+                          "duration": 3
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"retraite-sans-ris/13-contrats-ouverts-parcours-retraite.png\"",
+                          "duration": 577
+                        },
+                        {
+                          "title": "Quand je valide les modifications de contrats retraite",
+                          "duration": 8
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"retraite-sans-ris/14-recapitulatif-allocation-modifiee.png\"",
+                          "duration": 575
+                        },
+                        {
+                          "title": "Quand je valide l'étape d'allocation d'actifs",
+                          "duration": 336
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"retraite-sans-ris/15-investissement-financier-recapitulatif.png\"",
+                          "duration": 740
+                        },
+                        {
+                          "title": "Quand je valide le conseil retraite",
+                          "duration": 5333
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"retraite-sans-ris/16-repartition-fonds-pivot.png\"",
+                          "duration": 768
+                        },
+                        {
+                          "title": "Quand je saisis la répartition financière retraite",
+                          "duration": 40
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"retraite-sans-ris/17-repartition-fonds-remplie.png\"",
+                          "duration": 703
+                        },
+                        {
+                          "title": "Quand je valide la répartition de fonds",
+                          "duration": 19
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"retraite-sans-ris/18-synthese-des-modifications.png\"",
+                          "duration": 2629
+                        },
+                        {
+                          "title": "Quand je valide la synthèse des orientations de l'opération",
+                          "duration": 49
+                        },
+                        {
+                          "title": "Quand le rapport d'adéquation de retraite est chargé",
+                          "duration": 876
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"retraite-sans-ris/19-rapport-adequation.png\"",
+                          "duration": 4631
+                        }
+                      ],
+                      "startTime": "2026-10-29T10:32:04.814Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "44974fa1bc4395a8ab19-91a943efd757c09063bc",
+              "file": "specs/tpbp/visual/retraite.feature.spec.js",
+              "line": 6,
+              "column": 7
+            },
+            {
+              "title": "Parcours retraite avec gestion conseillée",
+              "ok": true,
+              "tags": [
+                "tpbp",
+                "visual",
+                "retraite",
+                "to-check",
+                "gestion-conseillee"
+              ],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chrome",
+                  "projectName": "chrome",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 35903,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Etant donné que je suis connecté avec le compte \"user-6128351200.0@bankcare.io\"",
+                          "duration": 3156
+                        },
+                        {
+                          "title": "Et que le mode inHurry est activé",
+                          "duration": 7586
+                        },
+                        {
+                          "title": "Et que le design system est désactivé",
+                          "duration": 138
+                        },
+                        {
+                          "title": "Quand je navigue vers le tableau de bord de situation",
+                          "duration": 207
+                        },
+                        {
+                          "title": "Quand j'ouvre le volet de profil \"VOUS\"",
+                          "duration": 669
+                        },
+                        {
+                          "title": "Quand je clique sur le bouton 'Modifier le profil'",
+                          "duration": 89
+                        },
+                        {
+                          "title": "Quand je consulte l'onglet des informations professionnelles",
+                          "duration": 359
+                        },
+                        {
+                          "title": "Quand je saisis la date de début de profession \"01/01/1991\" et la rémunération \"5000\"",
+                          "duration": 16
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"retraite-gestion-conseillee/1-ecran-carriere-valide.png\"",
+                          "duration": 615
+                        },
+                        {
+                          "title": "Quand je valide les informations du profil",
+                          "duration": 41
+                        },
+                        {
+                          "title": "Quand je navigue vers la synthèse",
+                          "duration": 112
+                        },
+                        {
+                          "title": "Quand j'accède au parcours de conseil retraite",
+                          "duration": 6112
+                        },
+                        {
+                          "title": "Quand je choisis le mode d'affichage des revenus \"annuités mensualisées\"",
+                          "duration": 434
+                        },
+                        {
+                          "title": "Quand je continue vers l'étape de retraite suivante",
+                          "duration": 1675
+                        },
+                        {
+                          "title": "Quand je continue vers l'étape de retraite suivante",
+                          "duration": 2051
+                        },
+                        {
+                          "title": "Quand je continue vers l'étape de retraite suivante",
+                          "duration": 2025
+                        },
+                        {
+                          "title": "Quand j'ouvre le choix du compte de dépôt pour la retraite",
+                          "duration": 367
+                        },
+                        {
+                          "title": "Quand je valide le compte de dépôt de l'opération",
+                          "duration": 76
+                        },
+                        {
+                          "title": "Quand je valide les préférences ESG neutres",
+                          "duration": 5326
+                        },
+                        {
+                          "title": "Quand je poursuis le parcours de gestion conseillée",
+                          "duration": 19
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"retraite-gestion-conseillee/2-ecran-gestion-conseillee-validee.png\"",
+                          "duration": 803
+                        },
+                        {
+                          "title": "Quand je poursuis vers le récapitulatif des opérations",
+                          "duration": 1262
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"retraite-gestion-conseillee/3-recapitulatif-des-operations.png\"",
+                          "duration": 533
+                        },
+                        {
+                          "title": "Quand je poursuis vers la répartition de l'investissement",
+                          "duration": 640
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"retraite-gestion-conseillee/4-repartition-de-l-investissement.png\"",
+                          "duration": 537
+                        },
+                        {
+                          "title": "Quand je finalise la souscription conseillée",
+                          "duration": 332
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"retraite-gestion-conseillee/5-ecran-final-souscription.png\"",
+                          "duration": 549
+                        }
+                      ],
+                      "startTime": "2026-10-29T10:32:59.860Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "44974fa1bc4395a8ab19-fc764d672945893157a4",
+              "file": "specs/tpbp/visual/retraite.feature.spec.js",
+              "line": 61,
+              "column": 7
+            },
+            {
+              "title": "Parcours visuel retraite avec RIS",
+              "ok": true,
+              "tags": [
+                "tpbp",
+                "visual",
+                "retraite",
+                "to-check",
+                "avec-ris"
+              ],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chrome",
+                  "projectName": "chrome",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 114048,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Etant donné que je suis connecté avec le compte \"retraite-demo.0@bankcare.io\"",
+                          "duration": 2955
+                        },
+                        {
+                          "title": "Et que le mode inHurry est activé",
+                          "duration": 7503
+                        },
+                        {
+                          "title": "Et que le design system est désactivé",
+                          "duration": 5112
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"retraite-avec-ris/1-synthese.png\"",
+                          "duration": 650
+                        },
+                        {
+                          "title": "Quand j'accède au parcours de conseil retraite",
+                          "duration": 6173
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"retraite-avec-ris/2-situation-actuelle-avec-ris.png\"",
+                          "duration": 3119
+                        },
+                        {
+                          "title": "Quand je continue vers l'étape de retraite suivante",
+                          "duration": 1679
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"retraite-avec-ris/3-situation-fiscale-actuelle.png\"",
+                          "duration": 574
+                        },
+                        {
+                          "title": "Quand je continue vers l'étape de retraite suivante",
+                          "duration": 2067
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"retraite-avec-ris/4-rachat-trimestres-avant-toggle.png\"",
+                          "duration": 544
+                        },
+                        {
+                          "title": "Quand je bascule l'interrupteur de rachat de trimestres",
+                          "duration": 33
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"retraite-avec-ris/5-rachat-trimestres-apres-toggle.png\"",
+                          "duration": 554
+                        },
+                        {
+                          "title": "Quand je consulte le tableau d'impact du rachat",
+                          "duration": 15007
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"retraite-avec-ris/6-tableau-impact-rachat-trimestres.png\"",
+                          "duration": 575
+                        },
+                        {
+                          "title": "Quand je sélectionne le rachat à l'âge de 66 ans",
+                          "duration": 19
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"retraite-avec-ris/7-rachat-66-ans-selectionne.png\"",
+                          "duration": 544
+                        },
+                        {
+                          "title": "Quand je continue vers l'étape de retraite suivante",
+                          "duration": 2187
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"retraite-avec-ris/8-financement-epargne-compte-depot.png\"",
+                          "duration": 852
+                        },
+                        {
+                          "title": "Quand je continue vers l'étape de retraite suivante",
+                          "duration": 1673
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"retraite-avec-ris/9-montant-a-allouer-projet-investissement.png\"",
+                          "duration": 579
+                        },
+                        {
+                          "title": "Quand je poursuis jusqu'à l'écran final d'allocation",
+                          "duration": 8353
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"retraite-avec-ris/10-ecran-final-allocation.png\"",
+                          "duration": 557
+                        },
+                        {
+                          "title": "Quand je continue vers l'étape de retraite suivante",
+                          "duration": 9668
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"retraite-avec-ris/11-repartition-fonds-pivot.png\"",
+                          "duration": 568
+                        },
+                        {
+                          "title": "Quand je remplis la répartition financière de fonds",
+                          "duration": 3
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"retraite-avec-ris/12-repartition-fonds-remplie.png\"",
+                          "duration": 555
+                        },
+                        {
+                          "title": "Quand je continue vers l'étape de retraite suivante",
+                          "duration": 9687
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"retraite-avec-ris/13-synthese-des-modifications.png\"",
+                          "duration": 561
+                        },
+                        {
+                          "title": "Quand j'ouvre le menu déroulant des revenus de situation actuelle",
+                          "duration": 3
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"retraite-avec-ris/14-dropdown-revenus-situation-actuelle-ouvert.png\"",
+                          "duration": 565
+                        },
+                        {
+                          "title": "Quand j'ouvre le menu déroulant des revenus après simulation",
+                          "duration": 2
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"retraite-avec-ris/15-dropdown-revenus-apres-simulation-ouvert.png\"",
+                          "duration": 554
+                        },
+                        {
+                          "title": "Quand j'ouvre le menu déroulant SFDR de situation actuelle",
+                          "duration": 4
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"retraite-avec-ris/16-dropdown-sfdr-situation-actuelle-ouvert.png\"",
+                          "duration": 578
+                        },
+                        {
+                          "title": "Quand j'ouvre le menu déroulant SFDR après simulation",
+                          "duration": 3
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"retraite-avec-ris/17-dropdown-sfdr-apres-simulation-ouvert.png\"",
+                          "duration": 545
+                        },
+                        {
+                          "title": "Quand je ferme le menu déroulant SFDR",
+                          "duration": 303
+                        },
+                        {
+                          "title": "Quand je valide la synthèse des orientations de l'opération",
+                          "duration": 30
+                        },
+                        {
+                          "title": "Quand le rapport d'adéquation de retraite est chargé",
+                          "duration": 25586
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"retraite-avec-ris/18-rapport-adequation.png\"",
+                          "duration": 3333
+                        }
+                      ],
+                      "startTime": "2026-10-29T10:33:35.772Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "44974fa1bc4395a8ab19-1e5af34d91911bae4771",
+              "file": "specs/tpbp/visual/retraite.feature.spec.js",
+              "line": 91,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "specs/tpbp/visual/transmission.feature.spec.js",
+      "file": "specs/tpbp/visual/transmission.feature.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Régression visuelle du parcours de transmission patrimoniale",
+          "file": "specs/tpbp/visual/transmission.feature.spec.js",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Parcourir chaque étape de la transmission jusqu'à la clause bénéficiaire",
+              "ok": true,
+              "tags": [
+                "tpbp",
+                "visual",
+                "transmission"
+              ],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chrome",
+                  "projectName": "chrome",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 103090,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Quand je navigue vers le module de transmission",
+                          "duration": 286
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"transmission/1-situation-actuelle.png\"",
+                          "duration": 3465
+                        },
+                        {
+                          "title": "Quand je continue vers l'étape de transmission suivante",
+                          "duration": 6690
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"transmission/2-scenario-transmission.png\"",
+                          "duration": 890
+                        },
+                        {
+                          "title": "Quand je continue vers l'étape de transmission suivante",
+                          "duration": 6680
+                        },
+                        {
+                          "title": "Quand je confirme le scénario de transmission affiché",
+                          "duration": 65
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"transmission/3-popup-confirmer-scenario.png\"",
+                          "duration": 621
+                        },
+                        {
+                          "title": "Quand je continue vers l'étape de transmission suivante",
+                          "duration": 6699
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"transmission/4-protection-couple.png\"",
+                          "duration": 690
+                        },
+                        {
+                          "title": "Quand je continue vers l'étape de transmission suivante",
+                          "duration": 6679
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"transmission/5-donations-nue-propriete.png\"",
+                          "duration": 576
+                        },
+                        {
+                          "title": "Quand je continue vers l'étape de transmission suivante",
+                          "duration": 6713
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"transmission/6-interet-assurance-vie.png\"",
+                          "duration": 836
+                        },
+                        {
+                          "title": "Quand je continue vers l'étape de transmission suivante",
+                          "duration": 6672
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"transmission/7-recapitulatif-transmission.png\"",
+                          "duration": 611
+                        },
+                        {
+                          "title": "Quand je continue vers l'étape de transmission suivante",
+                          "duration": 6703
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"transmission/8-leviers-actions.png\"",
+                          "duration": 693
+                        },
+                        {
+                          "title": "Quand je continue vers l'étape de transmission suivante",
+                          "duration": 6676
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"transmission/9-montant-projet-investissement.png\"",
+                          "duration": 653
+                        },
+                        {
+                          "title": "Quand je continue vers l'étape de transmission suivante",
+                          "duration": 11
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"transmission/10-augmenter-poids-assurance-vie-1.png\"",
+                          "duration": 643
+                        },
+                        {
+                          "title": "Quand je sélectionne l'horizon de transmission \"5 à 8 ans\"",
+                          "duration": 211
+                        },
+                        {
+                          "title": "Quand je continue vers l'étape de transmission suivante",
+                          "duration": 6679
+                        },
+                        {
+                          "title": "Quand je confirme la modale de validation de transmission",
+                          "duration": 40
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"transmission/10-augmenter-poids-assurance-vie-2.png\"",
+                          "duration": 4131
+                        },
+                        {
+                          "title": "Quand je valide mon opération de transmission",
+                          "duration": 27
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"transmission/10-augmenter-poids-assurance-vie-3.png\"",
+                          "duration": 682
+                        },
+                        {
+                          "title": "Quand je continue jusqu'à l'onglet \"Modifier les clauses bénéficiaires de vos contrats d'assurance-vie\"",
+                          "duration": 947
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"transmission/11-modifier-clause-beneficiaire.png\"",
+                          "duration": 571
+                        },
+                        {
+                          "title": "Quand je continue jusqu'à l'onglet \"Couvrir les coûts de la transmission avec la prévoyance\"",
+                          "duration": 47
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"transmission/12-couvrir-cout-transmission.png\"",
+                          "duration": 1620
+                        },
+                        {
+                          "title": "Quand je continue jusqu'à l'onglet \"Financement des frais d'obsèques\"",
+                          "duration": 26
+                        },
+                        {
+                          "title": "Quand je termine le questionnaire de financement des frais d'obsèques",
+                          "duration": 2439
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"transmission/13-financement-frais-obseques-7.png\"",
+                          "duration": 827
+                        },
+                        {
+                          "title": "Quand je continue jusqu'à l'onglet \"Synthèse des orientations retenues\"",
+                          "duration": 44
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"transmission/14-synthese-orientations-retenues.png\"",
+                          "duration": 525
+                        },
+                        {
+                          "title": "Quand je continue jusqu'à l'onglet \"Rapport d'adéquation\"",
+                          "duration": 29
+                        },
+                        {
+                          "title": "Alors l'écran complet correspond au snapshot visuel \"transmission/15-rapport-adequation.png\"",
+                          "duration": 4732
+                        }
+                      ],
+                      "startTime": "2026-10-29T10:35:29.834Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2fb02f2863cafa372d3e-a3508a95a5b3cbf753b0",
+              "file": "specs/tpbp/visual/transmission.feature.spec.js",
+              "line": 12,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-29T10:24:44.131Z",
+    "duration": 748909.016,
+    "expected": 11,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}
