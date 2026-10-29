@@ -1,6 +1,6 @@
 # 05 - Gestion des Environnements & Secrets
 
-**QA-Hub** est conçu pour s'adapter aux politiques de sécurité les plus strictes en entreprise tout en conservant une grande flexibilité en local.
+**QA-Hub** est conçu pour s'adapter aux politiques de sécurité les plus strictes en entreprise tout en restant immédiat en local.
 
 ---
 
@@ -18,20 +18,29 @@ Si `TARGET_ENV` n'est pas fourni, le framework utilise la valeur renseignée dan
 
 ---
 
-## 🔐 Gestionnaire de Secrets Hybride
+## 🔐 Gestionnaire de Secrets Agnostique (`pnpm secrets:run`)
 
-Le framework supporte deux modes d'injection de secrets :
+Plutôt que d'imposer un outil unique (comme Infisical), **QA-Hub** fournit un exécuteur agnostique qui lit la configuration `secrets` du projet actif et encapsule la commande avec l'outil adéquat.
 
-### Mode 1 : Fichiers `.env` Standard (Universel)
-Créez un fichier `.env` à la racine de `packages/playwright-tests/` ou à la racine du monorepo :
-```env
-DEMO_QA_USER=admin@example.com
-DEMO_QA_PASSWORD=SuperSecretPassword123!
+### Configuration dans `projects/<id>.json` :
+
+```json
+"secrets": {
+  "provider": "infisical", // "infisical" | "doppler" | "vault" | "env"
+  "env": "staging",
+  "projectSlug": "mon-projet-slug",
+  "prefix": "ACME_QA_"
+}
 ```
 
-### Mode 2 : Infisical CLI (Entreprise)
-Si `secrets.provider` est positionné sur `"infisical"` dans la configuration du projet :
+### Exécution Universelle :
 ```bash
-infisical run -- pnpm test
+# Lance les tests avec injection dynamique des secrets
+pnpm secrets:run -- pnpm test
 ```
-Les variables chiffrées sont injectées à la volée dans la session Node.js sans jamais être écrites sur disque.
+
+### Comportement selon le `provider` configuré :
+1. **`infisical`** : Exécute en sous-main `infisical run --env staging -- <commande>`.
+2. **`doppler`** : Exécute en sous-main `doppler run --config stg -- <commande>`.
+3. **`vault`** : Exécute `vault run -- <commande>`.
+4. **`env`** : Exécute directement avec le chargement standard des variables `.env` / process.env.

@@ -5,12 +5,16 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "setup": "pnpm install && pnpm test:install",
     "test": "pnpm --filter @qa-hub/playwright-tests test",
     "test:project": "pnpm --filter @qa-hub/playwright-tests test:project",
+    "test:install": "pnpm --filter @qa-hub/playwright-tests exec playwright install chromium",
+    "test:install:all": "pnpm --filter @qa-hub/playwright-tests exec playwright install --with-deps",
     "dashboard:dev": "pnpm --filter @qa-hub/qa-dashboard dev",
     "dashboard:build": "pnpm --filter @qa-hub/qa-dashboard build",
     "dashboard:start": "pnpm --filter @qa-hub/qa-dashboard start",
-    "scaffold": "node --loader ts-node/esm tools/scaffolder/index.ts",
+    "scaffold": "node tools/scaffolder/index.ts",
+    "secrets:run": "node tools/secrets/run-with-secrets.ts",
     "lint": "eslint . --ext .ts,.tsx,.js",
     "typecheck": "pnpm -r --parallel exec tsc --noEmit",
     "clean:reports": "rm -rf artifact test-results playwright-report apps/qa-dashboard/public/reports"
