@@ -1,51 +1,8 @@
 [
   {
-    "id": "lclmp-frontend",
-    "projectId": "22710975",
-    "url": "https://gitlab.com/anatec/frontend/lclmp-frontend.git",
-    "branch": "develop",
-    "coverageJob": "check-all"
-  },
-  {
-    "id": "savings-frontend",
-    "projectId": "48197485",
-    "url": "https://gitlab.com/anatec/frontend/savings-frontend.git",
-    "branch": "main",
-    "coverageJob": "quality:test"
-  },
-  {
-    "id": "advisory-frontend",
-    "projectId": "13987762",
-    "url": "https://gitlab.com/anatec/frontend/advisory-frontend.git",
-    "branch": "cabp-rebased-master",
-    "coverageJob": "test:unit"
-  },
-  {
-    "id": "savings-backend",
-    "projectId": "24810527",
-    "url": "https://gitlab.com/anatec/backend/savings-backend.git",
-    "branch": "main",
-    "coverageJob": "quality:coverage"
-  },
-  {
-    "id": "wealth-advisory-backend",
-    "projectId": "13921080",
-    "url": "https://gitlab.com/anatec/backend/wealth-advisory-backend.git",
-    "branch": "develop",
-    "coverageJob": "quality:simplecov"
-  },
-  {
-    "id": "wesave-test-qa",
-    "projectId": "77837137",
-    "url": "https://gitlab.com/anatec/frontend/qa/wesave-test-qa.git",
-    "branch": "main",
-    "coverageJob": "quality-gate"
-  },
-  {
-    "id": "wealth-algo-service",
-    "projectId": "19653524",
-    "url": "https://gitlab.com/anatec/backend/algo-service.git",
-    "branch": "main",
-    "coverageJob": "wealth-algo-service-coverage"
+    "id": "demo-ecommerce",
+    "projectId": "demo-ecommerce",
+    "url": "https://github.com/example/demo-ecommerce-qa/actions",
+    "branch": "main"
   }
 ]

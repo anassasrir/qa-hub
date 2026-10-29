@@ -89,29 +89,10 @@ function TrendBadge({ trend }: { trend?: MetricTrend }) {
 }
 
 const PROJECT_COMPONENTS_MAP: Record<string, string[]> = {
-  wse: ["savings-frontend", "savings-backend"],
-  b4b: ["savings-frontend", "savings-backend"], // Shared components
-  tpbp: ["lclmp-frontend", "wealth-advisory-backend", "wealth-algo-service"],
-  advisory: ["advisory-frontend", "wealth-advisory-backend"],
-  tms: ["tms"],
+  "demo-ecommerce": ["demo-ecommerce"],
 };
 
 function getParentProjectId(componentId: string): string {
-  if (["savings-frontend", "savings-backend"].includes(componentId))
-    return "wse";
-  if (
-    [
-      "lclmp-frontend",
-      "wealth-advisory-backend",
-      "wealth-algo-service",
-    ].includes(componentId)
-  )
-    return "tpbp";
-  if (["advisory-frontend", "wealth-advisory-backend"].includes(componentId))
-    return "advisory";
-  if (componentId === "tms") return "tms";
-  if (componentId === "b4b") return "b4b";
-
   for (const [projectId, components] of Object.entries(
     PROJECT_COMPONENTS_MAP,
   )) {

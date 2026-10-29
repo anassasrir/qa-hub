@@ -182,19 +182,13 @@ PROJECT_ID=${id} TARGET_ENV=dev pnpm test
   }
 
   // 5. Update Registry in qa-dashboard
-  const registryPath = path.join(dashboardConfigDir, 'projects-registry.json');
-  let registry: { projects: string[] } = { projects: [] };
-  if (fs.existsSync(registryPath)) {
+  const syncPath = path.join(ROOT_DIR, 'tools/sync-projects.ts');
+  if (fs.existsSync(syncPath)) {
     try {
-      registry = JSON.parse(fs.readFileSync(registryPath, 'utf-8'));
+      import('../sync-projects.js').then((m) => m.syncProjects?.());
     } catch {
-      registry = { projects: [] };
+      // Fallback
     }
-  }
-  if (!registry.projects.includes(id)) {
-    registry.projects.push(id);
-    fs.writeFileSync(registryPath, JSON.stringify(registry, null, 2), 'utf-8');
-    console.log(`  ✅ Enregistré dans le Dashboard : ${path.relative(ROOT_DIR, registryPath)}`);
   }
 
   console.log(`\n🎉 Projet '${id}' initialisé avec succès !`);

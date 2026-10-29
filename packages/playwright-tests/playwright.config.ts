@@ -4,6 +4,13 @@ import { ConfigLoader } from './src/core/config-loader.js';
 // Load active projects dynamically from projects/*.json
 const activeProjects = ConfigLoader.loadAllProjects();
 
+// Generate unique timestamp for artifact folder
+if (!process.env.RUN_TIMESTAMP) {
+  process.env.RUN_TIMESTAMP = new Date().toISOString().replace(/[:.]/g, '-');
+}
+const timestamp = process.env.RUN_TIMESTAMP;
+const baseArtifactDir = `../../artifact/${timestamp}`;
+
 // Generate Playwright projects dynamically based on projects/*.json
 const playwrightProjects = activeProjects.flatMap((project) => {
   const defaultEnvName = process.env.TARGET_ENV || project.environments.default;
@@ -13,6 +20,10 @@ const playwrightProjects = activeProjects.flatMap((project) => {
     {
       name: `${project.id}-chromium`,
       testDir: project.playwright.testDir,
+      metadata: {
+        testProject: project.id,
+        environment: defaultEnvName,
+      },
       use: {
         ...devices['Desktop Chrome'],
         baseURL: targetEnv.baseUrl,
@@ -21,6 +32,10 @@ const playwrightProjects = activeProjects.flatMap((project) => {
     {
       name: `${project.id}-mobile`,
       testDir: project.playwright.testDir,
+      metadata: {
+        testProject: project.id,
+        environment: defaultEnvName,
+      },
       use: {
         ...devices['Pixel 5'],
         baseURL: targetEnv.baseUrl,
@@ -41,8 +56,9 @@ export default defineConfig({
   },
   reporter: [
     ['list'],
-    ['html', { outputFolder: '../../playwright-report', open: 'never' }],
-    ['json', { outputFile: '../../artifact/reports/playwright-results.json' }],
+    ['html', { outputFolder: `${baseArtifactDir}/playwright-report`, open: 'never' }],
+    ['json', { outputFile: `${baseArtifactDir}/test-results/results.json` }],
+    ['json', { outputFile: '../../apps/qa-dashboard/data/latest-results.json' }],
   ],
   use: {
     trace: 'on-first-retry',

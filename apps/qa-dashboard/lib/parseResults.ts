@@ -139,18 +139,6 @@ function getAllRuns(): RunData[] {
         }
       });
     }
-
-    if (allRuns.length === 0) {
-      let baselinePath = path.resolve(process.cwd(), "data/latest-results.json");
-      if (!fs.existsSync(baselinePath)) {
-        const alt = path.resolve(process.cwd(), "apps/qa-dashboard/data/latest-results.json");
-        if (fs.existsSync(alt)) baselinePath = alt;
-      }
-      if (fs.existsSync(baselinePath)) {
-        const fallbackRun = parsePlaywrightJson(baselinePath, "Baseline Run", new Date().toISOString());
-        if (fallbackRun) allRuns.push(fallbackRun);
-      }
-    }
   } catch (globalError) {
     console.error("Global error in getAllRuns:", globalError);
   }
@@ -179,8 +167,11 @@ function parsePlaywrightJson(filePath: string, id: string, date: string): RunDat
     const content = JSON.parse(rawData) as PlaywrightJson;
     if (!content || !content.suites) return null;
 
-    const rawProject = content.config?.projects?.[0]?.name || "N/A";
-    const project = rawProject === "tpbp-visual" ? "tpbp" : rawProject;
+    const firstProj = content.config?.projects?.[0];
+    const projectMetadata = (firstProj as { metadata?: { testProject?: string } } | undefined)?.metadata;
+    const globalMetadata = (content as { metadata?: { testProject?: string } }).metadata;
+    const rawProject = projectMetadata?.testProject || globalMetadata?.testProject || firstProj?.name || "N/A";
+    const project = rawProject.replace(/-chromium|-firefox|-webkit|-mobile$/, "");
     const allTests: TestData[] = [];
 
     const recursiveExtract = (suites: PlaywrightSuite[], parentTitle = "") => {

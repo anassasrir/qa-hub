@@ -1,0 +1,20 @@
+[
+  {
+    "id": "all",
+    "label": "Tous les projets"
+  },
+  {
+    "id": "demo-ecommerce",
+    "label": "Demo Store QA Hub",
+    "keywords": [
+      "demo-ecommerce",
+      "auth",
+      "cart",
+      "checkout",
+      "catalog",
+      "account",
+      "search",
+      "ui"
+    ]
+  }
+]

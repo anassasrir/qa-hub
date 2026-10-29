@@ -15,8 +15,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "WeSave QA Dashboard",
-  description: "Dashboard de suivi des tests QA",
+  title: process.env.NEXT_PUBLIC_DASHBOARD_TITLE || "QA Engineering Hub",
+  description: "Dashboard de suivi et observabilité des tests QA",
 };
 
 export default function RootLayout({

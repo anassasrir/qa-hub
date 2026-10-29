@@ -1136,7 +1136,7 @@ await expect(page).toHaveScreenshot('synthese.png');`}
             <div className="flex items-center gap-2">
               <Sparkles size={18} className="text-purple-600" />
               <h2 className="text-xs sm:text-sm font-bold text-slate-900">
-                Google Gem &quot;WeSave PO&quot; — c78e9511da01
+                Google Gem &quot;QA PO Assistant&quot; — c78e9511da01
               </h2>
             </div>
             <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider bg-white border border-slate-200 px-2 py-0.5 rounded-md font-mono">
@@ -1186,7 +1186,7 @@ await expect(page).toHaveScreenshot('synthese.png');`}
                 rel="noopener noreferrer"
                 className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-xs font-bold uppercase tracking-wider active:scale-95 shadow-md transition-all hover:-translate-y-0.5"
               >
-                Démarrer le Gem WeSave PO
+                Démarrer le Gem QA PO Assistant
                 <ExternalLink size={14} className="text-slate-400" />
               </a>
             </div>
@@ -1200,7 +1200,7 @@ await expect(page).toHaveScreenshot('synthese.png');`}
                 <input
                   type="text"
                   disabled
-                  placeholder="Écrivez à votre agent intelligent WeSave PO pour générer votre Gherkin..."
+                  placeholder="Écrivez à votre agent intelligent QA PO Assistant pour générer votre Gherkin..."
                   className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-4 pr-12 py-2.5 text-xs font-semibold text-slate-400 cursor-not-allowed placeholder:text-slate-300"
                 />
                 <button

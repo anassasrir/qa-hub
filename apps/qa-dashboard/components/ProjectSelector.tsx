@@ -10,22 +10,9 @@ export interface ProjectConfig {
   excludeKeywords?: string[];
 }
 
-export const PROJECTS_CONFIG: ProjectConfig[] = [
-  { id: "all", label: "Tous les projets" },
-  { id: "demo-ecommerce", label: "Demo Store", keywords: ["demo", "ecommerce", "store"] },
-  {
-    id: "tpbp",
-    label: "TPBP",
-    keywords: ["tpbp", "wealth", "lclmp"],
-  },
-  { id: "wse", label: "WeSaveEpargne", keywords: ["wse", "wesave", "savings"] },
-  { id: "b4b", label: "B4Bank", keywords: ["b4b", "b4bank"] },
-  {
-    id: "advisory",
-    label: "Advisory",
-    keywords: ["advisory", "wsc", "cabp", "vpl"],
-  },
-];
+import rawProjects from "../lib/projects-registry.json";
+
+export const PROJECTS_CONFIG: ProjectConfig[] = rawProjects as ProjectConfig[];
 
 export interface ProjectSelectorProps {
   selectedProject: string;
