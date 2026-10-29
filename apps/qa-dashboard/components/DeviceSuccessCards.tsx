@@ -98,9 +98,15 @@ interface Props {
 
 export default function DeviceSuccessCards({ tests }: Props) {
   const deviceStats = DEVICES.map((device) => {
-    const deviceTests = tests.filter((t) =>
-      t.project?.toLowerCase().includes(device.id),
-    );
+    const deviceTests = tests.filter((t) => {
+      const p = (t.project || "").toLowerCase();
+      if (device.id === "chrome") return p.includes("chrome") || p.includes("chromium");
+      if (device.id === "firefox") return p.includes("firefox");
+      if (device.id === "safari") return p.includes("safari") || p.includes("webkit");
+      if (device.id === "iphone") return p.includes("iphone") || p.includes("ios");
+      if (device.id === "android") return p.includes("android") || p.includes("pixel");
+      return p.includes(device.id);
+    });
     if (deviceTests.length === 0) return { ...device, percentage: null };
 
     const passed = deviceTests.filter(

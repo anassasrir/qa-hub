@@ -746,17 +746,33 @@ export default function DetailsClient({ allRuns }: { allRuns: RunData[] }) {
                 {getTestData(test.file, test.title, test.suite).project}
               </span>
               {test.project && (
-                <span className="inline-flex items-center gap-1 text-[8px] font-bold uppercase tracking-wider text-blue-700 bg-blue-50 px-1 py-0.2 rounded border border-blue-200">
-                  {test.project.toLowerCase().includes("mobile") ? (
-                    <Smartphone size={9} className="text-blue-600" />
+                <span className="inline-flex items-center gap-1 text-[8px] font-bold uppercase tracking-wider text-blue-700 bg-blue-50 px-1.5 py-0.2 rounded border border-blue-200">
+                  {test.project.toLowerCase().includes("android") ? (
+                    <>
+                      <Smartphone size={9} className="text-emerald-600" />
+                      <span>Android</span>
+                    </>
+                  ) : test.project.toLowerCase().includes("iphone") ? (
+                    <>
+                      <Smartphone size={9} className="text-slate-800" />
+                      <span>iPhone</span>
+                    </>
+                  ) : test.project.toLowerCase().includes("firefox") ? (
+                    <>
+                      <Monitor size={9} className="text-orange-600" />
+                      <span>Firefox</span>
+                    </>
+                  ) : test.project.toLowerCase().includes("safari") ? (
+                    <>
+                      <Monitor size={9} className="text-blue-500" />
+                      <span>Safari</span>
+                    </>
                   ) : (
-                    <Monitor size={9} className="text-blue-600" />
+                    <>
+                      <Monitor size={9} className="text-blue-600" />
+                      <span>Chrome</span>
+                    </>
                   )}
-                  {test.project.toLowerCase().includes("chromium")
-                    ? "Chromium"
-                    : test.project.toLowerCase().includes("mobile")
-                      ? "Mobile"
-                      : test.project.replace(/^.*-/, "")}
                 </span>
               )}
               {(() => {
@@ -1129,16 +1145,32 @@ export default function DetailsClient({ allRuns }: { allRuns: RunData[] }) {
                         </span>
                         {selectedTest.project && (
                           <span className="inline-flex items-center gap-1 text-[9px] font-bold uppercase tracking-wider text-blue-700 bg-blue-50 px-1.5 py-0.5 rounded border border-blue-200">
-                            {selectedTest.project.toLowerCase().includes("mobile") ? (
-                              <Smartphone size={10} className="text-blue-600" />
+                            {selectedTest.project.toLowerCase().includes("android") ? (
+                              <>
+                                <Smartphone size={10} className="text-emerald-600" />
+                                <span>Android</span>
+                              </>
+                            ) : selectedTest.project.toLowerCase().includes("iphone") ? (
+                              <>
+                                <Smartphone size={10} className="text-slate-800" />
+                                <span>iPhone</span>
+                              </>
+                            ) : selectedTest.project.toLowerCase().includes("firefox") ? (
+                              <>
+                                <Monitor size={10} className="text-orange-600" />
+                                <span>Firefox</span>
+                              </>
+                            ) : selectedTest.project.toLowerCase().includes("safari") ? (
+                              <>
+                                <Monitor size={10} className="text-blue-500" />
+                                <span>Safari</span>
+                              </>
                             ) : (
-                              <Monitor size={10} className="text-blue-600" />
+                              <>
+                                <Monitor size={10} className="text-blue-600" />
+                                <span>Chrome</span>
+                              </>
                             )}
-                            {selectedTest.project.toLowerCase().includes("chromium")
-                              ? "Chromium"
-                              : selectedTest.project.toLowerCase().includes("mobile")
-                                ? "Mobile"
-                                : selectedTest.project.replace(/^.*-/, "")}
                           </span>
                         )}
                         <span className="w-1 h-1 rounded-full bg-slate-300"></span>

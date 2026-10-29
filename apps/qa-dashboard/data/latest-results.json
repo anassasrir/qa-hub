@@ -19,7 +19,7 @@
     "metadata": {
       "testProject": "demo-ecommerce",
       "environment": "staging",
-      "runTimestamp": "2026-10-29T15-54-52-865Z",
+      "runTimestamp": "2026-10-29T16-23-27-715Z",
       "actualWorkers": 4
     },
     "preserveOutput": "always",
@@ -31,11 +31,11 @@
         "metadata": {
           "testProject": "demo-ecommerce",
           "environment": "staging",
-          "runTimestamp": "2026-10-29T15-54-52-865Z",
+          "runTimestamp": "2026-10-29T16-23-27-715Z",
           "actualWorkers": 4
         },
-        "id": "demo-ecommerce-chromium",
-        "name": "demo-ecommerce-chromium",
+        "id": "demo-ecommerce-chrome",
+        "name": "demo-ecommerce-chrome",
         "testDir": "/Users/aasrir/Documents/qa-hub/packages/playwright-tests/.features-gen/demo-ecommerce",
         "testIgnore": [],
         "testMatch": [
@@ -50,11 +50,68 @@
         "metadata": {
           "testProject": "demo-ecommerce",
           "environment": "staging",
-          "runTimestamp": "2026-10-29T15-54-52-865Z",
+          "runTimestamp": "2026-10-29T16-23-27-715Z",
           "actualWorkers": 4
         },
-        "id": "demo-ecommerce-mobile",
-        "name": "demo-ecommerce-mobile",
+        "id": "demo-ecommerce-firefox",
+        "name": "demo-ecommerce-firefox",
+        "testDir": "/Users/aasrir/Documents/qa-hub/packages/playwright-tests/.features-gen/demo-ecommerce",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/aasrir/Documents/qa-hub/packages/playwright-tests/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "testProject": "demo-ecommerce",
+          "environment": "staging",
+          "runTimestamp": "2026-10-29T16-23-27-715Z",
+          "actualWorkers": 4
+        },
+        "id": "demo-ecommerce-safari",
+        "name": "demo-ecommerce-safari",
+        "testDir": "/Users/aasrir/Documents/qa-hub/packages/playwright-tests/.features-gen/demo-ecommerce",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/aasrir/Documents/qa-hub/packages/playwright-tests/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "testProject": "demo-ecommerce",
+          "environment": "staging",
+          "runTimestamp": "2026-10-29T16-23-27-715Z",
+          "actualWorkers": 4
+        },
+        "id": "demo-ecommerce-android",
+        "name": "demo-ecommerce-android",
+        "testDir": "/Users/aasrir/Documents/qa-hub/packages/playwright-tests/.features-gen/demo-ecommerce",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "/Users/aasrir/Documents/qa-hub/packages/playwright-tests/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "testProject": "demo-ecommerce",
+          "environment": "staging",
+          "runTimestamp": "2026-10-29T16-23-27-715Z",
+          "actualWorkers": 4
+        },
+        "id": "demo-ecommerce-iphone",
+        "name": "demo-ecommerce-iphone",
         "testDir": "/Users/aasrir/Documents/qa-hub/packages/playwright-tests/.features-gen/demo-ecommerce",
         "testIgnore": [],
         "testMatch": [
@@ -73,10 +130,10 @@
         "metadata": {
           "testProject": "demo-ecommerce",
           "environment": "staging",
-          "runTimestamp": "2026-10-29T15-54-52-865Z",
+          "runTimestamp": "2026-10-29T16-23-27-715Z",
           "actualWorkers": 4
         },
-        "name": "demo-ecommerce-chromium",
+        "name": "demo-ecommerce-chrome",
         "testDir": "/Users/aasrir/Documents/qa-hub/packages/playwright-tests/.features-gen/demo-ecommerce",
         "snapshotDir": "/Users/aasrir/Documents/qa-hub/packages/playwright-tests/.features-gen/demo-ecommerce",
         "testIgnore": [],
@@ -103,7 +160,7 @@
         },
         "dependencies": [],
         "ignoreSnapshots": false,
-        "__projectId": "demo-ecommerce-chromium"
+        "__projectId": "demo-ecommerce-chrome"
       },
       {
         "grep": {},
@@ -114,10 +171,10 @@
         "metadata": {
           "testProject": "demo-ecommerce",
           "environment": "staging",
-          "runTimestamp": "2026-10-29T15-54-52-865Z",
+          "runTimestamp": "2026-10-29T16-23-27-715Z",
           "actualWorkers": 4
         },
-        "name": "demo-ecommerce-mobile",
+        "name": "demo-ecommerce-firefox",
         "testDir": "/Users/aasrir/Documents/qa-hub/packages/playwright-tests/.features-gen/demo-ecommerce",
         "snapshotDir": "/Users/aasrir/Documents/qa-hub/packages/playwright-tests/.features-gen/demo-ecommerce",
         "testIgnore": [],
@@ -128,23 +185,146 @@
           "trace": "on-first-retry",
           "screenshot": "only-on-failure",
           "video": "retain-on-failure",
-          "userAgent": "Mozilla/5.0 (Linux; Android 11; Pixel 5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Mobile Safari/537.36",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:157.0) Gecko/20100101 Firefox/157.0",
           "viewport": {
-            "width": 393,
-            "height": 727
+            "width": 1280,
+            "height": 720
           },
           "screen": {
-            "width": 393,
-            "height": 851
+            "width": 1920,
+            "height": 1080
           },
-          "deviceScaleFactor": 2.75,
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "firefox"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "demo-ecommerce-firefox"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/aasrir/Documents/qa-hub/packages/playwright-tests/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "testProject": "demo-ecommerce",
+          "environment": "staging",
+          "runTimestamp": "2026-10-29T16-23-27-715Z",
+          "actualWorkers": 4
+        },
+        "name": "demo-ecommerce-safari",
+        "testDir": "/Users/aasrir/Documents/qa-hub/packages/playwright-tests/.features-gen/demo-ecommerce",
+        "snapshotDir": "/Users/aasrir/Documents/qa-hub/packages/playwright-tests/.features-gen/demo-ecommerce",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "https://staging.store.example.com",
+          "trace": "on-first-retry",
+          "screenshot": "only-on-failure",
+          "video": "retain-on-failure",
+          "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Safari/605.1.15",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1792,
+            "height": 1120
+          },
+          "deviceScaleFactor": 2,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "webkit"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "demo-ecommerce-safari"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/aasrir/Documents/qa-hub/packages/playwright-tests/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "testProject": "demo-ecommerce",
+          "environment": "staging",
+          "runTimestamp": "2026-10-29T16-23-27-715Z",
+          "actualWorkers": 4
+        },
+        "name": "demo-ecommerce-android",
+        "testDir": "/Users/aasrir/Documents/qa-hub/packages/playwright-tests/.features-gen/demo-ecommerce",
+        "snapshotDir": "/Users/aasrir/Documents/qa-hub/packages/playwright-tests/.features-gen/demo-ecommerce",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "https://staging.store.example.com",
+          "trace": "on-first-retry",
+          "screenshot": "only-on-failure",
+          "video": "retain-on-failure",
+          "userAgent": "Mozilla/5.0 (Linux; Android 14; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Mobile Safari/537.36",
+          "viewport": {
+            "width": 412,
+            "height": 839
+          },
+          "screen": {
+            "width": 412,
+            "height": 915
+          },
+          "deviceScaleFactor": 2.625,
           "isMobile": true,
           "hasTouch": true,
           "defaultBrowserType": "chromium"
         },
         "dependencies": [],
         "ignoreSnapshots": false,
-        "__projectId": "demo-ecommerce-mobile"
+        "__projectId": "demo-ecommerce-android"
+      },
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "/Users/aasrir/Documents/qa-hub/packages/playwright-tests/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "testProject": "demo-ecommerce",
+          "environment": "staging",
+          "runTimestamp": "2026-10-29T16-23-27-715Z",
+          "actualWorkers": 4
+        },
+        "name": "demo-ecommerce-iphone",
+        "testDir": "/Users/aasrir/Documents/qa-hub/packages/playwright-tests/.features-gen/demo-ecommerce",
+        "snapshotDir": "/Users/aasrir/Documents/qa-hub/packages/playwright-tests/.features-gen/demo-ecommerce",
+        "testIgnore": [],
+        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
+        "timeout": 30000,
+        "use": {
+          "baseURL": "https://staging.store.example.com",
+          "trace": "on-first-retry",
+          "screenshot": "only-on-failure",
+          "video": "retain-on-failure",
+          "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/27.2 Mobile/15E148 Safari/604.1",
+          "viewport": {
+            "width": 390,
+            "height": 664
+          },
+          "screen": {
+            "width": 390,
+            "height": 844
+          },
+          "deviceScaleFactor": 3,
+          "isMobile": true,
+          "hasTouch": true,
+          "defaultBrowserType": "webkit"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "demo-ecommerce-iphone"
       }
     ],
     "quiet": false,
@@ -156,14 +336,14 @@
       [
         "html",
         {
-          "outputFolder": "../../artifact/2026-10-29T15-54-52-865Z/playwright-report",
+          "outputFolder": "../../artifact/2026-10-29T16-23-27-715Z/playwright-report",
           "open": "never"
         }
       ],
       [
         "json",
         {
-          "outputFile": "../../artifact/2026-10-29T15-54-52-865Z/test-results/results.json"
+          "outputFile": "../../artifact/2026-10-29T16-23-27-715Z/test-results/results.json"
         }
       ],
       [
@@ -212,21 +392,21 @@
                   "timeout": 30000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "demo-ecommerce-chromium",
-                  "projectName": "demo-ecommerce-chromium",
+                  "projectId": "demo-ecommerce-chrome",
+                  "projectName": "demo-ecommerce-chrome",
                   "results": [
                     {
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 659,
+                      "duration": 908,
                       "errors": [],
                       "stdout": [
                         {
-                          "text": "15:54:53.772 [INFO]  [Connexion réussie avec des identifiants valides] Ouverture de la page de connexion sur staging\n"
+                          "text": "16:23:28.923 [INFO]  [Connexion réussie avec des identifiants valides] Ouverture de la page de connexion sur staging\n"
                         },
                         {
-                          "text": "15:54:53.778 [STEP]  [LoginPage] 👉 Navigating to https://staging.store.example.com/login\n"
+                          "text": "16:23:28.937 [STEP]  [LoginPage] 👉 Navigating to https://staging.store.example.com/login\n"
                         }
                       ],
                       "stderr": [],
@@ -234,26 +414,26 @@
                       "steps": [
                         {
                           "title": "Étant donné que l'utilisateur est sur la page de connexion",
-                          "duration": 40
+                          "duration": 189
                         },
                         {
                           "title": "Quand il saisit une adresse email valide",
-                          "duration": 117
+                          "duration": 171
                         },
                         {
                           "title": "Et qu'il saisit son mot de passe",
-                          "duration": 50
+                          "duration": 52
                         },
                         {
                           "title": "Et qu'il clique sur \"Se connecter\"",
-                          "duration": 158
+                          "duration": 31
                         },
                         {
                           "title": "Alors il est redirigé vers le tableau de bord client",
                           "duration": 1
                         }
                       ],
-                      "startTime": "2026-10-29T15:54:53.234Z",
+                      "startTime": "2026-10-29T16:23:28.141Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -261,7 +441,7 @@
                   "status": "expected"
                 }
               ],
-              "id": "e4671b8e47fd0906e839-d646c814d589f3e47b06",
+              "id": "e4671b8e47fd0906e839-2d29c06ef13aff019790",
               "file": "specs/demo-ecommerce/auth.feature.spec.js",
               "line": 6,
               "column": 3
@@ -279,21 +459,21 @@
                   "timeout": 30000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "demo-ecommerce-chromium",
-                  "projectName": "demo-ecommerce-chromium",
+                  "projectId": "demo-ecommerce-chrome",
+                  "projectName": "demo-ecommerce-chrome",
                   "results": [
                     {
                       "workerIndex": 1,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 637,
+                      "duration": 845,
                       "errors": [],
                       "stdout": [
                         {
-                          "text": "15:54:53.775 [INFO]  [Échec de connexion avec un mot de passe incorrect] Ouverture de la page de connexion sur staging\n"
+                          "text": "16:23:28.925 [INFO]  [Échec de connexion avec un mot de passe incorrect] Ouverture de la page de connexion sur staging\n"
                         },
                         {
-                          "text": "15:54:53.778 [STEP]  [LoginPage] 👉 Navigating to https://staging.store.example.com/login\n"
+                          "text": "16:23:28.937 [STEP]  [LoginPage] 👉 Navigating to https://staging.store.example.com/login\n"
                         }
                       ],
                       "stderr": [],
@@ -301,22 +481,22 @@
                       "steps": [
                         {
                           "title": "Étant donné que l'utilisateur est sur la page de connexion",
-                          "duration": 26
+                          "duration": 198
                         },
                         {
                           "title": "Quand il saisit un mot de passe incorrect",
-                          "duration": 133
+                          "duration": 167
                         },
                         {
                           "title": "Et qu'il clique sur \"Se connecter\"",
-                          "duration": 30
+                          "duration": 32
                         },
                         {
                           "title": "Alors une notification d'erreur s'affiche",
-                          "duration": 10
+                          "duration": 7
                         }
                       ],
-                      "startTime": "2026-10-29T15:54:53.252Z",
+                      "startTime": "2026-10-29T16:23:28.126Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -324,7 +504,7 @@
                   "status": "expected"
                 }
               ],
-              "id": "e4671b8e47fd0906e839-bc60d93d9f555f00ca20",
+              "id": "e4671b8e47fd0906e839-8bed7538eeff39f8c8b8",
               "file": "specs/demo-ecommerce/auth.feature.spec.js",
               "line": 14,
               "column": 3
@@ -342,21 +522,21 @@
                   "timeout": 30000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "demo-ecommerce-mobile",
-                  "projectName": "demo-ecommerce-mobile",
+                  "projectId": "demo-ecommerce-firefox",
+                  "projectName": "demo-ecommerce-firefox",
                   "results": [
                     {
                       "workerIndex": 3,
                       "parallelIndex": 3,
                       "status": "passed",
-                      "duration": 680,
+                      "duration": 2238,
                       "errors": [],
                       "stdout": [
                         {
-                          "text": "15:54:53.775 [INFO]  [Connexion réussie avec des identifiants valides] Ouverture de la page de connexion sur staging\n"
+                          "text": "16:23:33.265 [INFO]  [Connexion réussie avec des identifiants valides] Ouverture de la page de connexion sur staging\n"
                         },
                         {
-                          "text": "15:54:53.778 [STEP]  [LoginPage] 👉 Navigating to https://staging.store.example.com/login\n"
+                          "text": "16:23:33.286 [STEP]  [LoginPage] 👉 Navigating to https://staging.store.example.com/login\n"
                         }
                       ],
                       "stderr": [],
@@ -364,26 +544,26 @@
                       "steps": [
                         {
                           "title": "Étant donné que l'utilisateur est sur la page de connexion",
-                          "duration": 32
+                          "duration": 513
                         },
                         {
                           "title": "Quand il saisit une adresse email valide",
-                          "duration": 121
+                          "duration": 386
                         },
                         {
                           "title": "Et qu'il saisit son mot de passe",
-                          "duration": 51
+                          "duration": 128
                         },
                         {
                           "title": "Et qu'il clique sur \"Se connecter\"",
-                          "duration": 171
+                          "duration": 114
                         },
                         {
                           "title": "Alors il est redirigé vers le tableau de bord client",
-                          "duration": 1
+                          "duration": 0
                         }
                       ],
-                      "startTime": "2026-10-29T15:54:53.245Z",
+                      "startTime": "2026-10-29T16:23:28.147Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -391,7 +571,7 @@
                   "status": "expected"
                 }
               ],
-              "id": "e4671b8e47fd0906e839-0a56f293905918d7ef23",
+              "id": "e4671b8e47fd0906e839-0fe8359ef4d65840d922",
               "file": "specs/demo-ecommerce/auth.feature.spec.js",
               "line": 6,
               "column": 3
@@ -409,21 +589,21 @@
                   "timeout": 30000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "demo-ecommerce-mobile",
-                  "projectName": "demo-ecommerce-mobile",
+                  "projectId": "demo-ecommerce-firefox",
+                  "projectName": "demo-ecommerce-firefox",
                   "results": [
                     {
                       "workerIndex": 4,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 320,
+                      "duration": 2573,
                       "errors": [],
                       "stdout": [
                         {
-                          "text": "15:54:54.786 [INFO]  [Échec de connexion avec un mot de passe incorrect] Ouverture de la page de connexion sur staging\n"
+                          "text": "16:23:32.901 [INFO]  [Échec de connexion avec un mot de passe incorrect] Ouverture de la page de connexion sur staging\n"
                         },
                         {
-                          "text": "15:54:54.790 [STEP]  [LoginPage] 👉 Navigating to https://staging.store.example.com/login\n"
+                          "text": "16:23:32.910 [STEP]  [LoginPage] 👉 Navigating to https://staging.store.example.com/login\n"
                         }
                       ],
                       "stderr": [],
@@ -431,22 +611,22 @@
                       "steps": [
                         {
                           "title": "Étant donné que l'utilisateur est sur la page de connexion",
-                          "duration": 18
+                          "duration": 131
                         },
                         {
                           "title": "Quand il saisit un mot de passe incorrect",
-                          "duration": 80
+                          "duration": 491
                         },
                         {
                           "title": "Et qu'il clique sur \"Se connecter\"",
-                          "duration": 35
+                          "duration": 545
                         },
                         {
                           "title": "Alors une notification d'erreur s'affiche",
-                          "duration": 3
+                          "duration": 12
                         }
                       ],
-                      "startTime": "2026-10-29T15:54:54.585Z",
+                      "startTime": "2026-10-29T16:23:29.798Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -454,7 +634,397 @@
                   "status": "expected"
                 }
               ],
-              "id": "e4671b8e47fd0906e839-e7ca6fc5e24b9456ca71",
+              "id": "e4671b8e47fd0906e839-d6382e8ba26d5354bfa2",
+              "file": "specs/demo-ecommerce/auth.feature.spec.js",
+              "line": 14,
+              "column": 3
+            },
+            {
+              "title": "Connexion réussie avec des identifiants valides",
+              "ok": true,
+              "tags": [
+                "demo-ecommerce",
+                "auth",
+                "security"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "demo-ecommerce-safari",
+                  "projectName": "demo-ecommerce-safari",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1411,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "16:23:36.463 [INFO]  [Connexion réussie avec des identifiants valides] Ouverture de la page de connexion sur staging\n"
+                        },
+                        {
+                          "text": "16:23:36.470 [STEP]  [LoginPage] 👉 Navigating to https://staging.store.example.com/login\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Étant donné que l'utilisateur est sur la page de connexion",
+                          "duration": 58
+                        },
+                        {
+                          "title": "Quand il saisit une adresse email valide",
+                          "duration": 549
+                        },
+                        {
+                          "title": "Et qu'il saisit son mot de passe",
+                          "duration": 74
+                        },
+                        {
+                          "title": "Et qu'il clique sur \"Se connecter\"",
+                          "duration": 31
+                        },
+                        {
+                          "title": "Alors il est redirigé vers le tableau de bord client",
+                          "duration": 1
+                        }
+                      ],
+                      "startTime": "2026-10-29T16:23:29.889Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e4671b8e47fd0906e839-2c1b221bb721b762715a",
+              "file": "specs/demo-ecommerce/auth.feature.spec.js",
+              "line": 6,
+              "column": 3
+            },
+            {
+              "title": "Échec de connexion avec un mot de passe incorrect",
+              "ok": true,
+              "tags": [
+                "demo-ecommerce",
+                "auth",
+                "security"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "demo-ecommerce-safari",
+                  "projectName": "demo-ecommerce-safari",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 1319,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "16:23:36.464 [INFO]  [Échec de connexion avec un mot de passe incorrect] Ouverture de la page de connexion sur staging\n"
+                        },
+                        {
+                          "text": "16:23:36.472 [STEP]  [LoginPage] 👉 Navigating to https://staging.store.example.com/login\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Étant donné que l'utilisateur est sur la page de connexion",
+                          "duration": 61
+                        },
+                        {
+                          "title": "Quand il saisit un mot de passe incorrect",
+                          "duration": 416
+                        },
+                        {
+                          "title": "Et qu'il clique sur \"Se connecter\"",
+                          "duration": 85
+                        },
+                        {
+                          "title": "Alors une notification d'erreur s'affiche",
+                          "duration": 21
+                        }
+                      ],
+                      "startTime": "2026-10-29T16:23:35.533Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e4671b8e47fd0906e839-03c4068a457dde86209e",
+              "file": "specs/demo-ecommerce/auth.feature.spec.js",
+              "line": 14,
+              "column": 3
+            },
+            {
+              "title": "Connexion réussie avec des identifiants valides",
+              "ok": true,
+              "tags": [
+                "demo-ecommerce",
+                "auth",
+                "security"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "demo-ecommerce-android",
+                  "projectName": "demo-ecommerce-android",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 376,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "16:23:37.476 [INFO]  [Connexion réussie avec des identifiants valides] Ouverture de la page de connexion sur staging\n"
+                        },
+                        {
+                          "text": "16:23:37.479 [STEP]  [LoginPage] 👉 Navigating to https://staging.store.example.com/login\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Étant donné que l'utilisateur est sur la page de connexion",
+                          "duration": 17
+                        },
+                        {
+                          "title": "Quand il saisit une adresse email valide",
+                          "duration": 61
+                        },
+                        {
+                          "title": "Et qu'il saisit son mot de passe",
+                          "duration": 63
+                        },
+                        {
+                          "title": "Et qu'il clique sur \"Se connecter\"",
+                          "duration": 46
+                        },
+                        {
+                          "title": "Alors il est redirigé vers le tableau de bord client",
+                          "duration": 1
+                        }
+                      ],
+                      "startTime": "2026-10-29T16:23:37.237Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e4671b8e47fd0906e839-866d36db22b2132960bd",
+              "file": "specs/demo-ecommerce/auth.feature.spec.js",
+              "line": 6,
+              "column": 3
+            },
+            {
+              "title": "Échec de connexion avec un mot de passe incorrect",
+              "ok": true,
+              "tags": [
+                "demo-ecommerce",
+                "auth",
+                "security"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "demo-ecommerce-android",
+                  "projectName": "demo-ecommerce-android",
+                  "results": [
+                    {
+                      "workerIndex": 10,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 313,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "16:23:38.199 [INFO]  [Échec de connexion avec un mot de passe incorrect] Ouverture de la page de connexion sur staging\n"
+                        },
+                        {
+                          "text": "16:23:38.202 [STEP]  [LoginPage] 👉 Navigating to https://staging.store.example.com/login\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Étant donné que l'utilisateur est sur la page de connexion",
+                          "duration": 24
+                        },
+                        {
+                          "title": "Quand il saisit un mot de passe incorrect",
+                          "duration": 73
+                        },
+                        {
+                          "title": "Et qu'il clique sur \"Se connecter\"",
+                          "duration": 37
+                        },
+                        {
+                          "title": "Alors une notification d'erreur s'affiche",
+                          "duration": 4
+                        }
+                      ],
+                      "startTime": "2026-10-29T16:23:37.988Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e4671b8e47fd0906e839-ffcffe6f8585d724bdd9",
+              "file": "specs/demo-ecommerce/auth.feature.spec.js",
+              "line": 14,
+              "column": 3
+            },
+            {
+              "title": "Connexion réussie avec des identifiants valides",
+              "ok": true,
+              "tags": [
+                "demo-ecommerce",
+                "auth",
+                "security"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "demo-ecommerce-iphone",
+                  "projectName": "demo-ecommerce-iphone",
+                  "results": [
+                    {
+                      "workerIndex": 12,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 527,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "16:23:38.713 [INFO]  [Connexion réussie avec des identifiants valides] Ouverture de la page de connexion sur staging\n"
+                        },
+                        {
+                          "text": "16:23:38.716 [STEP]  [LoginPage] 👉 Navigating to https://staging.store.example.com/login\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Étant donné que l'utilisateur est sur la page de connexion",
+                          "duration": 17
+                        },
+                        {
+                          "title": "Quand il saisit une adresse email valide",
+                          "duration": 116
+                        },
+                        {
+                          "title": "Et qu'il saisit son mot de passe",
+                          "duration": 41
+                        },
+                        {
+                          "title": "Et qu'il clique sur \"Se connecter\"",
+                          "duration": 30
+                        },
+                        {
+                          "title": "Alors il est redirigé vers le tableau de bord client",
+                          "duration": 0
+                        }
+                      ],
+                      "startTime": "2026-10-29T16:23:38.164Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e4671b8e47fd0906e839-037ae661ed8fbe589657",
+              "file": "specs/demo-ecommerce/auth.feature.spec.js",
+              "line": 6,
+              "column": 3
+            },
+            {
+              "title": "Échec de connexion avec un mot de passe incorrect",
+              "ok": true,
+              "tags": [
+                "demo-ecommerce",
+                "auth",
+                "security"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "demo-ecommerce-iphone",
+                  "projectName": "demo-ecommerce-iphone",
+                  "results": [
+                    {
+                      "workerIndex": 14,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 674,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "16:23:40.346 [INFO]  [Échec de connexion avec un mot de passe incorrect] Ouverture de la page de connexion sur staging\n"
+                        },
+                        {
+                          "text": "16:23:40.350 [STEP]  [LoginPage] 👉 Navigating to https://staging.store.example.com/login\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Étant donné que l'utilisateur est sur la page de connexion",
+                          "duration": 25
+                        },
+                        {
+                          "title": "Quand il saisit un mot de passe incorrect",
+                          "duration": 113
+                        },
+                        {
+                          "title": "Et qu'il clique sur \"Se connecter\"",
+                          "duration": 80
+                        },
+                        {
+                          "title": "Alors une notification d'erreur s'affiche",
+                          "duration": 12
+                        }
+                      ],
+                      "startTime": "2026-10-29T16:23:39.719Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e4671b8e47fd0906e839-becbb399a92a797a3c11",
               "file": "specs/demo-ecommerce/auth.feature.spec.js",
               "line": 14,
               "column": 3
@@ -489,21 +1059,21 @@
                   "timeout": 30000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "demo-ecommerce-chromium",
-                  "projectName": "demo-ecommerce-chromium",
+                  "projectId": "demo-ecommerce-chrome",
+                  "projectName": "demo-ecommerce-chrome",
                   "results": [
                     {
                       "workerIndex": 2,
                       "parallelIndex": 2,
                       "status": "passed",
-                      "duration": 514,
+                      "duration": 798,
                       "errors": [],
                       "stdout": [
                         {
-                          "text": "15:54:53.774 [INFO]  [vérifie le chargement de la page d’accueil et les éléments de base] Navigation vers https://staging.store.example.com\n"
+                          "text": "16:23:28.926 [INFO]  [vérifie le chargement de la page d’accueil et les éléments de base] Navigation vers https://staging.store.example.com\n"
                         },
                         {
-                          "text": "15:54:53.777 [STEP]  [HomePage] 👉 Navigating to https://staging.store.example.com/\n"
+                          "text": "16:23:28.937 [STEP]  [HomePage] 👉 Navigating to https://staging.store.example.com/\n"
                         }
                       ],
                       "stderr": [],
@@ -511,30 +1081,30 @@
                       "steps": [
                         {
                           "title": "Étant donné que l'utilisateur accède à la boutique démo",
-                          "duration": 42
+                          "duration": 197
                         },
                         {
                           "title": "Quand la page d'accueil est chargée",
-                          "duration": 58
+                          "duration": 99
                         },
                         {
                           "title": "Alors le titre de la page contient \"Demo Store QA Hub\"",
-                          "duration": 4
+                          "duration": 2
                         },
                         {
                           "title": "Et le logo de la marque est visible",
-                          "duration": 3
+                          "duration": 5
                         },
                         {
                           "title": "Et le bouton de connexion est disponible",
-                          "duration": 7
+                          "duration": 8
                         },
                         {
                           "title": "Et le badge du panier est initialisé",
                           "duration": 2
                         }
                       ],
-                      "startTime": "2026-10-29T15:54:53.256Z",
+                      "startTime": "2026-10-29T16:23:28.127Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -542,7 +1112,7 @@
                   "status": "expected"
                 }
               ],
-              "id": "b1c337680a537bfdc366-bfc9c03d1fa6c3765bf1",
+              "id": "b1c337680a537bfdc366-a90c195cabbad67b031b",
               "file": "specs/demo-ecommerce/smoke.feature.spec.js",
               "line": 6,
               "column": 3
@@ -560,21 +1130,21 @@
                   "timeout": 30000,
                   "annotations": [],
                   "expectedStatus": "passed",
-                  "projectId": "demo-ecommerce-mobile",
-                  "projectName": "demo-ecommerce-mobile",
+                  "projectId": "demo-ecommerce-firefox",
+                  "projectName": "demo-ecommerce-firefox",
                   "results": [
                     {
                       "workerIndex": 5,
                       "parallelIndex": 1,
                       "status": "passed",
-                      "duration": 235,
+                      "duration": 2494,
                       "errors": [],
                       "stdout": [
                         {
-                          "text": "15:54:54.825 [INFO]  [vérifie le chargement de la page d’accueil et les éléments de base] Navigation vers https://staging.store.example.com\n"
+                          "text": "16:23:34.419 [INFO]  [vérifie le chargement de la page d’accueil et les éléments de base] Navigation vers https://staging.store.example.com\n"
                         },
                         {
-                          "text": "15:54:54.830 [STEP]  [HomePage] 👉 Navigating to https://staging.store.example.com/\n"
+                          "text": "16:23:34.457 [STEP]  [HomePage] 👉 Navigating to https://staging.store.example.com/\n"
                         }
                       ],
                       "stderr": [],
@@ -582,30 +1152,30 @@
                       "steps": [
                         {
                           "title": "Étant donné que l'utilisateur accède à la boutique démo",
-                          "duration": 19
+                          "duration": 191
                         },
                         {
                           "title": "Quand la page d'accueil est chargée",
-                          "duration": 17
+                          "duration": 152
                         },
                         {
                           "title": "Alors le titre de la page contient \"Demo Store QA Hub\"",
-                          "duration": 2
+                          "duration": 24
                         },
                         {
                           "title": "Et le logo de la marque est visible",
-                          "duration": 12
+                          "duration": 13
                         },
                         {
                           "title": "Et le bouton de connexion est disponible",
-                          "duration": 5
+                          "duration": 17
                         },
                         {
                           "title": "Et le badge du panier est initialisé",
-                          "duration": 2
+                          "duration": 85
                         }
                       ],
-                      "startTime": "2026-10-29T15:54:54.626Z",
+                      "startTime": "2026-10-29T16:23:29.833Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -613,7 +1183,220 @@
                   "status": "expected"
                 }
               ],
-              "id": "b1c337680a537bfdc366-563b21a881c452889564",
+              "id": "b1c337680a537bfdc366-91fe11998b505eace68a",
+              "file": "specs/demo-ecommerce/smoke.feature.spec.js",
+              "line": 6,
+              "column": 3
+            },
+            {
+              "title": "vérifie le chargement de la page d’accueil et les éléments de base",
+              "ok": true,
+              "tags": [
+                "demo-ecommerce",
+                "smoke",
+                "p0"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "demo-ecommerce-safari",
+                  "projectName": "demo-ecommerce-safari",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 933,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "16:23:37.046 [INFO]  [vérifie le chargement de la page d’accueil et les éléments de base] Navigation vers https://staging.store.example.com\n"
+                        },
+                        {
+                          "text": "16:23:37.056 [STEP]  [HomePage] 👉 Navigating to https://staging.store.example.com/\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Étant donné que l'utilisateur accède à la boutique démo",
+                          "duration": 62
+                        },
+                        {
+                          "title": "Quand la page d'accueil est chargée",
+                          "duration": 87
+                        },
+                        {
+                          "title": "Alors le titre de la page contient \"Demo Store QA Hub\"",
+                          "duration": 59
+                        },
+                        {
+                          "title": "Et le logo de la marque est visible",
+                          "duration": 4
+                        },
+                        {
+                          "title": "Et le bouton de connexion est disponible",
+                          "duration": 14
+                        },
+                        {
+                          "title": "Et le badge du panier est initialisé",
+                          "duration": 14
+                        }
+                      ],
+                      "startTime": "2026-10-29T16:23:35.819Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b1c337680a537bfdc366-ee5e255a5e0b81209c37",
+              "file": "specs/demo-ecommerce/smoke.feature.spec.js",
+              "line": 6,
+              "column": 3
+            },
+            {
+              "title": "vérifie le chargement de la page d’accueil et les éléments de base",
+              "ok": true,
+              "tags": [
+                "demo-ecommerce",
+                "smoke",
+                "p0"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "demo-ecommerce-android",
+                  "projectName": "demo-ecommerce-android",
+                  "results": [
+                    {
+                      "workerIndex": 11,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 245,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "16:23:38.235 [INFO]  [vérifie le chargement de la page d’accueil et les éléments de base] Navigation vers https://staging.store.example.com\n"
+                        },
+                        {
+                          "text": "16:23:38.240 [STEP]  [HomePage] 👉 Navigating to https://staging.store.example.com/\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Étant donné que l'utilisateur accède à la boutique démo",
+                          "duration": 18
+                        },
+                        {
+                          "title": "Quand la page d'accueil est chargée",
+                          "duration": 20
+                        },
+                        {
+                          "title": "Alors le titre de la page contient \"Demo Store QA Hub\"",
+                          "duration": 3
+                        },
+                        {
+                          "title": "Et le logo de la marque est visible",
+                          "duration": 3
+                        },
+                        {
+                          "title": "Et le bouton de connexion est disponible",
+                          "duration": 3
+                        },
+                        {
+                          "title": "Et le badge du panier est initialisé",
+                          "duration": 2
+                        }
+                      ],
+                      "startTime": "2026-10-29T16:23:38.014Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b1c337680a537bfdc366-83baba22d1e2e73c4c0a",
+              "file": "specs/demo-ecommerce/smoke.feature.spec.js",
+              "line": 6,
+              "column": 3
+            },
+            {
+              "title": "vérifie le chargement de la page d’accueil et les éléments de base",
+              "ok": true,
+              "tags": [
+                "demo-ecommerce",
+                "smoke",
+                "p0"
+              ],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "demo-ecommerce-iphone",
+                  "projectName": "demo-ecommerce-iphone",
+                  "results": [
+                    {
+                      "workerIndex": 13,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 519,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "16:23:40.278 [INFO]  [vérifie le chargement de la page d’accueil et les éléments de base] Navigation vers https://staging.store.example.com\n"
+                        },
+                        {
+                          "text": "16:23:40.281 [STEP]  [HomePage] 👉 Navigating to https://staging.store.example.com/\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "Étant donné que l'utilisateur accède à la boutique démo",
+                          "duration": 20
+                        },
+                        {
+                          "title": "Quand la page d'accueil est chargée",
+                          "duration": 34
+                        },
+                        {
+                          "title": "Alors le titre de la page contient \"Demo Store QA Hub\"",
+                          "duration": 3
+                        },
+                        {
+                          "title": "Et le logo de la marque est visible",
+                          "duration": 3
+                        },
+                        {
+                          "title": "Et le bouton de connexion est disponible",
+                          "duration": 5
+                        },
+                        {
+                          "title": "Et le badge du panier est initialisé",
+                          "duration": 3
+                        }
+                      ],
+                      "startTime": "2026-10-29T16:23:39.686Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b1c337680a537bfdc366-bceb59b04e84ca7c37ab",
               "file": "specs/demo-ecommerce/smoke.feature.spec.js",
               "line": 6,
               "column": 3
@@ -625,9 +1408,9 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-10-29T15:54:52.870Z",
-    "duration": 2823.9860000000003,
-    "expected": 6,
+    "startTime": "2026-10-29T16:23:27.721Z",
+    "duration": 12981.201,
+    "expected": 15,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0

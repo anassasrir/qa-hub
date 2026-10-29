@@ -8,7 +8,7 @@
     "setup": "pnpm install && pnpm test:install",
     "test": "pnpm --filter @qa-hub/playwright-tests test",
     "test:project": "pnpm --filter @qa-hub/playwright-tests test:project",
-    "test:install": "pnpm --filter @qa-hub/playwright-tests exec playwright install chromium",
+    "test:install": "pnpm --filter @qa-hub/playwright-tests exec playwright install chromium firefox webkit",
     "test:install:all": "pnpm --filter @qa-hub/playwright-tests exec playwright install --with-deps",
     "dashboard:dev": "pnpm --filter @qa-hub/qa-dashboard dev",
     "dashboard:build": "pnpm --filter @qa-hub/qa-dashboard build",

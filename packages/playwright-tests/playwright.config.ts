@@ -59,15 +59,33 @@ export default defineConfig({
   },
   projects: [
     {
-      name: `${selectedProjectId}-chromium`,
+      name: `${selectedProjectId}-chrome`,
       use: {
         ...devices['Desktop Chrome'],
       },
     },
     {
-      name: `${selectedProjectId}-mobile`,
+      name: `${selectedProjectId}-firefox`,
       use: {
-        ...devices['Pixel 5'],
+        ...devices['Desktop Firefox'],
+      },
+    },
+    {
+      name: `${selectedProjectId}-safari`,
+      use: {
+        ...devices['Desktop Safari'],
+      },
+    },
+    {
+      name: `${selectedProjectId}-android`,
+      use: {
+        ...devices['Pixel 7'],
+      },
+    },
+    {
+      name: `${selectedProjectId}-iphone`,
+      use: {
+        ...devices['iPhone 14'],
       },
     },
   ],
