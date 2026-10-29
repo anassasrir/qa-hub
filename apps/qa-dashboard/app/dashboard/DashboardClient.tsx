@@ -298,15 +298,10 @@ export default function DashboardClient({ history }: DashboardClientProps) {
       (selectedProject === "all" || filteredData.latestRun.stats.total > 0) ? (
         <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
           {selectedProject === "all" ? (
-            <div className="space-y-6">
-              <GlobalStatusBoard
-                projectStatuses={filteredData.projectStatuses}
-                onProjectClick={handleProjectChange}
-              />
-              <div className="w-full">
-                <ActivityTrendChart history={filteredData.history} />
-              </div>
-            </div>
+            <GlobalStatusBoard
+              projectStatuses={filteredData.projectStatuses}
+              onProjectClick={handleProjectChange}
+            />
           ) : (
             <>
               {/* Niveau 1 : Dernier résultat, Radar d'instabilité, Scénarios en échec, Évolution inter-runs */}
