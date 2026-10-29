@@ -1,0 +1,54 @@
+trigger:
+  branches:
+    include:
+      - main
+      - develop
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+strategy:
+  matrix:
+    Shard_1:
+      shardIndex: 1
+      shardTotal: 2
+    Shard_2:
+      shardIndex: 2
+      shardTotal: 2
+
+steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '22.x'
+    displayName: 'Install Node.js'
+
+  - script: |
+      npm install -g pnpm
+      pnpm install --frozen-lockfile
+    displayName: 'Install Dependencies with pnpm'
+
+  - script: |
+      pnpm --filter @qa-hub/playwright-tests exec playwright install --with-deps chromium
+    displayName: 'Install Playwright Chromium'
+
+  - script: |
+      pnpm --filter @qa-hub/playwright-tests exec playwright test --shard=$(shardIndex)/$(shardTotal)
+    displayName: 'Run Playwright E2E Tests'
+    env:
+      CI: 'true'
+
+  - task: PublishTestResults@2
+    condition: always()
+    inputs:
+      testResultsFormat: 'JUnit'
+      testResultsFiles: 'artifact/reports/*.xml'
+      mergeTestResults: true
+      failTaskOnFailedTests: true
+    displayName: 'Publish Test Results'
+
+  - task: PublishBuildArtifacts@1
+    condition: always()
+    inputs:
+      PathtoPublish: 'playwright-report'
+      ArtifactName: 'playwright-report-shard-$(shardIndex)'
+    displayName: 'Publish Playwright HTML Report'
