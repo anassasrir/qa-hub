@@ -1,4 +1,4 @@
-import type { DashboardKpis, FlakinessMetric, LivingTestCase, TestRun } from '../types/dashboard.js';
+import type { DashboardKpis, FlakinessMetric, LivingTestCase, TestRun } from '../types/dashboard';
 
 export interface IDataProvider {
   getLatestRuns(projectId: string, limit?: number): Promise<TestRun[]>;

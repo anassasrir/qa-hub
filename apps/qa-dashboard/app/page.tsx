@@ -1,9 +1,9 @@
 import React from 'react';
-import { Header } from '../components/Header.js';
-import { KpiCards } from '../components/KpiCards.js';
-import { FlakinessRadar } from '../components/FlakinessRadar.js';
-import { LivingTestPlan } from '../components/LivingTestPlan.js';
-import { LocalFileSystemProvider } from '../src/providers/LocalFileSystemProvider.js';
+import { Header } from '@/components/Header';
+import { KpiCards } from '@/components/KpiCards';
+import { FlakinessRadar } from '@/components/FlakinessRadar';
+import { LivingTestPlan } from '@/components/LivingTestPlan';
+import { LocalFileSystemProvider } from '@/src/providers/LocalFileSystemProvider';
 
 export default async function DashboardPage() {
   const provider = new LocalFileSystemProvider();

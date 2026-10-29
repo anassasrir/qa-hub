@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrandingProvider } from '../src/context/BrandingContext.js';
+import { BrandingProvider } from '@/src/context/BrandingContext';
 
 export const metadata = {
   title: 'QA Dashboard - Marque Blanche',

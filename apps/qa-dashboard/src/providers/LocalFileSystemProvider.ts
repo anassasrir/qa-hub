@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import type { IDataProvider } from './IDataProvider.js';
-import type { DashboardKpis, FlakinessMetric, LivingTestCase, TestRun } from '../types/dashboard.js';
+import type { IDataProvider } from './IDataProvider';
+import type { DashboardKpis, FlakinessMetric, LivingTestCase, TestRun } from '../types/dashboard';
 
 export class LocalFileSystemProvider implements IDataProvider {
   private baseDir: string;
@@ -15,15 +15,15 @@ export class LocalFileSystemProvider implements IDataProvider {
     if (fs.existsSync(reportPath)) {
       try {
         const raw = JSON.parse(fs.readFileSync(reportPath, 'utf-8'));
-        // Parse Playwright JSON reporter output if available
         const duration = raw.stats?.duration || 14200;
         const total = raw.suites?.reduce((acc: number, s: { specs?: unknown[] }) => acc + (s.specs?.length || 0), 0) || 1;
+        const runStatus: 'passed' | 'failed' = raw.stats?.unexpected === 0 ? 'passed' : 'failed';
         return [
           {
             id: 'local-latest',
             projectId,
             timestamp: new Date().toISOString(),
-            status: raw.stats?.unexpected === 0 ? 'passed' : 'failed',
+            status: runStatus,
             durationMs: duration,
             totalTests: total,
             passedCount: raw.stats?.expected || 1,
@@ -39,8 +39,7 @@ export class LocalFileSystemProvider implements IDataProvider {
       }
     }
 
-    // Default mock runs for local demonstration
-    return [
+    const mockRuns: TestRun[] = [
       {
         id: 'run-104',
         projectId,
@@ -82,7 +81,9 @@ export class LocalFileSystemProvider implements IDataProvider {
         environment: 'dev',
         branch: 'main',
       },
-    ].slice(0, limit);
+    ];
+
+    return mockRuns.slice(0, limit);
   }
 
   public async getKpis(projectId: string): Promise<DashboardKpis> {

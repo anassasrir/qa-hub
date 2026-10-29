@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import type { DashboardKpis } from '../src/types/dashboard.js';
+import type { DashboardKpis } from '@/src/types/dashboard';
 import { CheckCircle2, PlayCircle, Clock, AlertTriangle } from 'lucide-react';
 
 interface KpiCardsProps {

@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import type { LivingTestCase } from '../src/types/dashboard.js';
+import type { LivingTestCase } from '@/src/types/dashboard';
 import { BookOpen, CheckCircle } from 'lucide-react';
 
 interface LivingTestPlanProps {

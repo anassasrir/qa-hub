@@ -1,8 +1,8 @@
 'use client';
 
 import React from 'react';
-import type { FlakinessMetric } from '../src/types/dashboard.js';
-import { useBranding } from '../src/context/BrandingContext.js';
+import type { FlakinessMetric } from '@/src/types/dashboard';
+import { useBranding } from '@/src/context/BrandingContext';
 import { AlertCircle, ExternalLink } from 'lucide-react';
 
 interface FlakinessRadarProps {

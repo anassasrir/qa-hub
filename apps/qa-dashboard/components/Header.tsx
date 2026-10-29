@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { useBranding } from '../src/context/BrandingContext.js';
+import { useBranding } from '@/src/context/BrandingContext';
 import { Layers, ShieldCheck, Activity } from 'lucide-react';
 
 export const Header: React.FC = () => {
