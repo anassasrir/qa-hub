@@ -1,0 +1,70 @@
+{
+  "$schema": "../schemas/project-config.schema.json",
+  "id": "demo-ecommerce",
+  "name": "Demo E-Commerce Store",
+  "description": "Boutique de démonstration pour les tests E2E, flux d'achat, panier et authentification",
+  "active": true,
+  "branding": {
+    "displayName": "Demo Store QA Hub",
+    "logoUrl": "/branding/demo-store.svg",
+    "primaryColor": "#2563eb",
+    "accentColor": "#f59e0b"
+  },
+  "issueTracker": {
+    "type": "jira",
+    "baseUrl": "https://jira.example.com/browse/",
+    "ticketRegex": "DEMO-[0-9]+",
+    "exampleTicket": "DEMO-101"
+  },
+  "git": {
+    "scopes": [
+      "auth",
+      "cart",
+      "checkout",
+      "catalog",
+      "account",
+      "search",
+      "ui"
+    ],
+    "branchPattern": "^(feat|fix|test|chore|docs)/DEMO-[0-9]+-[a-z0-9-]+$"
+  },
+  "ci": {
+    "provider": "github-actions",
+    "pipelineUrl": "https://github.com/example/demo-ecommerce-qa/actions"
+  },
+  "environments": {
+    "default": "staging",
+    "targets": {
+      "local": {
+        "baseUrl": "http://localhost:3000",
+        "apiBaseUrl": "http://localhost:4000/api"
+      },
+      "dev": {
+        "baseUrl": "https://dev.store.example.com",
+        "apiBaseUrl": "https://api-dev.store.example.com"
+      },
+      "staging": {
+        "baseUrl": "https://staging.store.example.com",
+        "apiBaseUrl": "https://api-staging.store.example.com"
+      },
+      "prod": {
+        "baseUrl": "https://store.example.com",
+        "apiBaseUrl": "https://api.store.example.com"
+      }
+    }
+  },
+  "secrets": {
+    "provider": "env",
+    "prefix": "DEMO_QA_"
+  },
+  "playwright": {
+    "testDir": "tests/demo-ecommerce",
+    "pageObjectsDir": "pages/demo-ecommerce",
+    "fixturesDir": "fixtures/demo-ecommerce",
+    "defaultTimeout": 30000,
+    "retries": {
+      "ci": 2,
+      "local": 0
+    }
+  }
+}

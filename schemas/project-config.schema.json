@@ -1,0 +1,178 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ProjectConfig",
+  "description": "Configuration schema for an isolated project/client within QA-Hub",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "branding",
+    "issueTracker",
+    "git",
+    "ci",
+    "environments",
+    "playwright"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$",
+      "description": "Unique identifier for the project in kebab-case (e.g. 'acme-shop')"
+    },
+    "name": {
+      "type": "string",
+      "description": "Full display name of the client or project"
+    },
+    "description": {
+      "type": "string",
+      "description": "Brief description of the application under test"
+    },
+    "active": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether this project is active in the test runner and dashboard"
+    },
+    "branding": {
+      "type": "object",
+      "required": ["displayName", "primaryColor"],
+      "properties": {
+        "displayName": {
+          "type": "string",
+          "description": "Name shown in the QA Dashboard header"
+        },
+        "logoUrl": {
+          "type": "string",
+          "description": "Path or URL to the client logo (SVG/PNG)"
+        },
+        "primaryColor": {
+          "type": "string",
+          "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+          "description": "Hex primary brand color (e.g. '#0284c7')"
+        },
+        "accentColor": {
+          "type": "string",
+          "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+          "description": "Optional hex accent color"
+        }
+      }
+    },
+    "issueTracker": {
+      "type": "object",
+      "required": ["type", "baseUrl", "ticketRegex"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["jira", "linear", "github", "gitlab", "azure-boards", "none"]
+        },
+        "baseUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "Base URL to view tickets (e.g. 'https://acme.atlassian.net/browse/')"
+        },
+        "ticketRegex": {
+          "type": "string",
+          "description": "Regex pattern matching ticket keys (e.g. 'ACM-[0-9]+')"
+        },
+        "exampleTicket": {
+          "type": "string",
+          "description": "Sample ticket key for validation and documentation (e.g. 'ACM-101')"
+        }
+      }
+    },
+    "git": {
+      "type": "object",
+      "required": ["scopes"],
+      "properties": {
+        "scopes": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Allowed conventional commit scopes for this project"
+        },
+        "branchPattern": {
+          "type": "string",
+          "description": "Regex pattern enforced on branch names (e.g. '^(feat|fix|test)/ACM-[0-9]+-[a-z0-9-]+$')"
+        }
+      }
+    },
+    "ci": {
+      "type": "object",
+      "required": ["provider"],
+      "properties": {
+        "provider": {
+          "type": "string",
+          "enum": ["github-actions", "gitlab-ci", "azure-pipelines", "bitbucket-pipelines", "local"]
+        },
+        "pipelineUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL to the CI dashboard/repository"
+        }
+      }
+    },
+    "environments": {
+      "type": "object",
+      "required": ["default", "targets"],
+      "properties": {
+        "default": {
+          "type": "string",
+          "description": "Default environment name to target if none is specified (e.g. 'staging')"
+        },
+        "targets": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["baseUrl"],
+            "properties": {
+              "baseUrl": { "type": "string", "format": "uri" },
+              "apiBaseUrl": { "type": "string" },
+              "extra": { "type": "object" }
+            }
+          }
+        }
+      }
+    },
+    "secrets": {
+      "type": "object",
+      "properties": {
+        "provider": {
+          "type": "string",
+          "enum": ["env", "infisical", "vault", "doppler"],
+          "default": "env"
+        },
+        "prefix": {
+          "type": "string",
+          "description": "Prefix used for environment variables (e.g. 'ACME_QA_')"
+        }
+      }
+    },
+    "playwright": {
+      "type": "object",
+      "required": ["testDir", "pageObjectsDir"],
+      "properties": {
+        "testDir": {
+          "type": "string",
+          "description": "Path relative to packages/playwright-tests/ (e.g. 'tests/acme-shop')"
+        },
+        "pageObjectsDir": {
+          "type": "string",
+          "description": "Path relative to packages/playwright-tests/ (e.g. 'pages/acme-shop')"
+        },
+        "fixturesDir": {
+          "type": "string",
+          "description": "Path relative to packages/playwright-tests/ (e.g. 'fixtures/acme-shop')"
+        },
+        "defaultTimeout": {
+          "type": "number",
+          "default": 30000
+        },
+        "retries": {
+          "type": "object",
+          "properties": {
+            "ci": { "type": "number", "default": 2 },
+            "local": { "type": "number", "default": 0 }
+          }
+        }
+      }
+    }
+  }
+}

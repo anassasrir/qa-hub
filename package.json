@@ -1,0 +1,37 @@
+{
+  "name": "qa-hub",
+  "version": "1.0.0",
+  "description": "Agnostic Enterprise QA Automation Framework, Agentic Starter Kit & White-Label Dashboard",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "pnpm --filter @qa-hub/playwright-tests test",
+    "test:project": "pnpm --filter @qa-hub/playwright-tests test:project",
+    "dashboard:dev": "pnpm --filter @qa-hub/qa-dashboard dev",
+    "dashboard:build": "pnpm --filter @qa-hub/qa-dashboard build",
+    "dashboard:start": "pnpm --filter @qa-hub/qa-dashboard start",
+    "scaffold": "node --loader ts-node/esm tools/scaffolder/index.ts",
+    "lint": "eslint . --ext .ts,.tsx,.js",
+    "typecheck": "pnpm -r --parallel exec tsc --noEmit",
+    "clean:reports": "rm -rf artifact test-results playwright-report apps/qa-dashboard/public/reports"
+  },
+  "keywords": [
+    "qa",
+    "playwright",
+    "automation",
+    "testing",
+    "agentic-ai",
+    "white-label",
+    "dashboard"
+  ],
+  "author": "Anas Srir",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.6.0"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
+  }
+}
