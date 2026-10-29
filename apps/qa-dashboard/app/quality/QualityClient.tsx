@@ -57,6 +57,16 @@ interface QualityClientProps {
   projects: ProjectQuality[];
 }
 
+function formatDeterministicDate(isoString: string): string {
+  if (!isoString) return "-";
+  const [datePart] = isoString.split("T");
+  if (datePart && datePart.includes("-")) {
+    const [year, month, day] = datePart.split("-");
+    return `${day}/${month}/${year}`;
+  }
+  return isoString;
+}
+
 function TrendBadge({ trend }: { trend?: MetricTrend }) {
   if (!trend) return null;
 
@@ -1516,95 +1526,227 @@ export default function QualityClient({ projects }: QualityClientProps) {
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-          {filteredProjects.map((project, idx) => {
-            const globalStatus = getGlobalStatus(project.metrics);
-            const hasNoData = Object.values(project.metrics).every(
-              (m) => m.status === "unknown",
-            );
+        {isProjectView ? (
+          /* Enhanced Form for filtered project */
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-7xl mx-auto">
+            {filteredProjects.map((project, idx) => {
+              const globalStatus = getGlobalStatus(project.metrics);
+              const hasNoData = Object.values(project.metrics).every(
+                (m) => m.status === "unknown",
+              );
 
-            return (
-              <div
-                key={`${project.id}-${idx}`}
-                className="bg-white rounded-3xl border border-slate-100 p-5 sm:p-6 shadow-sm transition-all hover:shadow-md group flex flex-col h-full"
-              >
-                <div className="flex items-start justify-between mb-5 flex-1">
-                  <div className="flex items-start gap-3 w-full">
-                    <div
-                      className="w-10 h-10 shrink-0 rounded-xl flex items-center justify-center text-white shadow-sm transition-colors mt-0.5"
-                      style={{
-                        backgroundColor: hasNoData
-                          ? THEME.colors.skipped
-                          : globalStatus.color,
-                      }}
-                    >
-                      <globalStatus.icon size={20} />
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <div className="flex flex-wrap items-center gap-1.5 mb-1">
-                        <h3 className="font-bold text-slate-900 leading-tight line-clamp-2 text-sm">
-                          {project.label}
-                        </h3>
-                        {project.type !== "other" && (
-                          <span className="px-1.5 py-0.2 rounded-md bg-slate-100 text-[8px] font-bold uppercase tracking-wider text-slate-500 shrink-0 font-mono">
-                            {project.type}
-                          </span>
-                        )}
+              return (
+                <div
+                  key={`${project.id}-${idx}`}
+                  className="bg-white rounded-3xl border border-slate-100 p-6 sm:p-8 shadow-sm transition-all hover:shadow-md flex flex-col h-full"
+                >
+                  {/* Enhanced Card Header */}
+                  <div className="flex items-start justify-between mb-6 pb-4 border-b border-slate-100">
+                    <div className="flex items-start gap-4">
+                      <div
+                        className="w-12 h-12 rounded-2xl flex items-center justify-center text-white shadow-sm shrink-0"
+                        style={{
+                          backgroundColor: hasNoData
+                            ? THEME.colors.skipped
+                            : globalStatus.color,
+                        }}
+                      >
+                        <globalStatus.icon size={24} />
                       </div>
-                      <div className="text-[10px] text-slate-400 font-mono flex items-center gap-1.5 uppercase tracking-wider font-semibold">
-                        <Clock size={10} />
-                        {new Date(project.lastUpdate).toLocaleDateString()}
+                      <div>
+                        <div className="flex flex-wrap items-center gap-2 mb-1">
+                          <h2 className="text-lg font-bold text-slate-900 leading-tight">
+                            {project.label}
+                          </h2>
+                          {project.type !== "other" && (
+                            <span className="px-2 py-0.5 rounded-md bg-slate-100 text-[9px] font-bold uppercase tracking-wider text-slate-600 font-mono">
+                              {project.type}
+                            </span>
+                          )}
+                          {project.ciJobName && (
+                            <span className="px-2 py-0.5 rounded-md bg-blue-50 text-[9px] font-bold text-blue-600 font-mono border border-blue-100">
+                              CI: {project.ciJobName}
+                            </span>
+                          )}
+                        </div>
+                        <div
+                          suppressHydrationWarning
+                          className="text-[11px] text-slate-400 font-mono flex items-center gap-2 uppercase tracking-wider font-semibold"
+                        >
+                          <Clock size={12} />
+                          Mis à jour le {formatDeterministicDate(project.lastUpdate)}
+                        </div>
+                      </div>
+                    </div>
+
+                    {project.repoUrl && (
+                      <a
+                        href={project.repoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2 text-slate-400 hover:text-blue-600 hover:bg-blue-50 rounded-xl transition-all border border-slate-200"
+                        title="Voir le dépôt Git"
+                      >
+                        <ExternalLink size={14} />
+                      </a>
+                    )}
+                  </div>
+
+                  {/* Enhanced 2-column Grid with expanded details */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+                    {METRICS.filter((m) => visibleKpis.includes(m.id)).map(
+                      (m) => (
+                        <MetricCell
+                          key={m.id}
+                          label={m.label}
+                          showLabel
+                          value={
+                            project.metrics[
+                              m.id as keyof ProjectQuality["metrics"]
+                            ].value
+                          }
+                          status={
+                            project.metrics[
+                              m.id as keyof ProjectQuality["metrics"]
+                            ].status
+                          }
+                          trend={
+                            project.metrics[
+                              m.id as keyof ProjectQuality["metrics"]
+                            ].trend
+                          }
+                          details={
+                            project.metrics[
+                              m.id as keyof ProjectQuality["metrics"]
+                            ].details
+                          }
+                          variant="default"
+                          metricId={m.id}
+                          onViewDetails={() =>
+                            setModalState({
+                              isOpen: true,
+                              metricId: m.id,
+                              project: project,
+                            })
+                          }
+                        />
+                      ),
+                    )}
+                  </div>
+
+                  {/* Enhanced Sonar Ratings Bar */}
+                  {visibleKpis.includes("sonar") && (
+                    <div className="mt-auto pt-2">
+                      <SonarRatings
+                        metrics={project.metrics}
+                        projectId={project.id}
+                        sonarKey={project.sonarKey}
+                        isLinkable={true}
+                      />
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        ) : (
+          /* Standard Board Layout for all projects overview */
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+            {filteredProjects.map((project, idx) => {
+              const globalStatus = getGlobalStatus(project.metrics);
+              const hasNoData = Object.values(project.metrics).every(
+                (m) => m.status === "unknown",
+              );
+
+              return (
+                <div
+                  key={`${project.id}-${idx}`}
+                  onClick={() =>
+                    handleProjectChange(project.parentProjectId || project.id)
+                  }
+                  className="bg-white rounded-3xl border border-slate-100 p-5 sm:p-6 shadow-sm transition-all hover:shadow-md group flex flex-col h-full cursor-pointer active:scale-[0.99]"
+                >
+                  <div className="flex items-start justify-between mb-5 flex-1">
+                    <div className="flex items-start gap-3 w-full">
+                      <div
+                        className="w-10 h-10 shrink-0 rounded-xl flex items-center justify-center text-white shadow-sm transition-colors mt-0.5"
+                        style={{
+                          backgroundColor: hasNoData
+                            ? THEME.colors.skipped
+                            : globalStatus.color,
+                        }}
+                      >
+                        <globalStatus.icon size={20} />
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <div className="flex flex-wrap items-center gap-1.5 mb-1">
+                          <h3 className="font-bold text-slate-900 leading-tight line-clamp-2 text-sm group-hover:text-blue-600 transition-colors">
+                            {project.label}
+                          </h3>
+                          {project.type !== "other" && (
+                            <span className="px-1.5 py-0.2 rounded-md bg-slate-100 text-[8px] font-bold uppercase tracking-wider text-slate-500 shrink-0 font-mono">
+                              {project.type}
+                            </span>
+                          )}
+                        </div>
+                        <div
+                          suppressHydrationWarning
+                          className="text-[10px] text-slate-400 font-mono flex items-center gap-1.5 uppercase tracking-wider font-semibold"
+                        >
+                          <Clock size={10} />
+                          {formatDeterministicDate(project.lastUpdate)}
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
 
-                <div className="grid grid-cols-2 gap-2">
-                  {METRICS.filter((m) => visibleKpis.includes(m.id)).map(
-                    (m) => (
-                      <MetricCell
-                        key={m.id}
-                        label={m.label}
-                        value={
-                          project.metrics[
-                            m.id as keyof ProjectQuality["metrics"]
-                          ].value
-                        }
-                        status={
-                          project.metrics[
-                            m.id as keyof ProjectQuality["metrics"]
-                          ].status
-                        }
-                        trend={
-                          project.metrics[
-                            m.id as keyof ProjectQuality["metrics"]
-                          ].trend
-                        }
-                        variant="compact"
-                        metricId={m.id}
-                        onViewDetails={() =>
-                          setModalState({
-                            isOpen: true,
-                            metricId: m.id,
-                            project: project,
-                          })
-                        }
-                      />
-                    ),
+                  <div className="grid grid-cols-2 gap-2">
+                    {METRICS.filter((m) => visibleKpis.includes(m.id)).map(
+                      (m) => (
+                        <MetricCell
+                          key={m.id}
+                          label={m.label}
+                          value={
+                            project.metrics[
+                              m.id as keyof ProjectQuality["metrics"]
+                            ].value
+                          }
+                          status={
+                            project.metrics[
+                              m.id as keyof ProjectQuality["metrics"]
+                            ].status
+                          }
+                          trend={
+                            project.metrics[
+                              m.id as keyof ProjectQuality["metrics"]
+                            ].trend
+                          }
+                          variant="compact"
+                          metricId={m.id}
+                          onViewDetails={() =>
+                            setModalState({
+                              isOpen: true,
+                              metricId: m.id,
+                              project: project,
+                            })
+                          }
+                        />
+                      ),
+                    )}
+                  </div>
+                  {visibleKpis.includes("sonar") && (
+                    <SonarRatings
+                      metrics={project.metrics}
+                      projectId={project.id}
+                      sonarKey={project.sonarKey}
+                      isLinkable={true}
+                    />
                   )}
                 </div>
-                {visibleKpis.includes("sonar") && (
-                  <SonarRatings
-                    metrics={project.metrics}
-                    projectId={project.id}
-                    sonarKey={project.sonarKey}
-                    isLinkable={true}
-                  />
-                )}
-              </div>
-            );
-          })}
-        </div>
+              );
+            })}
+          </div>
+        )}
 
         {allProjects.length === 0 && (
           <div className="bg-slate-50 p-16 rounded-3xl border border-slate-200 border-dashed flex flex-col items-center justify-center text-center min-h-[300px]">
