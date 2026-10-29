@@ -1,0 +1,21 @@
+import type { Locator, Page } from '@playwright/test';
+import { BasePage } from '../../src/core/BasePage.js';
+
+export class {{PageName}} extends BasePage {
+  // Définition des sélecteurs
+  public readonly primaryAction: Locator;
+
+  constructor(page: Page, baseUrl = '') {
+    super(page, baseUrl);
+    this.primaryAction = page.getByRole('button', { name: /{{ActionName}}/i });
+  }
+
+  public async open(): Promise<void> {
+    await this.goto('{{Path}}');
+  }
+
+  public async executeAction(): Promise<void> {
+    this.logger.step('Exécution de {{ActionName}}');
+    await this.click(this.primaryAction);
+  }
+}

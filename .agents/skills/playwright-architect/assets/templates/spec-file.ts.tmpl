@@ -1,0 +1,15 @@
+import { test, expect } from '../../src/fixtures/index.js';
+import { {{PageName}} } from '../../pages/{{ProjectId}}/{{PageName}}.js';
+
+test.describe('[{{TicketId}}] {{FeatureTitle}}', () => {
+  test('{{ScenarioTitle}}', async ({ page, targetEnv, logger }) => {
+    logger.info(\`Exécution sur l'environnement \${targetEnv.name}\`);
+
+    const pageObj = new {{PageName}}(page, targetEnv.env.baseUrl);
+    await pageObj.open();
+    await pageObj.executeAction();
+
+    // Assertions de validation
+    await expect(page).toBeDefined();
+  });
+});
