@@ -266,35 +266,28 @@ export function formatMetric(
   }
 }
 
-const PROJECTS = [
-  {
-    id: "savings-frontend",
-    label: "savings-frontend",
-    folder: "savings-frontend",
-  },
-  { id: "lclmp-frontend", label: "lclmp-frontend", folder: "lclmp-frontend" },
-  {
-    id: "advisory-frontend",
-    label: "advisory-frontend",
-    folder: "advisory-frontend",
-  },
-  {
-    id: "savings-backend",
-    label: "savings-backend",
-    folder: "savings-backend",
-  },
-  {
-    id: "wealth-advisory-backend",
-    label: "wealth-advisory-backend",
-    folder: "wealth-advisory-backend",
-  },
-  {
-    id: "wealth-algo-service",
-    label: "wealth-algo-service",
-    folder: "wealth-algo-service",
-  },
-  { id: "tms", label: "qa-dashboard", folder: "wesave-test-qa" },
-];
+function getRegisteredProjects(): { id: string; label: string; folder: string }[] {
+  try {
+    let registryPath = path.resolve(process.cwd(), "lib/projects-registry.json");
+    if (!fs.existsSync(registryPath)) {
+      const alt = path.resolve(process.cwd(), "apps/qa-dashboard/lib/projects-registry.json");
+      if (fs.existsSync(alt)) registryPath = alt;
+    }
+    if (fs.existsSync(registryPath)) {
+      const raw = JSON.parse(fs.readFileSync(registryPath, "utf-8"));
+      return raw
+        .filter((p: { id: string }) => p.id !== "all")
+        .map((p: { id: string; label: string }) => ({
+          id: p.id,
+          label: p.label || p.id,
+          folder: p.id,
+        }));
+    }
+  } catch (err) {
+    console.error("Error reading projects-registry:", err);
+  }
+  return [];
+}
 
 const METRIC_FILES = {
   eslint: "eslint.json",
@@ -317,9 +310,15 @@ const METRIC_LABELS: Record<string, string> = {
 };
 
 export function getQualityData(): ProjectQuality[] {
-  const dataDir = path.join(process.cwd(), "data");
+  let dataDir = path.join(process.cwd(), "data");
+  if (!fs.existsSync(dataDir)) {
+    const alt = path.join(process.cwd(), "apps/qa-dashboard/data");
+    if (fs.existsSync(alt)) dataDir = alt;
+  }
 
-  return PROJECTS.map((project) => {
+  const projects = getRegisteredProjects();
+
+  return projects.map((project) => {
     const projectDir = path.join(dataDir, project.folder);
     const metrics: Record<string, unknown> = {};
     let latestMtime = 0;

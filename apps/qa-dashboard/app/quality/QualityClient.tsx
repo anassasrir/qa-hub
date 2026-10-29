@@ -115,13 +115,7 @@ const RATING_STYLES: Record<
 };
 
 const PROJECT_SONAR_MAP: Record<string, string> = {
-  "savings-frontend": "anatec_savings-frontend",
-  "savings-backend": "anatec_savings-backend",
-  "lclmp-frontend": "anatec_tpbp-front",
-  "wealth-advisory-backend": "anatec_welearn-back",
-  "wealth-algo-service": "anatec_algo-service",
-  "advisory-frontend": "anatec_advisory-frontend",
-  tms: "anatec_wesave-test-qa",
+  "demo-ecommerce": "demo-ecommerce",
 };
 
 function SonarRatingCircle({
@@ -166,7 +160,7 @@ function SonarRatings({
 }) {
   const sonar = metrics.sonar;
   const details = sonar?.details || {};
-  const sonarId = PROJECT_SONAR_MAP[projectId] || `anatec_${projectId}`;
+  const sonarId = PROJECT_SONAR_MAP[projectId] || projectId;
   const sonarUrl = `https://sonarcloud.io/project/overview?id=${sonarId}`;
 
   const containerClassName = `flex items-start p-2 rounded-xl border transition-all relative group/cell mt-2 w-full ${

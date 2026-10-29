@@ -4,16 +4,10 @@ import path from "path";
 
 const SONAR_URL = (process.env.SONAR_URL || "https://sonarcloud.io").trim();
 const SONAR_TOKEN = process.env.SONAR_TOKEN?.trim();
-const SONAR_ORGANIZATION = (process.env.SONAR_ORGANIZATION || "anatec").trim();
+const SONAR_ORGANIZATION = (process.env.SONAR_ORGANIZATION || "").trim();
 
 const PROJECT_SONAR_MAP: Record<string, string> = {
-  "savings-frontend": "anatec_savings-frontend",
-  "savings-backend": "anatec_savings-backend",
-  "lclmp-frontend": "anatec_tpbp-front",
-  "wealth-advisory-backend": "anatec_welearn-back",
-  "wealth-algo-service": "anatec_algo-service",
-  "advisory-frontend": "anatec_advisory-frontend",
-  "wesave-test-qa": "anatec_qa-dashboard", // Mise à jour de la clé probable
+  "demo-ecommerce": "demo-ecommerce",
 };
 
 const METRICS = [
