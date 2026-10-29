@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "value": "Passed",
+  "alert_status": "OK",
+  "details": {
+    "Security": "A",
+    "Reliability": "A",
+    "Maintainability": "A",
+    "Hotspots Reviewed": "100.0%",
+    "Coverage": "85.0%",
+    "Duplications": "0.0%"
+  },
+  "lastUpdate": "2026-10-29T16:36:09.721Z"
+}

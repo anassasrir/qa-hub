@@ -1,0 +1,11 @@
+{
+  "errors": 0,
+  "warnings": 0,
+  "status": "passed",
+  "messagesList": [],
+  "details": {
+    "Linter": "ESLint v9",
+    "Règles": "Standard Next.js"
+  },
+  "lastUpdate": "2026-10-29T16:36:09.721Z"
+}

@@ -87,6 +87,10 @@ export interface ProjectQuality {
   id: string;
   label: string;
   type: "frontend" | "backend" | "other";
+  parentProjectId?: string;
+  sonarKey?: string;
+  repoUrl?: string;
+  ciJobName?: string;
   metrics: {
     eslint: LintQualityMetric;
     vuetsclint: LintQualityMetric;
@@ -266,27 +270,66 @@ export function formatMetric(
   }
 }
 
-function getRegisteredProjects(): { id: string; label: string; folder: string }[] {
+interface RegisteredRepo {
+  id: string;
+  label: string;
+  folder: string;
+  type: "frontend" | "backend" | "other";
+  parentProjectId: string;
+  sonarKey?: string;
+  repoUrl?: string;
+  ciJobName?: string;
+}
+
+function getRegisteredRepositories(): RegisteredRepo[] {
+  const repos: RegisteredRepo[] = [];
   try {
-    let registryPath = path.resolve(process.cwd(), "lib/projects-registry.json");
-    if (!fs.existsSync(registryPath)) {
-      const alt = path.resolve(process.cwd(), "apps/qa-dashboard/lib/projects-registry.json");
-      if (fs.existsSync(alt)) registryPath = alt;
+    let projectsDir = path.resolve(process.cwd(), "projects");
+    if (!fs.existsSync(projectsDir)) {
+      const alt = path.resolve(process.cwd(), "../../projects");
+      if (fs.existsSync(alt)) projectsDir = alt;
     }
-    if (fs.existsSync(registryPath)) {
-      const raw = JSON.parse(fs.readFileSync(registryPath, "utf-8"));
-      return raw
-        .filter((p: { id: string }) => p.id !== "all")
-        .map((p: { id: string; label: string }) => ({
-          id: p.id,
-          label: p.label || p.id,
-          folder: p.id,
-        }));
+
+    if (fs.existsSync(projectsDir)) {
+      const files = fs.readdirSync(projectsDir).filter((f) => f.endsWith(".json"));
+      for (const file of files) {
+        try {
+          const raw = fs.readFileSync(path.join(projectsDir, file), "utf-8");
+          const project = JSON.parse(raw);
+          if (!project.id || project.active === false) continue;
+
+          if (project.quality?.repositories && Array.isArray(project.quality.repositories)) {
+            for (const repo of project.quality.repositories) {
+              repos.push({
+                id: repo.id,
+                label: repo.name || repo.id,
+                folder: repo.id,
+                type: repo.type === "backend" ? "backend" : "frontend",
+                parentProjectId: project.id,
+                sonarKey: repo.sonarKey || project.quality?.sonar?.projectKey,
+                repoUrl: repo.repoUrl,
+                ciJobName: repo.ci?.jobName,
+              });
+            }
+          } else {
+            repos.push({
+              id: project.id,
+              label: project.branding?.displayName || project.name || project.id,
+              folder: project.id,
+              type: "frontend",
+              parentProjectId: project.id,
+              sonarKey: project.quality?.sonar?.projectKey || project.id,
+            });
+          }
+        } catch (e) {
+          console.error(`Error reading ${file} in parseQuality:`, e);
+        }
+      }
     }
   } catch (err) {
-    console.error("Error reading projects-registry:", err);
+    console.error("Error loading repositories in parseQuality:", err);
   }
-  return [];
+  return repos;
 }
 
 const METRIC_FILES = {
@@ -316,7 +359,7 @@ export function getQualityData(): ProjectQuality[] {
     if (fs.existsSync(alt)) dataDir = alt;
   }
 
-  const projects = getRegisteredProjects();
+  const projects = getRegisteredRepositories();
 
   return projects.map((project) => {
     const projectDir = path.join(dataDir, project.folder);
@@ -362,16 +405,14 @@ export function getQualityData(): ProjectQuality[] {
       };
     }
 
-    let type: "frontend" | "backend" | "other" = "other";
-    if (project.id.includes("-frontend")) type = "frontend";
-    else if (project.id.includes("-backend")) type = "backend";
-    else if (project.id === "tms" || project.id.includes("-blog"))
-      type = "frontend";
-
     return {
       id: project.id,
       label: project.label,
-      type,
+      type: project.type,
+      parentProjectId: project.parentProjectId,
+      sonarKey: project.sonarKey,
+      repoUrl: project.repoUrl,
+      ciJobName: project.ciJobName,
       metrics: metrics as ProjectQuality["metrics"],
       lastUpdate:
         latestMtime > 0

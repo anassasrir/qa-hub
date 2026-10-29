@@ -53,6 +53,32 @@ export interface PlaywrightProjectConfig {
   };
 }
 
+export interface SonarConfig {
+  hostUrl?: string;
+  organization?: string;
+  projectKey?: string;
+}
+
+export interface QualityRepositoryConfig {
+  id: string;
+  name: string;
+  type: 'frontend' | 'backend' | 'fullstack' | 'mobile' | 'qa' | 'other';
+  repoUrl?: string;
+  branch?: string;
+  sonarKey?: string;
+  ci?: {
+    provider?: CIProvider;
+    pipelineUrl?: string;
+    jobName?: string;
+    artifactPath?: string;
+  };
+}
+
+export interface QualityConfig {
+  sonar?: SonarConfig;
+  repositories?: QualityRepositoryConfig[];
+}
+
 export interface ProjectConfig {
   $schema?: string;
   id: string;
@@ -66,4 +92,5 @@ export interface ProjectConfig {
   environments: EnvironmentsConfig;
   secrets?: SecretsConfig;
   playwright: PlaywrightProjectConfig;
+  quality?: QualityConfig;
 }

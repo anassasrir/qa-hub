@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "percentage": 85,
+  "details": {
+    "Statements": 85,
+    "Branches": 78,
+    "Functions": 82,
+    "Lines": 85
+  },
+  "lastUpdate": "2026-10-29T16:36:09.721Z"
+}

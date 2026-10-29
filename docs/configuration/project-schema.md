@@ -96,3 +96,14 @@ Le cœur de l'agnosticisme de **QA-Hub** réside dans le découplage des projets
 
 ### 5. Playwright & Chemins
 - Définit l'emplacement exact des tests, des Page Objects et des fixtures pour ce projet dans `packages/playwright-tests/`.
+
+### 6. Qualité de Code, Sonar & Repositories (`quality`)
+- `sonar` : Configuration globale SonarQube / SonarCloud (`hostUrl`, `organization`, `projectKey`).
+- `repositories` : Liste des dépôts sources (frontend, backend, microservices, etc.) à auditer :
+  - `id` : Identifiant unique du repository (ex: `qa-dashboard`, `demo-store-frontend`).
+  - `name` : Nom lisible du composant.
+  - `type` : `"frontend"`, `"backend"`, `"fullstack"`, `"mobile"`, ou `"qa"`.
+  - `repoUrl` : URL Git vers le dépôt source.
+  - `branch` : Branche par défaut auditée (ex: `main` ou `develop`).
+  - `sonarKey` : Clé de projet Sonar dédiée au composant.
+  - `ci` : Fournisseur CI (`github-actions`, `gitlab-ci`), nom du job de scan (`jobName`) et URL du pipeline.

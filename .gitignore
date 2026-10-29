@@ -15,6 +15,7 @@ playwright-report/
 blob-report/
 playwright/.cache/
 artifact/
+*.tsbuildinfo
 *.lcov
 
 # Environment and secrets

@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "totalDependencies": 42,
+  "vulnerabilities": {
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0
+  },
+  "lastUpdate": "2026-10-29T16:36:09.721Z"
+}

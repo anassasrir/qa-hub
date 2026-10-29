@@ -173,6 +173,72 @@
           }
         }
       }
+    },
+    "quality": {
+      "type": "object",
+      "description": "Configuration for code quality, security scans and Sonar integration",
+      "properties": {
+        "sonar": {
+          "type": "object",
+          "properties": {
+            "hostUrl": { "type": "string", "format": "uri", "default": "https://sonarcloud.io" },
+            "organization": { "type": "string", "description": "SonarCloud organization or SonarQube instance key" },
+            "projectKey": { "type": "string", "description": "Global project key on Sonar" }
+          }
+        },
+        "repositories": {
+          "type": "array",
+          "description": "List of source code repositories monitored for quality and security",
+          "items": {
+            "type": "object",
+            "required": ["id", "name", "type"],
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z0-9-]+$",
+                "description": "Unique identifier for the repository/component (e.g. 'qa-dashboard', 'api-backend')"
+              },
+              "name": {
+                "type": "string",
+                "description": "Display name of the component"
+              },
+              "type": {
+                "type": "string",
+                "enum": ["frontend", "backend", "fullstack", "mobile", "qa", "other"],
+                "default": "frontend"
+              },
+              "repoUrl": {
+                "type": "string",
+                "description": "Git repository URL (e.g. 'https://github.com/org/repo.git')"
+              },
+              "branch": {
+                "type": "string",
+                "default": "main",
+                "description": "Default branch monitored for quality"
+              },
+              "sonarKey": {
+                "type": "string",
+                "description": "Specific Sonar project key for this component"
+              },
+              "ci": {
+                "type": "object",
+                "properties": {
+                  "provider": {
+                    "type": "string",
+                    "enum": ["github-actions", "gitlab-ci", "azure-pipelines", "bitbucket-pipelines", "local"]
+                  },
+                  "pipelineUrl": { "type": "string", "format": "uri" },
+                  "jobName": {
+                    "type": "string",
+                    "description": "CI job name producing quality and test reports (e.g. 'quality-check', 'lint-test')"
+                  },
+                  "artifactPath": { "type": "string", "description": "Path to the uploaded coverage/linter report" }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

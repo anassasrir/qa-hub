@@ -66,5 +66,53 @@
       "ci": 2,
       "local": 0
     }
+  },
+  "quality": {
+    "sonar": {
+      "hostUrl": "https://sonarcloud.io",
+      "organization": "demo-ecommerce-org",
+      "projectKey": "demo-ecommerce-portal"
+    },
+    "repositories": [
+      {
+        "id": "qa-dashboard",
+        "name": "QA Dashboard Portal",
+        "type": "frontend",
+        "repoUrl": "https://github.com/example/qa-hub",
+        "branch": "main",
+        "sonarKey": "demo-ecommerce_qa-dashboard",
+        "ci": {
+          "provider": "github-actions",
+          "jobName": "lint-and-typecheck",
+          "pipelineUrl": "https://github.com/example/qa-hub/actions"
+        }
+      },
+      {
+        "id": "demo-store-frontend",
+        "name": "Store Web Frontend",
+        "type": "frontend",
+        "repoUrl": "https://github.com/example/demo-store-frontend",
+        "branch": "main",
+        "sonarKey": "demo-ecommerce_store-frontend",
+        "ci": {
+          "provider": "github-actions",
+          "jobName": "quality-check",
+          "pipelineUrl": "https://github.com/example/demo-store-frontend/actions"
+        }
+      },
+      {
+        "id": "demo-store-backend",
+        "name": "Store API Backend",
+        "type": "backend",
+        "repoUrl": "https://github.com/example/demo-store-backend",
+        "branch": "main",
+        "sonarKey": "demo-ecommerce_store-backend",
+        "ci": {
+          "provider": "github-actions",
+          "jobName": "test-and-audit",
+          "pipelineUrl": "https://github.com/example/demo-store-backend/actions"
+        }
+      }
+    ]
   }
 }

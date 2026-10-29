@@ -14,6 +14,7 @@
     "dashboard:build": "pnpm --filter @qa-hub/qa-dashboard build",
     "dashboard:start": "pnpm --filter @qa-hub/qa-dashboard start",
     "scaffold": "node tools/scaffolder/index.ts",
+    "scan:quality": "node tools/quality/scan-local.ts",
     "secrets:run": "node tools/secrets/run-with-secrets.ts",
     "lint": "eslint . --ext .ts,.tsx,.js",
     "typecheck": "pnpm -r --parallel exec tsc --noEmit",
