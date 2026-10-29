@@ -9,8 +9,11 @@ Ce guide permet d'installer **QA-Hub** et d'exécuter un premier test en moins d
 ```bash
 git clone <url-du-repo> qa-hub
 cd qa-hub
-pnpm install
+
+# Installation des dépendances et téléchargement des navigateurs Playwright
+pnpm setup
 ```
+> 💡 *Note : Si vous avez fait `pnpm install` manuellement, lancez simplement `pnpm test:install` pour télécharger les binaires Chromium de Playwright.*
 
 ---
 
@@ -41,7 +44,17 @@ Rendez-vous sur [http://localhost:3000](http://localhost:3000) pour observer :
 
 ---
 
-## 🚀 4. Initialiser Votre Premier Client
+## 🔐 4. Exécuter avec un Gestionnaire de Secrets
+
+Si votre client utilise Infisical ou Doppler :
+```bash
+# Encapsule automatiquement selon le secrets.provider du projet
+pnpm secrets:run -- pnpm test
+```
+
+---
+
+## 🚀 5. Initialiser Votre Premier Client
 
 ```bash
 # 1. Dupliquer le fichier de configuration modèle

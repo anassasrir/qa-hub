@@ -13,7 +13,7 @@ Bienvenue dans la documentation officielle du framework **QA-Hub**.
 ### 2. Gestion des Projets & Clients
 * [03 - Schéma de Configuration JSON](./configuration/project-schema.md)
 * [04 - Ajouter & Onboarder un Nouveau Projet](./projects-and-clients/adding-a-project.md)
-* [05 - Gestion des Environnements & Secrets](./configuration/environments-and-secrets.md)
+* [05 - Gestion des Environnements & Secrets (Infisical, Doppler, Vault)](./configuration/environments-and-secrets.md)
 
 ### 3. QA Dashboard (Marque Blanche)
 * [06 - Architecture Marque Blanche & Theming Dynamique](./qa-dashboard/white-label-guide.md)
@@ -23,6 +23,7 @@ Bienvenue dans la documentation officielle du framework **QA-Hub**.
 * [08 - Architecture POM & COM](./playwright-architecture/pom-and-com.md)
 * [09 - Tests Visuels et A/B Testing](./playwright-architecture/visual-testing.md)
 * [10 - Fixtures et Mocks Réseau](./playwright-architecture/fixtures-and-mocking.md)
+* [17 - BDD Gherkin vs Playwright Natif : Analyse & Recommandations](./playwright-architecture/bdd-vs-native.md)
 
 ### 5. Écosystème Multi-Agents IA
 * [11 - Master Workflow d'Orchestration](./agents-and-skills/master-workflow.md)
