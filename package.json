@@ -17,6 +17,7 @@
     "secrets:run": "node tools/secrets/run-with-secrets.ts",
     "lint": "eslint . --ext .ts,.tsx,.js",
     "typecheck": "pnpm -r --parallel exec tsc --noEmit",
+    "clean:cache": "rm -rf apps/qa-dashboard/.next apps/qa-dashboard/.turbo",
     "clean:reports": "rm -rf artifact test-results playwright-report apps/qa-dashboard/public/reports"
   },
   "keywords": [
