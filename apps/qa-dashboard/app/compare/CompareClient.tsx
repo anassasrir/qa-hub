@@ -230,9 +230,10 @@ export default function CompareClient({ history }: CompareClientProps) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  // On ne compare que les runs officiels de la CI
+  // Runs à comparer (CI ou runs locaux si pas de CI)
   const ciHistory = useMemo(() => {
-    return history.filter((run) => run.id.toLowerCase().includes("ci run"));
+    const hasCi = history.some((run) => run.id.toLowerCase().includes("ci run"));
+    return hasCi ? history.filter((run) => run.id.toLowerCase().includes("ci run")) : history;
   }, [history]);
 
   const selectedProject = searchParams.get("project") || "all";

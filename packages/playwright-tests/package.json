@@ -1,20 +1,22 @@
 {
   "name": "@qa-hub/playwright-tests",
   "version": "1.0.0",
-  "description": "Enterprise Agnostic Playwright Automation Suite",
+  "description": "Enterprise Agnostic Playwright Automation Suite with BDD Gherkin Integration",
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "playwright test",
-    "test:project": "node scripts/run-project.js",
-    "test:ui": "playwright test --ui",
-    "test:headed": "playwright test --headed",
-    "test:debug": "playwright test --debug",
+    "bdd:gen": "bddgen",
+    "test": "bddgen && playwright test",
+    "test:ui": "bddgen && playwright test --ui",
+    "test:headed": "bddgen && playwright test --headed",
+    "test:debug": "bddgen && playwright test --debug",
     "report": "playwright show-report",
+    "clean": "rm -rf .features-gen test-results playwright-report",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@playwright/test": "^1.49.0"
+    "@playwright/test": "^1.49.0",
+    "playwright-bdd": "^9.2.0"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",

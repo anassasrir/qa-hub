@@ -34,7 +34,8 @@ function getAllRuns(): RunData[] {
           const filePath = path.join(artifactPath, folder, "test-results", "results.json");
           if (fs.existsSync(filePath)) {
             try {
-              const run = parsePlaywrightJson(filePath, `Local Run - ${folder}`, folder);
+              const isoDate = folder.replace(/T(\d{2})-(\d{2})-(\d{2})-(\d{3})Z/, "T$1:$2:$3.$4Z");
+              const run = parsePlaywrightJson(filePath, `Local Run - ${folder}`, isoDate);
               if (run) allRuns.push(run);
             } catch (e) {
               console.error(`Failed to parse local run ${folder}:`, e);

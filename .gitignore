@@ -9,6 +9,7 @@ dist/
 build/
 
 # Test artifacts and reports
+.features-gen/
 test-results/
 playwright-report/
 blob-report/

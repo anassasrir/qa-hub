@@ -64,17 +64,17 @@ export function scaffoldProject(projectInput: string): void {
   }
 
   const { id, name, issueTracker, environments } = config;
-  console.log(`\n🚀 Initialisation de l'infrastructure pour le projet : ${name} (${id})`);
+  console.log(`\n🚀 Initialisation de l'infrastructure BDD pour le projet : ${name} (${id})`);
 
   const pwTestsRoot = path.join(ROOT_DIR, 'packages/playwright-tests');
   const pagesDir = path.join(pwTestsRoot, 'pages', id);
-  const testsDir = path.join(pwTestsRoot, 'tests', id);
+  const specsDir = path.join(pwTestsRoot, 'specs', id);
+  const stepsDir = path.join(pwTestsRoot, 'steps', id);
   const fixturesDir = path.join(pwTestsRoot, 'fixtures', id);
   const docsDir = path.join(ROOT_DIR, 'docs/projects');
-  const dashboardConfigDir = path.join(ROOT_DIR, 'apps/qa-dashboard/src/config');
 
   // 1. Create directories
-  [pagesDir, path.join(pagesDir, 'components'), testsDir, fixturesDir, docsDir, dashboardConfigDir].forEach((dir) => {
+  [pagesDir, path.join(pagesDir, 'components'), specsDir, stepsDir, fixturesDir, docsDir].forEach((dir) => {
     if (!fs.existsSync(dir)) {
       fs.mkdirSync(dir, { recursive: true });
     }
@@ -108,32 +108,51 @@ export class HomePage extends BasePage {
     console.log(`  ✅ Créé : ${path.relative(ROOT_DIR, homePagePath)}`);
   }
 
-  // 3. Generate smoke.spec.ts
+  // 3. Generate smoke.feature (Gherkin Living Spec)
   const sampleTicket = issueTracker.exampleTicket || 'QA-001';
-  const smokeSpecPath = path.join(testsDir, 'smoke.spec.ts');
-  if (!fs.existsSync(smokeSpecPath)) {
-    const smokeSpecContent = `import { test, expect } from '../../src/fixtures/index.js';
-import { HomePage } from '../../pages/${id}/HomePage.js';
+  const smokeFeaturePath = path.join(specsDir, 'smoke.feature');
+  if (!fs.existsSync(smokeFeaturePath)) {
+    const smokeFeatureContent = `# language: fr
+@${id} @smoke @p0
+Fonctionnalité: Chargement et disponibilité de ${name}
 
-test.describe('[${sampleTicket}] Tests Smoke - ${name}', () => {
-  test('vérifie la disponibilité et le chargement de la page d’accueil', async ({ page, targetEnv, logger }) => {
-    logger.info(\`Exécution sur l'environnement cible : \${targetEnv.name} (\${targetEnv.env.baseUrl})\`);
-
-    const homePage = new HomePage(page, targetEnv.env.baseUrl);
-    await homePage.open();
-
-    const title = await homePage.getTitle();
-    logger.step(\`Titre de la page reçu : "\${title}"\`);
-    expect(title).toBeDefined();
-    await expect(homePage.header).toBeVisible();
-  });
-});
+  Scénario: vérifie la disponibilité de l'application
+    Étant donné que l'utilisateur accède à l'application ${name}
+    Quand la page d'accueil est chargée
+    Alors l'entête principale est visible
 `;
-    fs.writeFileSync(smokeSpecPath, smokeSpecContent, 'utf-8');
-    console.log(`  ✅ Créé : ${path.relative(ROOT_DIR, smokeSpecPath)}`);
+    fs.writeFileSync(smokeFeaturePath, smokeFeatureContent, 'utf-8');
+    console.log(`  ✅ Créé : ${path.relative(ROOT_DIR, smokeFeaturePath)}`);
   }
 
-  // 4. Generate Project Documentation
+  // 4. Generate smoke.steps.ts (Playwright BDD Steps)
+  const smokeStepsPath = path.join(stepsDir, 'smoke.steps.ts');
+  if (!fs.existsSync(smokeStepsPath)) {
+    const smokeStepsContent = `import { expect } from '@playwright/test';
+import { Given, When, Then } from '../bdd.js';
+import { HomePage } from '../../pages/${id}/HomePage.js';
+
+let homePage: HomePage;
+
+Given("l'utilisateur accède à l'application ${name}", async ({ page, targetEnv, logger }) => {
+  logger.info(\`Ouverture de l'application sur \${targetEnv.name} (\${targetEnv.env.baseUrl})\`);
+  homePage = new HomePage(page, targetEnv.env.baseUrl);
+  await homePage.open();
+});
+
+When("la page d'accueil est chargée", async () => {
+  await homePage.waitForVisible(homePage.header);
+});
+
+Then("l'entête principale est visible", async () => {
+  await expect(homePage.header).toBeVisible();
+});
+`;
+    fs.writeFileSync(smokeStepsPath, smokeStepsContent, 'utf-8');
+    console.log(`  ✅ Créé : ${path.relative(ROOT_DIR, smokeStepsPath)}`);
+  }
+
+  // 5. Generate Project Documentation
   const docPath = path.join(docsDir, `${id}.md`);
   if (!fs.existsSync(docPath)) {
     const defaultEnv = environments.default;
@@ -151,8 +170,9 @@ test.describe('[${sampleTicket}] Tests Smoke - ${name}', () => {
 
 ---
 
-## 📂 Organisation du Code
-- **Tests Playwright :** \`packages/playwright-tests/tests/${id}/\`
+## 📂 Organisation du Code (Playwright BDD)
+- **Spécifications Gherkin :** \`packages/playwright-tests/specs/${id}/\`
+- **Step Definitions :** \`packages/playwright-tests/steps/${id}/\`
 - **Page Objects :** \`packages/playwright-tests/pages/${id}/\`
 - **Fixtures :** \`packages/playwright-tests/fixtures/${id}/\`
 
@@ -170,7 +190,7 @@ test.describe('[${sampleTicket}] Tests Smoke - ${name}', () => {
 
 ## ⚡ Commandes Rapides
 \`\`\`bash
-# Lancer les tests de ce projet uniquement
+# Lancer les tests BDD de ce projet
 PROJECT_ID=${id} pnpm test
 
 # Lancer sur un environnement spécifique (ex: dev, staging, prod)
@@ -181,7 +201,7 @@ PROJECT_ID=${id} TARGET_ENV=dev pnpm test
     console.log(`  ✅ Créé : ${path.relative(ROOT_DIR, docPath)}`);
   }
 
-  // 5. Update Registry in qa-dashboard
+  // 6. Update Registry in qa-dashboard
   const syncPath = path.join(ROOT_DIR, 'tools/sync-projects.ts');
   if (fs.existsSync(syncPath)) {
     try {
@@ -191,7 +211,7 @@ PROJECT_ID=${id} TARGET_ENV=dev pnpm test
     }
   }
 
-  console.log(`\n🎉 Projet '${id}' initialisé avec succès !`);
+  console.log(`\n🎉 Projet '${id}' initialisé avec succès en mode Playwright BDD !`);
 }
 
 // CLI Execution support

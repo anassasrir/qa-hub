@@ -141,13 +141,11 @@ export default function DashboardClient({ history }: DashboardClientProps) {
   );
 
   const filteredData = useMemo(() => {
-    // Only keep CI runs for the dashboard to display the correct complete project run stats
-    const ciOnlyHistory = history.filter((run) =>
-      run.id.toLowerCase().includes("ci run")
-    );
+    // Include all runs (both CI and Local runs for local testing)
+    const effectiveHistory = history;
 
-    const envFilteredHistory = ciOnlyHistory.filter(
-      (run) => (run.environment || "staging") === selectedEnvironment,
+    const envFilteredHistory = effectiveHistory.filter(
+      (run) => (run.environment || "staging").toLowerCase() === selectedEnvironment.toLowerCase(),
     );
 
     if (selectedProject === "all") {
@@ -158,7 +156,11 @@ export default function DashboardClient({ history }: DashboardClientProps) {
           let latestProjectRun = null;
           for (const run of envFilteredHistory) {
             const filteredTests = run.tests.filter((test) =>
-              keywords.some((kw) => test.file.toLowerCase().includes(kw)) &&
+              keywords.some(
+                (kw) =>
+                  test.file.toLowerCase().includes(kw) ||
+                  (test.project && test.project.toLowerCase().includes(kw)),
+              ) &&
               !excludeKeywords.some((ekw) => test.file.toLowerCase().includes(ekw)),
             );
             if (filteredTests.length > 0) {
@@ -213,7 +215,11 @@ export default function DashboardClient({ history }: DashboardClientProps) {
     const excludeKeywords = currentProject?.excludeKeywords || [];
     const processedHistory = envFilteredHistory.map((run) => {
       const filteredTests = run.tests.filter((test) =>
-        keywords.some((kw) => test.file.toLowerCase().includes(kw)) &&
+        keywords.some(
+          (kw) =>
+            test.file.toLowerCase().includes(kw) ||
+            (test.project && test.project.toLowerCase().includes(kw)),
+        ) &&
         !excludeKeywords.some((ekw) => test.file.toLowerCase().includes(ekw)),
       );
       if (filteredTests.length === 0)
@@ -292,10 +298,15 @@ export default function DashboardClient({ history }: DashboardClientProps) {
       (selectedProject === "all" || filteredData.latestRun.stats.total > 0) ? (
         <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
           {selectedProject === "all" ? (
-            <GlobalStatusBoard
-              projectStatuses={filteredData.projectStatuses}
-              onProjectClick={handleProjectChange}
-            />
+            <div className="space-y-6">
+              <GlobalStatusBoard
+                projectStatuses={filteredData.projectStatuses}
+                onProjectClick={handleProjectChange}
+              />
+              <div className="w-full">
+                <ActivityTrendChart history={filteredData.history} />
+              </div>
+            </div>
           ) : (
             <>
               {/* Niveau 1 : Dernier résultat, Radar d'instabilité, Scénarios en échec, Évolution inter-runs */}

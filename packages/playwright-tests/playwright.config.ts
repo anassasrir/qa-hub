@@ -1,8 +1,12 @@
 import { defineConfig, devices } from '@playwright/test';
+import { defineBddConfig } from 'playwright-bdd';
 import { ConfigLoader } from './src/core/config-loader.js';
 
-// Load active projects dynamically from projects/*.json
+// Resolve active project
 const activeProjects = ConfigLoader.loadAllProjects();
+const defaultProjectId = activeProjects[0]?.id || 'demo-ecommerce';
+const selectedProjectId = process.env.PROJECT_ID || defaultProjectId;
+const projectConfig = ConfigLoader.getProject(selectedProjectId);
 
 // Generate unique timestamp for artifact folder
 if (!process.env.RUN_TIMESTAMP) {
@@ -11,41 +15,23 @@ if (!process.env.RUN_TIMESTAMP) {
 const timestamp = process.env.RUN_TIMESTAMP;
 const baseArtifactDir = `../../artifact/${timestamp}`;
 
-// Generate Playwright projects dynamically based on projects/*.json
-const playwrightProjects = activeProjects.flatMap((project) => {
-  const defaultEnvName = process.env.TARGET_ENV || project.environments.default;
-  const targetEnv = project.environments.targets[defaultEnvName] || { baseUrl: 'http://localhost:3000' };
+// Resolve target environment
+const targetEnvName = process.env.TARGET_ENV || projectConfig.environments.default;
+const targetEnv = projectConfig.environments.targets[targetEnvName] || { baseUrl: 'http://localhost:3000' };
 
-  return [
-    {
-      name: `${project.id}-chromium`,
-      testDir: project.playwright.testDir,
-      metadata: {
-        testProject: project.id,
-        environment: defaultEnvName,
-      },
-      use: {
-        ...devices['Desktop Chrome'],
-        baseURL: targetEnv.baseUrl,
-      },
-    },
-    {
-      name: `${project.id}-mobile`,
-      testDir: project.playwright.testDir,
-      metadata: {
-        testProject: project.id,
-        environment: defaultEnvName,
-      },
-      use: {
-        ...devices['Pixel 5'],
-        baseURL: targetEnv.baseUrl,
-      },
-    },
-  ];
+// Dynamic BDD Configuration
+const testDir = defineBddConfig({
+  features: process.env.BDD_FEATURES || `specs/${selectedProjectId}/**/*.feature`,
+  steps: [
+    `steps/${selectedProjectId}/**/*.steps.ts`,
+    `steps/*.steps.ts`,
+    `steps/bdd.ts`,
+  ],
+  outputDir: `.features-gen/${selectedProjectId}`,
 });
 
 export default defineConfig({
-  testDir: './tests',
+  testDir,
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
@@ -54,6 +40,11 @@ export default defineConfig({
   expect: {
     timeout: 10000,
   },
+  metadata: {
+    testProject: selectedProjectId,
+    environment: targetEnvName,
+    runTimestamp: timestamp,
+  },
   reporter: [
     ['list'],
     ['html', { outputFolder: `${baseArtifactDir}/playwright-report`, open: 'never' }],
@@ -61,14 +52,23 @@ export default defineConfig({
     ['json', { outputFile: '../../apps/qa-dashboard/data/latest-results.json' }],
   ],
   use: {
+    baseURL: targetEnv.baseUrl,
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
   },
-  projects: playwrightProjects.length > 0 ? playwrightProjects : [
+  projects: [
     {
-      name: 'default-chromium',
-      use: { ...devices['Desktop Chrome'] },
+      name: `${selectedProjectId}-chromium`,
+      use: {
+        ...devices['Desktop Chrome'],
+      },
+    },
+    {
+      name: `${selectedProjectId}-mobile`,
+      use: {
+        ...devices['Pixel 5'],
+      },
     },
   ],
 });
