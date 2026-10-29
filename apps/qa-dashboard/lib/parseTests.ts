@@ -359,8 +359,17 @@ export function parseGherkinSpec(filePath: string, relativePath: string): TestSu
 }
 
 export function getProjectTestPlan(projectKeywords?: string[]): TestSuite[] {
-  const specsBaseDir = path.resolve(process.cwd(), "../../packages/playwright-tests/specs");
-  const testsBaseDir = path.resolve(process.cwd(), "../../packages/playwright-tests/tests");
+  let specsBaseDir = path.resolve(process.cwd(), "packages/playwright-tests/specs");
+  let testsBaseDir = path.resolve(process.cwd(), "packages/playwright-tests/tests");
+
+  if (!fs.existsSync(specsBaseDir)) {
+    const altSpecs = path.resolve(process.cwd(), "../../packages/playwright-tests/specs");
+    if (fs.existsSync(altSpecs)) {
+      specsBaseDir = altSpecs;
+      testsBaseDir = path.resolve(process.cwd(), "../../packages/playwright-tests/tests");
+    }
+  }
+
   const allSuites: TestSuite[] = [];
 
   if (!fs.existsSync(specsBaseDir)) return [];

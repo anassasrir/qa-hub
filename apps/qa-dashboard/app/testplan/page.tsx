@@ -3,27 +3,9 @@ import { getProjectTestPlan } from "../../lib/parseTests";
 import { getAllRuns } from "../../lib/parseResults";
 import TestPlanClient from "./TestPlanClient";
 
-// On définit tous les mots-clés pour charger l'intégralité du plan au build
-const ALL_PROJECT_KEYWORDS = [
-  "savings",
-  "wse",
-  "wesave",
-  "tpbp",
-  "wealth",
-  "lclmp",
-  "advisory",
-  "wsc",
-  "cabp",
-  "vpl",
-  "blog",
-  "backend",
-  "b4b",
-  "b4bank",
-];
-
 export default function TestPlanPage() {
-  // En mode static export, on charge tout le plan et les runs au build
-  const fullTestPlan = getProjectTestPlan(ALL_PROJECT_KEYWORDS);
+  // Charge l'intégralité du plan de test de tous les projets configurés
+  const fullTestPlan = getProjectTestPlan();
   const allRuns = getAllRuns();
 
   return (

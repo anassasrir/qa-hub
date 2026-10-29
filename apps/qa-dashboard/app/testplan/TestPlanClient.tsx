@@ -291,8 +291,6 @@ function TestPlanInternal({
           config.keywords!.some((kw) => suite.file.toLowerCase().includes(kw)),
         );
       }
-    } else if (!searchTerm) {
-      return [];
     }
 
     if (searchTerm) {
