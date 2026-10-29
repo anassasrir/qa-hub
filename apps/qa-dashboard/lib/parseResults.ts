@@ -225,6 +225,17 @@ function parsePlaywrightJson(filePath: string, id: string, date: string): RunDat
               rawTestProject === "tpbp-visual" ? "tpbp" : rawTestProject;
             const category = inferTestCategory(spec.file, spec.title);
 
+            const specTags = Array.isArray(spec.tags) ? spec.tags : [];
+            const titleTags = (spec.title || "").match(/@[\w-]+/g) || [];
+            const suiteTags = (currentSuiteTitle || "").match(/@[\w-]+/g) || [];
+            const mergedTags = Array.from(
+              new Set([
+                ...specTags.map((t: string) => (t.startsWith("@") ? t : `@${t}`)),
+                ...titleTags,
+                ...suiteTags,
+              ]),
+            );
+
             allTests.push({
               title: spec.title || "Untitled",
               suite: currentSuiteTitle,
@@ -233,6 +244,7 @@ function parsePlaywrightJson(filePath: string, id: string, date: string): RunDat
               file: spec.file || "unknown",
               project: normalizedProject,
               category,
+              tags: mergedTags,
               results: formattedResults
             });
           });

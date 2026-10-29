@@ -31,6 +31,8 @@ import {
   Folder,
   FolderOpen,
   Layers,
+  Monitor,
+  Smartphone,
 } from "lucide-react";
 import {
   formatDuration,
@@ -462,7 +464,8 @@ export default function DetailsClient({ allRuns }: { allRuns: RunData[] }) {
   const handleTestClick = (test: TestData) => {
     if (
       selectedTest?.title === test.title &&
-      selectedTest?.file === test.file
+      selectedTest?.file === test.file &&
+      selectedTest?.project === test.project
     ) {
       setSelectedTest(null);
     } else {
@@ -532,13 +535,18 @@ export default function DetailsClient({ allRuns }: { allRuns: RunData[] }) {
     selectedDevices.length > 0 ||
     tagFilter !== "all" ||
     categoryFilter !== "all";
-  const getTags = (title: string): string[] => title.match(/@[\w-]+/g) || [];
+  const getTestTags = (t: TestData): string[] => {
+    const fromTags = (t.tags || []).map((tag) => (tag.startsWith("@") ? tag : `@${tag}`));
+    const fromTitle = (t.title || "").match(/@[\w-]+/g) || [];
+    const fromSuite = (t.suite || "").match(/@[\w-]+/g) || [];
+    return Array.from(new Set([...fromTags, ...fromTitle, ...fromSuite]));
+  };
 
   const { tags } = useMemo(() => {
     if (!currentRun) return { tags: [] };
     const tSet = new Set<string>();
     currentRun.tests.forEach((t: TestData) => {
-      getTags(t.title).forEach((tag) => tSet.add(tag));
+      getTestTags(t).forEach((tag) => tSet.add(tag));
     });
     return { tags: Array.from(tSet).sort() };
   }, [currentRun]);
@@ -553,7 +561,7 @@ export default function DetailsClient({ allRuns }: { allRuns: RunData[] }) {
       .filter((test) => {
         const { project } = getTestData(test.file, test.title, test.suite);
         const device = test.project?.toLowerCase() || "";
-        const testTags = getTags(test.title);
+        const testTags = getTestTags(test);
         const matchesSearch =
           test.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
           (test.file &&
@@ -573,7 +581,14 @@ export default function DetailsClient({ allRuns }: { allRuns: RunData[] }) {
         const matchesProject = targetLabel === "all" || project === targetLabel;
         const matchesDevice =
           selectedDevices.length === 0 ||
-          selectedDevices.some((d) => device.includes(d));
+          selectedDevices.some((d) => {
+            if (d === "chrome") return device.includes("chrome") || device.includes("chromium");
+            if (d === "firefox") return device.includes("firefox");
+            if (d === "safari") return device.includes("safari") || device.includes("webkit");
+            if (d === "iphone") return device.includes("iphone") || device.includes("ios");
+            if (d === "android") return device.includes("android") || device.includes("pixel") || device.includes("mobile");
+            return device.includes(d);
+          });
         const matchesTag =
           tagFilter === "all" ||
           (tagFilter === "no-tag"
@@ -643,7 +658,9 @@ export default function DetailsClient({ allRuns }: { allRuns: RunData[] }) {
 
   const renderTestRow = (test: TestData, i: number, isPromoted = false) => {
     const isSelected =
-      selectedTest?.title === test.title && selectedTest?.file === test.file;
+      selectedTest?.title === test.title &&
+      selectedTest?.file === test.file &&
+      selectedTest?.project === test.project;
     const status = test.status?.toLowerCase();
     const isPassed = status === "passed" || status === "expected";
     const isFailed = status === "failed" || status === "unexpected";
@@ -728,6 +745,20 @@ export default function DetailsClient({ allRuns }: { allRuns: RunData[] }) {
               <span className="text-[8px] font-bold uppercase tracking-wider text-slate-600 bg-slate-50 px-1 py-0.2 rounded border border-slate-200">
                 {getTestData(test.file, test.title, test.suite).project}
               </span>
+              {test.project && (
+                <span className="inline-flex items-center gap-1 text-[8px] font-bold uppercase tracking-wider text-blue-700 bg-blue-50 px-1 py-0.2 rounded border border-blue-200">
+                  {test.project.toLowerCase().includes("mobile") ? (
+                    <Smartphone size={9} className="text-blue-600" />
+                  ) : (
+                    <Monitor size={9} className="text-blue-600" />
+                  )}
+                  {test.project.toLowerCase().includes("chromium")
+                    ? "Chromium"
+                    : test.project.toLowerCase().includes("mobile")
+                      ? "Mobile"
+                      : test.project.replace(/^.*-/, "")}
+                </span>
+              )}
               {(() => {
                 const cat =
                   test.category || inferTestCategory(test.file, test.title);
@@ -1092,8 +1123,24 @@ export default function DetailsClient({ allRuns }: { allRuns: RunData[] }) {
                           )}
                         </button>
                       </div>
-                      <p className="text-[10px] text-slate-400 font-mono font-medium flex items-center gap-2 mt-1">
-                        {getTestData(selectedTest.file, selectedTest.title, selectedTest.suite).project}
+                      <div className="text-[10px] text-slate-400 font-mono font-medium flex flex-wrap items-center gap-2 mt-1">
+                        <span className="text-[9px] font-bold uppercase tracking-wider text-slate-700 bg-slate-100 px-1.5 py-0.5 rounded border border-slate-200">
+                          {getTestData(selectedTest.file, selectedTest.title, selectedTest.suite).project}
+                        </span>
+                        {selectedTest.project && (
+                          <span className="inline-flex items-center gap-1 text-[9px] font-bold uppercase tracking-wider text-blue-700 bg-blue-50 px-1.5 py-0.5 rounded border border-blue-200">
+                            {selectedTest.project.toLowerCase().includes("mobile") ? (
+                              <Smartphone size={10} className="text-blue-600" />
+                            ) : (
+                              <Monitor size={10} className="text-blue-600" />
+                            )}
+                            {selectedTest.project.toLowerCase().includes("chromium")
+                              ? "Chromium"
+                              : selectedTest.project.toLowerCase().includes("mobile")
+                                ? "Mobile"
+                                : selectedTest.project.replace(/^.*-/, "")}
+                          </span>
+                        )}
                         <span className="w-1 h-1 rounded-full bg-slate-300"></span>
                         {(() => {
                           const cat =
@@ -1124,7 +1171,25 @@ export default function DetailsClient({ allRuns }: { allRuns: RunData[] }) {
                         })()}
                         <span className="w-1 h-1 rounded-full bg-slate-300"></span>
                         {formatDuration(selectedTest.duration)} total
-                      </p>
+                      </div>
+
+                      {/* Display test tags as badges */}
+                      {(() => {
+                        const testTags = getTestTags(selectedTest);
+                        if (testTags.length === 0) return null;
+                        return (
+                          <div className="flex flex-wrap items-center gap-1 mt-2">
+                            {testTags.map((tag) => (
+                              <span
+                                key={tag}
+                                className="text-[9px] font-mono font-semibold px-1.5 py-0.5 rounded bg-slate-100 text-slate-600 border border-slate-200"
+                              >
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
+                        );
+                      })()}
 
                       {/* Action buttons */}
                       <div className="flex flex-wrap items-center gap-1.5 mt-3">
@@ -1136,30 +1201,63 @@ export default function DetailsClient({ allRuns }: { allRuns: RunData[] }) {
                           <span>Plan de Test</span>
                         </Link>
 
-                        {selectedTest.reportUrl ? (
-                          <a
-                            href={selectedTest.reportUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-purple-50 text-purple-600 hover:bg-purple-600 hover:text-white transition-all border border-purple-100 text-xs font-bold shrink-0"
-                          >
-                            <Activity size={12} />
-                            <span>Trace Playwright</span>
-                          </a>
-                        ) : (
-                          <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-50 text-slate-400 border border-slate-100 text-xs font-bold shrink-0 opacity-60 cursor-not-allowed">
-                            <Activity size={12} />
-                            <span>Trace Playwright</span>
-                          </span>
-                        )}
+                        {/* Trace Playwright: ONLY display if trace exists! */}
+                        {(() => {
+                          const hasTrace =
+                            Boolean(selectedTest.reportUrl) ||
+                            Boolean(selectedTest.results?.some((r) =>
+                              r.attachments?.some(
+                                (a) =>
+                                  a.name === "trace" ||
+                                  a.path?.toLowerCase().endsWith(".zip"),
+                              ),
+                            ));
 
-                        <Link
-                          href={`/visual?id=${(runId || "").replace("CI Run - ", "").replace("CI-", "").trim()}`}
-                          className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-50 text-amber-700 hover:bg-amber-500 hover:text-white transition-all border border-amber-200 text-xs font-bold shrink-0"
-                        >
-                          <Eye size={12} />
-                          <span>Comparateur Visuel</span>
-                        </Link>
+                          if (!hasTrace) return null;
+
+                          const traceUrl =
+                            selectedTest.reportUrl ||
+                            selectedTest.results
+                              ?.flatMap((r) => r.attachments || [])
+                              .find(
+                                (a) =>
+                                  a.name === "trace" ||
+                                  a.path?.toLowerCase().endsWith(".zip"),
+                              )?.path;
+
+                          return (
+                            <a
+                              href={traceUrl || "#"}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-purple-50 text-purple-600 hover:bg-purple-600 hover:text-white transition-all border border-purple-100 text-xs font-bold shrink-0"
+                            >
+                              <Activity size={12} />
+                              <span>Trace Playwright</span>
+                            </a>
+                          );
+                        })()}
+
+                        {/* Comparateur Visuel: ONLY display if test is visual! */}
+                        {(() => {
+                          const isVisual =
+                            selectedTest.category === "visual" ||
+                            selectedTest.file?.toLowerCase().includes("visual") ||
+                            selectedTest.title?.toLowerCase().includes("@visual") ||
+                            selectedTest.tags?.includes("@visual");
+
+                          if (!isVisual) return null;
+
+                          return (
+                            <Link
+                              href={`/visual?id=${(runId || "").replace("CI Run - ", "").replace("CI-", "").trim()}`}
+                              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-50 text-amber-700 hover:bg-amber-500 hover:text-white transition-all border border-amber-200 text-xs font-bold shrink-0"
+                            >
+                              <Eye size={12} />
+                              <span>Comparateur Visuel</span>
+                            </Link>
+                          );
+                        })()}
                       </div>
                     </div>
                     <button

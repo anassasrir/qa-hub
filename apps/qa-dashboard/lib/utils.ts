@@ -35,6 +35,7 @@ export interface TestData {
   results: TestResult[];
   reportUrl?: string;
   category?: TestCategory;
+  tags?: string[];
 }
 
 export interface RunStats {
@@ -143,6 +144,7 @@ export interface PlaywrightSuite {
   specs?: {
     title: string;
     file: string;
+    tags?: string[];
     tests: {
       projectName: string;
       status: string;
