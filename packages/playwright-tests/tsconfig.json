@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "./",
+    "outDir": "./dist",
+    "baseUrl": ".",
+    "paths": {
+      "@core/*": ["src/core/*"],
+      "@fixtures/*": ["src/fixtures/*"],
+      "@projects/*": ["../../projects/*"]
+    }
+  },
+  "include": ["src/**/*", "tests/**/*", "pages/**/*", "fixtures/**/*", "playwright.config.ts"]
+}
